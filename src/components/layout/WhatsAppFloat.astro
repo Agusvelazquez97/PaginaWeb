@@ -1,0 +1,18 @@
+---
+/**
+ * Botón flotante de WhatsApp — spec sección 4, visible en mobile.
+ * En desktop el CTA de Contacto en el header ya cumple ese rol.
+ */
+import { MessageCircle } from '@lucide/astro';
+import { whatsappHref, siteConfig } from '@/data/site';
+---
+
+<a
+  href={whatsappHref}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="lg:hidden fixed bottom-5 right-5 z-40 flex items-center justify-center size-14 rounded-full bg-[#25D366] text-white shadow-card hover:brightness-95 transition"
+  aria-label={`Escribinos por WhatsApp: ${siteConfig.phoneDisplay}`}
+>
+  <MessageCircle class="size-7" aria-hidden="true" />
+</a>

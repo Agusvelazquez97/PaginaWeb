@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="Placeholder: imagen hero (video aviación pendiente)">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0D2461"/>
+      <stop offset="100%" stop-color="#050D1C"/>
+    </linearGradient>
+    <pattern id="hatch" width="28" height="28" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="28" stroke="#DDE3F0" stroke-opacity="0.08" stroke-width="10"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#hatch)"/>
+  <g transform="translate(960,540)" text-anchor="middle" font-family="sans-serif">
+    <text y="-16" fill="#C5D8F2" font-size="34" font-weight="600">[[PENDIENTE]]</text>
+    <text y="30" fill="#DDE3F0" font-size="22">Video / imagen hero — reemplazar por material real</text>
+  </g>
+</svg>

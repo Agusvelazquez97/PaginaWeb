@@ -1,0 +1,30 @@
+---
+/**
+ * CTASection — bloque de cierre repetible (spec sección 4). Un único CTA
+ * primario, franja navy para dar ritmo con las secciones claras.
+ */
+import Button from '@/components/ui/Button.astro';
+
+interface CTA {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  cta: CTA;
+}
+
+const { title, subtitle, cta } = Astro.props;
+---
+
+<section class="bg-navy-900 py-20 md:py-28">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center" data-reveal>
+    <h2 class="text-white font-heading font-bold text-h1">{title}</h2>
+    {subtitle && <p class="mt-5 text-blue-100 text-lead">{subtitle}</p>}
+    <div class="mt-10 flex justify-center">
+      <Button href={cta.href} variant="primary" size="lg">{cta.label}</Button>
+    </div>
+  </div>
+</section>

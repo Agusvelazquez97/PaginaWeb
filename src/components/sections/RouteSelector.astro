@@ -1,0 +1,56 @@
+---
+/**
+ * RouteSelector — spec 6.1.2 (contenido DERIVADO, sancionado por la spec).
+ * Bifurca al visitante a su ruta: PyME o Aviación & Logística.
+ */
+import { Building2, Plane, ArrowRight } from '@lucide/astro';
+import PlaceholderImage from '@/components/ui/PlaceholderImage.astro';
+
+const routes = [
+  {
+    icon: Building2,
+    label: 'Soy una PyME',
+    href: '/soluciones-pymes',
+    copy: 'Desorden operativo, falta de métricas y decisiones que se toman a ojo. Te ayudamos a ordenar y medir tu negocio.',
+    imageLabel: 'imagen PyME argentina',
+  },
+  {
+    icon: Plane,
+    label: 'Industria Aérea & Logística',
+    href: '/aviacion-logistica',
+    copy: 'Márgenes ajustados, regulación cambiaria (BCRA) y operaciones multi-país. Convertimos la complejidad financiera en ventaja.',
+    imageLabel: 'imagen aviación / logística',
+  },
+];
+---
+
+<section class="bg-white py-20 md:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      {routes.map((route, i) => (
+        <a
+          href={route.href}
+          class="group relative overflow-hidden rounded-card shadow-card min-h-96 flex flex-col justify-end focus-visible:outline-2 focus-visible:outline-offset-4"
+          data-reveal
+          style={`transition-delay:${i * 80}ms`}
+        >
+          <div class="absolute inset-0">
+            <PlaceholderImage label={route.imageLabel} class="h-full w-full" tone="onDark" />
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/40 to-navy-900/10"></div>
+          </div>
+          <div class="relative p-8 md:p-10">
+            <route.icon class="size-9 text-blue-200 mb-4" aria-hidden="true" />
+            <h3 class="text-white font-heading font-bold text-h2">{route.label}</h3>
+            <p class="mt-3 text-blue-100 max-w-sm">{route.copy}</p>
+            <span
+              class="mt-6 inline-flex items-center gap-2 font-heading font-semibold text-white group-hover:gap-3 transition-all"
+            >
+              Ver más
+              <ArrowRight class="size-4" aria-hidden="true" />
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,59 @@
+---
+/**
+ * Botón base reutilizable. Variant "primary" = CTA de acción (blue-500);
+ * usar como máximo un "primary" por vista (regla sección 3 de la spec).
+ */
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'ghost' | 'onDark';
+  size?: 'md' | 'lg';
+  class?: string;
+  target?: '_blank';
+  rel?: string;
+  type?: 'button' | 'submit';
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  class: className,
+  target,
+  rel,
+  type = 'button',
+} = Astro.props;
+
+const base =
+  'inline-flex items-center justify-center gap-2 rounded-btn font-heading font-semibold ' +
+  'transition-colors duration-200 min-h-11 focus-visible:outline-2 focus-visible:outline-offset-2';
+
+const variants: Record<string, string> = {
+  primary: 'bg-blue-500 text-white hover:bg-blue-700 active:bg-blue-700',
+  secondary:
+    'bg-transparent text-navy-700 border border-navy-700/20 hover:border-navy-700/40 hover:bg-blue-50',
+  ghost: 'bg-transparent text-blue-700 hover:bg-blue-50',
+  onDark:
+    'bg-transparent text-white border border-white/30 hover:bg-white/10 hover:border-white/60',
+};
+
+const sizes: Record<string, string> = {
+  md: 'px-5 py-2.5 text-base',
+  lg: 'px-7 py-3.5 text-lg',
+};
+
+const classes = [base, variants[variant], sizes[size], className]
+  .filter(Boolean)
+  .join(' ');
+---
+
+{
+  href ? (
+    <a href={href} class={classes} target={target} rel={rel}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={classes}>
+      <slot />
+    </button>
+  )
+}

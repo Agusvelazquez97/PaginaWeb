@@ -1,0 +1,113 @@
+---
+/**
+ * Hero — spec sección 4. Variantes: "video" (solo Inicio, con fallback en
+ * mobile/autoplay bloqueado) e "image" (páginas vertical). Overlay navy,
+ * 2 CTAs (uno primario, uno secundario — no rompe la regla de un único CTA
+ * primario por vista, ver sección 3).
+ */
+import Button from '@/components/ui/Button.astro';
+import PlaceholderImage from '@/components/ui/PlaceholderImage.astro';
+
+interface CTA {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle: string;
+  tagline?: string;
+  primaryCta: CTA;
+  secondaryCta?: CTA;
+  variant?: 'video' | 'image';
+  fallbackLabel: string;
+}
+
+const {
+  eyebrow,
+  title,
+  subtitle,
+  tagline,
+  primaryCta,
+  secondaryCta,
+  variant = 'image',
+  fallbackLabel,
+} = Astro.props;
+---
+
+<section
+  class="relative min-h-[92svh] md:min-h-screen flex items-end md:items-center overflow-hidden bg-navy-900"
+>
+  <div class="absolute inset-0">
+    {
+      variant === 'video' && (
+        <video
+          id="hero-video"
+          class="hidden md:block absolute inset-0 h-full w-full object-cover"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="/images/placeholders/hero-fallback.svg"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+          <source src="/videos/hero.webm" type="video/webm" />
+        </video>
+      )
+    }
+    <div class:list={['absolute inset-0 h-full w-full', variant === 'video' && 'md:hidden']}>
+      <PlaceholderImage label={fallbackLabel} class="h-full w-full" tone="onDark" />
+    </div>
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/85 to-navy-900/60 md:bg-navy-900/65"
+    >
+    </div>
+  </div>
+
+  <div
+    class="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pb-14 pt-36 md:py-32"
+    data-reveal
+  >
+    <div class="max-w-2xl">
+      {eyebrow && (
+        <p class="text-blue-200 font-semibold tracking-wide uppercase text-small mb-4">
+          {eyebrow}
+        </p>
+      )}
+      <h1 class="text-white font-heading font-extrabold text-4xl md:text-display leading-[1.1]">
+        {title}
+      </h1>
+      <p class="mt-6 text-blue-100 text-lead max-w-xl">{subtitle}</p>
+      {tagline && (
+        <p class="mt-6 pt-6 border-t border-white/15 text-white font-heading font-medium italic max-w-md">
+          {tagline}
+        </p>
+      )}
+      <div class="mt-10 flex flex-col sm:flex-row gap-4">
+        <Button href={primaryCta.href} variant="primary" size="lg">
+          {primaryCta.label}
+        </Button>
+        {secondaryCta && (
+          <Button href={secondaryCta.href} variant="onDark" size="lg">
+            {secondaryCta.label}
+          </Button>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function applyMotionPreference() {
+    const video = document.getElementById('hero-video') as HTMLVideoElement | null;
+    if (!video) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      video.pause();
+      video.setAttribute('aria-hidden', 'true');
+      video.style.display = 'none';
+    }
+  }
+  applyMotionPreference();
+</script>

@@ -1,0 +1,46 @@
+---
+/**
+ * Inicio — spec sección 6.1. Orden de secciones exacto según la spec.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/sections/Hero.astro';
+import RouteSelector from '@/components/sections/RouteSelector.astro';
+import AuthorityBand from '@/components/sections/AuthorityBand.astro';
+import PainCards from '@/components/sections/PainCards.astro';
+import MethodSteps from '@/components/sections/MethodSteps.astro';
+import DifferentiatorCards from '@/components/sections/DifferentiatorCards.astro';
+import CommitmentBlock from '@/components/sections/CommitmentBlock.astro';
+import TeamTeaser from '@/components/sections/TeamTeaser.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+---
+
+<BaseLayout
+  title="DGV Business Consulting | Consultoría financiera y de gestión"
+  description="Consultoría en finanzas, procesos y transformación organizacional para PyMEs y para el sector de aviación y logística en Argentina. Equipo integrado, resultados medibles."
+>
+  <Hero
+    variant="video"
+    fallbackLabel="video/imagen aviación (hero)"
+    eyebrow="DGV Business Consulting"
+    title="Finanzas, procesos y tecnología: un equipo, resultados medibles."
+    subtitle="Nos integramos a tu empresa y nos medimos por el impacto que generamos, con trayectoria en compañías líderes globales."
+    tagline="Impulsamos tu negocio, potenciamos tu futuro."
+    primaryCta={{ label: 'Agendá un diagnóstico sin cargo', href: '/contacto' }}
+    secondaryCta={{ label: 'Ver soluciones', href: '#soluciones' }}
+  />
+
+  <div id="soluciones">
+    <RouteSelector />
+  </div>
+  <AuthorityBand />
+  <PainCards />
+  <MethodSteps />
+  <DifferentiatorCards />
+  <CommitmentBlock />
+  <TeamTeaser />
+  <CTASection
+    title="Hablemos."
+    subtitle="Sin compromiso, sin burocracia — una conversación sobre cómo impulsar tu empresa."
+    cta={{ label: 'Agendá tu conversación sin cargo', href: '/contacto' }}
+  />
+</BaseLayout>

@@ -1,0 +1,34 @@
+---
+/**
+ * Placeholder evidente para fotografía real todavía no entregada.
+ * NUNCA usar como reemplazo definitivo: cada uso debe estar listado en PENDIENTES.md.
+ * No es "stock genérico" — es intencionalmente visible como placeholder (regla: no inventar).
+ */
+import { ImageOff } from '@lucide/astro';
+
+interface Props {
+  label: string;
+  class?: string;
+  tone?: 'onDark' | 'onLight';
+}
+
+const { label, class: className, tone = 'onLight' } = Astro.props;
+
+const tones: Record<string, string> = {
+  onDark: 'bg-navy-800 text-blue-100 border-white/20',
+  onLight: 'bg-blue-50 text-slate-500 border-navy-700/15',
+};
+---
+
+<div
+  class:list={[
+    'flex flex-col items-center justify-center gap-2 border-2 border-dashed text-center p-6',
+    tones[tone],
+    className,
+  ]}
+  role="img"
+  aria-label={`Placeholder: ${label}`}
+>
+  <ImageOff class="size-8 opacity-70" aria-hidden="true" />
+  <p class="text-small font-medium leading-snug">[[PENDIENTE: {label}]]</p>
+</div>

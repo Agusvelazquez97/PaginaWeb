@@ -1,0 +1,28 @@
+---
+/**
+ * Tarjeta base reutilizable (PainCards, ServiceCard, DifferentiatorCards, etc.
+ * heredan este mismo tratamiento visual: radius-card + shadow-card, sin bordes
+ * de acento ni franjas decorativas — ver prohibiciones sección 3).
+ */
+interface Props {
+  class?: string;
+  tone?: 'light' | 'tint' | 'navy';
+  as?: 'div' | 'li' | 'article';
+}
+
+const { class: className, tone = 'light', as: Tag = 'div' } = Astro.props;
+
+const tones: Record<string, string> = {
+  light: 'bg-white shadow-card',
+  tint: 'bg-bg-tint',
+  navy: 'bg-navy-800 text-white',
+};
+
+const classes = ['rounded-card p-6 md:p-8', tones[tone], className]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<Tag class={classes}>
+  <slot />
+</Tag>
