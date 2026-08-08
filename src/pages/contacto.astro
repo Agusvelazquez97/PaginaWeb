@@ -1,0 +1,92 @@
+---
+/**
+ * Contacto — spec sección 6.8, 7.1 y 7.2. Agenda (Calendly) [FALTA URL] y
+ * respuestas del mini-FAQ [FALTA]: quedan como placeholder evidente.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ContactForm from '@/components/sections/ContactForm.astro';
+import FAQAccordion from '@/components/sections/FAQAccordion.astro';
+import { Mail, MessageCircle, MapPin, CalendarClock } from '@lucide/astro';
+import { siteConfig, whatsappHref } from '@/data/site';
+
+const faqItems = [
+  { question: '¿Cómo cobran los servicios?', answer: '[[PENDIENTE: respuesta — cómo cobran]]' },
+  {
+    question: '¿Cuánto dura un proyecto típico?',
+    answer: '[[PENDIENTE: respuesta — duración típica]]',
+  },
+  {
+    question: '¿Trabajan de forma remota o presencial?',
+    answer: '[[PENDIENTE: respuesta — modalidad remoto/presencial]]',
+  },
+];
+---
+
+<BaseLayout
+  title="Contacto | Agendá un diagnóstico sin cargo — DGV Business Consulting"
+  description="Escribinos por WhatsApp, mail o completá el formulario. Te respondemos en 24 h y coordinamos una conversación sin cargo sobre tu empresa."
+>
+  <section class="bg-bg-tint pt-32 pb-16 md:pt-40 md:pb-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center" data-reveal>
+      <p class="text-blue-700 font-semibold uppercase tracking-wide text-small">Contacto</p>
+      <h1 class="mt-3 font-heading font-bold text-h1 text-navy-700">Hablemos.</h1>
+      <p class="mt-4 text-lead text-slate-500">
+        Sin compromiso, sin burocracia — una conversación sobre cómo impulsar tu empresa.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 md:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16">
+      <div data-reveal>
+        <h2 class="font-heading font-semibold text-navy-700 text-h3 mb-6">Envianos un mensaje</h2>
+        <ContactForm />
+      </div>
+
+      <div class="space-y-5" data-reveal style="transition-delay:80ms">
+        <div class="rounded-card bg-bg-tint p-6">
+          <p class="font-heading font-semibold text-navy-700 mb-4">Canales directos</p>
+          <ul class="space-y-3">
+            <li>
+              <a
+                href={`mailto:${siteConfig.email}`}
+                class="inline-flex items-center gap-2 min-h-11 text-slate-600 hover:text-blue-700"
+              >
+                <Mail class="size-4 shrink-0" aria-hidden="true" />
+                {siteConfig.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 min-h-11 text-slate-600 hover:text-blue-700"
+              >
+                <MessageCircle class="size-4 shrink-0" aria-hidden="true" />
+                {siteConfig.phoneDisplay}
+              </a>
+            </li>
+            <li class="inline-flex items-start gap-2 text-slate-500">
+              <MapPin class="size-4 shrink-0 mt-0.5" aria-hidden="true" />
+              {siteConfig.location}
+            </li>
+          </ul>
+        </div>
+
+        <div class="rounded-card border-2 border-dashed border-navy-700/15 p-6">
+          <p class="font-heading font-semibold text-navy-700 mb-2 inline-flex items-center gap-2">
+            <CalendarClock class="size-4" aria-hidden="true" />
+            Agendar una conversación
+          </p>
+          <p class="text-small text-slate-500">
+            [[PENDIENTE: link de agenda (Calendly)]] — mientras tanto, coordinamos por WhatsApp o
+            email.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion heading="Antes de escribirnos" items={faqItems} />
+</BaseLayout>

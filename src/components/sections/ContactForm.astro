@@ -1,0 +1,183 @@
+---
+/**
+ * ContactForm — spec sección 7.1. Campos: Nombre*, Empresa*, Email*,
+ * Teléfono, Tipo (select)*, Mensaje. Envío por fetch a un servicio externo
+ * (Formspree / Web3Forms) — spec: "no usar <form> con submit nativo hacia
+ * uno mismo". Sin `siteConfig.formEndpoint` configurado, el formulario
+ * queda visible y validado pero avisa que todavía no está conectado, en
+ * vez de simular un envío exitoso que no ocurrió.
+ */
+import { siteConfig } from '@/data/site';
+
+const hasEndpoint = Boolean(siteConfig.formEndpoint);
+---
+
+<form id="contact-form" class="space-y-5" data-endpoint={siteConfig.formEndpoint} novalidate>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <div>
+      <label for="name" class="block text-small font-medium text-navy-700 mb-1.5">
+        Nombre <span aria-hidden="true">*</span>
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        autocomplete="name"
+        class="w-full min-h-11 rounded-btn border border-navy-700/20 px-4 py-2.5 text-slate-600 focus-visible:outline-2 focus-visible:outline-offset-2"
+      />
+    </div>
+    <div>
+      <label for="company" class="block text-small font-medium text-navy-700 mb-1.5">
+        Empresa <span aria-hidden="true">*</span>
+      </label>
+      <input
+        type="text"
+        id="company"
+        name="company"
+        required
+        autocomplete="organization"
+        class="w-full min-h-11 rounded-btn border border-navy-700/20 px-4 py-2.5 text-slate-600 focus-visible:outline-2 focus-visible:outline-offset-2"
+      />
+    </div>
+    <div>
+      <label for="email" class="block text-small font-medium text-navy-700 mb-1.5">
+        Email <span aria-hidden="true">*</span>
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        autocomplete="email"
+        class="w-full min-h-11 rounded-btn border border-navy-700/20 px-4 py-2.5 text-slate-600 focus-visible:outline-2 focus-visible:outline-offset-2"
+      />
+    </div>
+    <div>
+      <label for="phone" class="block text-small font-medium text-navy-700 mb-1.5">
+        Teléfono
+      </label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        autocomplete="tel"
+        class="w-full min-h-11 rounded-btn border border-navy-700/20 px-4 py-2.5 text-slate-600 focus-visible:outline-2 focus-visible:outline-offset-2"
+      />
+    </div>
+  </div>
+
+  <div>
+    <label for="type" class="block text-small font-medium text-navy-700 mb-1.5">
+      Tipo <span aria-hidden="true">*</span>
+    </label>
+    <select
+      id="type"
+      name="type"
+      required
+      class="w-full min-h-11 rounded-btn border border-navy-700/20 px-4 py-2.5 text-slate-600 focus-visible:outline-2 focus-visible:outline-offset-2"
+    >
+      <option value="">Seleccioná una opción</option>
+      <option value="PyME">PyME</option>
+      <option value="Aviación-Logística">Aviación / Logística</option>
+      <option value="Otro">Otro</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="message" class="block text-small font-medium text-navy-700 mb-1.5">
+      Mensaje
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      rows="4"
+      class="w-full rounded-btn border border-navy-700/20 px-4 py-2.5 text-slate-600 focus-visible:outline-2 focus-visible:outline-offset-2"
+    ></textarea>
+  </div>
+
+  <!-- Honeypot anti-spam: campo oculto que un humano nunca completa -->
+  <div class="hidden" aria-hidden="true">
+    <label for="website">No completar este campo</label>
+    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <div>
+    <button
+      type="submit"
+      class="w-full sm:w-auto inline-flex items-center justify-center min-h-11 px-7 py-2.5 rounded-btn bg-blue-500 text-white font-heading font-semibold hover:bg-blue-700 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
+    >
+      Enviar mensaje
+    </button>
+    <p class="mt-3 text-small text-slate-500">{siteConfig.contactSla}</p>
+  </div>
+
+  <p
+    id="form-status"
+    class="text-small font-medium"
+    role="status"
+    aria-live="polite"
+  ></p>
+
+  {!hasEndpoint && (
+    <p class="text-small text-slate-400">
+      [[PENDIENTE: conectar el formulario a Formspree/Web3Forms — ver PENDIENTES.md]]
+    </p>
+  )}
+</form>
+
+<script>
+  function initContactForm() {
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    const status = document.getElementById('form-status');
+    if (!form || !status) return;
+
+    const endpoint = form.dataset.endpoint;
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const data = new FormData(form);
+      if (data.get('website')) return; // honeypot: descarta silenciosamente
+
+      if (!endpoint) {
+        status.textContent =
+          'El formulario todavía no está conectado. Mientras tanto, escribinos por WhatsApp.';
+        status.className = 'text-small font-medium text-slate-500';
+        return;
+      }
+
+      const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      submitButton.disabled = true;
+      status.textContent = 'Enviando...';
+      status.className = 'text-small font-medium text-slate-500';
+
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          body: data,
+          headers: { Accept: 'application/json' },
+        });
+
+        if (!response.ok) throw new Error('request failed');
+
+        form.reset();
+        status.textContent = '¡Listo! Recibimos tu mensaje.';
+        status.className = 'text-small font-medium text-success';
+      } catch {
+        status.textContent =
+          'No pudimos enviar el mensaje. Escribinos por WhatsApp o reintentá en un momento.';
+        status.className = 'text-small font-medium text-red-600';
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+  }
+
+  initContactForm();
+</script>

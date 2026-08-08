@@ -1,0 +1,94 @@
+---
+/**
+ * Nosotros — spec sección 6.6. Historia y Valores están [FALTA]: se dejan
+ * como placeholder evidente, nunca inventados. Misión y Visión son texto
+ * [DECK] ampliado para incluir la vertical de Aviación & Logística, tal
+ * como pide la spec ("ampliar para incluir aviación" / "ampliar alcance").
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/sections/Hero.astro';
+import Card from '@/components/ui/Card.astro';
+import TeamGrid from '@/components/sections/TeamGrid.astro';
+import DifferentiatorCards from '@/components/sections/DifferentiatorCards.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import { homeDifferentiators } from '@/data/content';
+---
+
+<BaseLayout
+  title="Quiénes somos | Equipo con trayectoria en Air France/KLM y DHL — DGV"
+  description="Conocé al equipo de DGV Business Consulting: trayectoria en multinacionales líderes, especialización en PyMEs y en el sector de aviación y logística."
+>
+  <Hero
+    variant="image"
+    fallbackLabel="imagen equipo DGV (hero nosotros)"
+    eyebrow="Nosotros"
+    title="Conocé al equipo que impulsa tu empresa."
+    subtitle="Acompañamos a PyMEs y a empresas de aviación y logística en su transformación, con especialización real y resultados medibles."
+    primaryCta={{ label: 'Hablemos', href: '/contacto' }}
+  />
+
+  <section class="bg-bg-tint py-20 md:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-12" data-reveal>
+        <p class="text-blue-700 font-semibold uppercase tracking-wide text-small">
+          Propósito y visión que nos guían
+        </p>
+        <h2 class="mt-3 font-heading font-bold text-h1 text-navy-700">Quiénes somos.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div data-reveal>
+          <Card class="h-full">
+            <p class="font-heading font-semibold text-blue-700 uppercase tracking-wide text-small">
+              Misión
+            </p>
+            <p class="mt-3 text-slate-600 leading-relaxed">
+              Acompañar a las PyMEs y a las empresas de aviación y logística en su proceso de
+              transformación y crecimiento, brindando consultoría especializada en gestión de
+              procesos, finanzas e innovación digital para mejorar su rentabilidad y
+              competitividad.
+            </p>
+          </Card>
+        </div>
+        <div data-reveal style="transition-delay:60ms">
+          <Card class="h-full">
+            <p class="font-heading font-semibold text-blue-700 uppercase tracking-wide text-small">
+              Visión
+            </p>
+            <p class="mt-3 text-slate-600 leading-relaxed">
+              Ser la consultora de referencia para PyMEs y para el sector de aviación y logística
+              en Argentina, reconocida por transformar organizaciones a través de metodologías
+              prácticas, resultados medibles y un acompañamiento real y personalizado.
+            </p>
+          </Card>
+        </div>
+        <div data-reveal style="transition-delay:120ms">
+          <Card class="h-full border-2 border-dashed border-navy-700/15 bg-white shadow-none">
+            <p class="font-heading font-semibold text-navy-700 uppercase tracking-wide text-small">
+              Historia
+            </p>
+            <p class="mt-3 text-small text-slate-500">[[PENDIENTE: historia de DGV]]</p>
+          </Card>
+        </div>
+        <div data-reveal style="transition-delay:180ms">
+          <Card class="h-full border-2 border-dashed border-navy-700/15 bg-white shadow-none">
+            <p class="font-heading font-semibold text-navy-700 uppercase tracking-wide text-small">
+              Valores
+            </p>
+            <p class="mt-3 text-small text-slate-500">[[PENDIENTE: valores de la empresa]]</p>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TeamGrid />
+
+  <DifferentiatorCards heading="Por qué DGV." items={homeDifferentiators} />
+
+  <CTASection
+    title="Hablemos."
+    subtitle="Sin compromiso, sin burocracia — una conversación sobre cómo impulsar tu empresa."
+    cta={{ label: 'Agendá tu conversación sin cargo', href: '/contacto' }}
+  />
+</BaseLayout>

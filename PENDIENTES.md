@@ -86,23 +86,76 @@ cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
   para tu operación financiera."): la spec no da un heading literal para esa
   sección, solo el contenido de los 4 pilares (6.3.3).
 
-## Fuera de alcance de esta etapa (ya identificado por la spec, no resuelto aún)
+## Etapa 3 (Servicios, Metodología, Nosotros, Contacto, Casos)
 
-Estos ítems corresponden a páginas/secciones que **no se construyeron**
-todavía (Servicios, Metodología, Nosotros, Casos, Contacto). Se dejan
-anotados para no perderlos:
+Con esta etapa quedan construidas **todas** las páginas de prioridad
+"Imprescindible" y "Recomendada" de la spec (sección 5). Falta solo Blog
+(Fase 2, fuera de alcance por diseño).
 
-- Historia y valores de la empresa (`/nosotros`, [FALTA] en spec 6.6).
-- Entregables y duración típica por etapa del método (spec 6.5).
-- Mini-FAQ de Contacto (spec 6.8): cómo cobran, duración, modalidad.
-- SLA de respuesta del formulario (spec sugiere "24 h" a confirmar).
+### Bloqueante real: el formulario no envía mails todavía
+
+- [ ] **Endpoint de Formspree o Web3Forms** (`siteConfig.formEndpoint` en
+      `src/data/site.ts`, vacío). El `ContactForm` está construido,
+      validado (cliente + honeypot anti-spam) y probado — pero sin este
+      endpoint, al enviar muestra un aviso de "todavía no conectado" en vez
+      de simular un éxito falso. Spec 9.2: bloqueante de lanzamiento.
+
+### Contenido reservado (no ficticio)
+
+- [ ] **Entregables y duración típica por etapa** en `/metodologia` — cada
+      uno de los 4 pasos tiene `[[PENDIENTE: entregables]]` y
+      `[[PENDIENTE: duración]]` (spec 6.5, ambos [FALTA]).
+- [ ] **Respuestas del mini-FAQ** en `/contacto` — las 3 preguntas están
+      (cómo cobran, duración típica, modalidad remoto/presencial) pero las
+      respuestas son `[[PENDIENTE: respuesta]]` (spec 6.8, [FALTA
+      respuestas]).
+- [ ] **Historia y valores de la empresa** en `/nosotros` — dos tarjetas
+      con borde punteado, `[[PENDIENTE: historia de DGV]]` y
+      `[[PENDIENTE: valores de la empresa]]` (spec 6.6, ambos [FALTA]).
+- [ ] **Página `/casos`** — construida como "sección en construcción",
+      sin casos ficticios (spec sección 10, paso 7). Reemplazar por casos
+      reales cuando existan y estén autorizados.
+
+### Datos de contacto y enlaces
+
+- [ ] **Link de agenda (Calendly)** en `/contacto` — mismo pendiente que en
+      Etapa 1 (`siteConfig.calendlyUrl`), ahora con su propio bloque
+      reservado visible en la página en vez de solo en CTAs.
+
+### Decisión editorial a revisar: agrupación de `/servicios` por familia
+
+La spec (6.4) pide agrupar los servicios en 6 familias (Finanzas &
+Contabilidad · Procesos & Operaciones · Estrategia & Crecimiento ·
+Tecnología · Compliance & Gobierno · Laboral & RRHH) pero no especifica qué
+servicio va en cuál. Se armó la agrupación reusando texto ya existente en
+otras secciones (6.2.5, 6.3.3, 6.9) — **ningún servicio ni descripción es
+nueva**, solo se reorganizó. Vale la pena que lo revises (`src/data/content.ts`,
+`serviceFamilies`) para confirmar que la agrupación tiene sentido comercial.
+
+### Copy [DERIVADO] agregado en esta etapa
+
+- Hero de `/nosotros` (título y subtítulo): la spec pide "Hero con
+  propósito" sin dar frase literal.
+- Misión y Visión en `/nosotros`: texto [DECK] ampliado para incluir
+  aviación/logística, tal como indica la spec ("ampliar para incluir
+  aviación" / "ampliar alcance") — sin agregar hechos nuevos, solo
+  extendiendo el alcance ya establecido en la sección 1.
+- Intro de `/servicios` y heading de la franja de enlaces cruzados: la spec
+  solo pide "Intro [DERIVADO]" sin frase literal.
+- Subtítulo de `/metodologia`: la spec da el titular ("Un método claro,
+  resultados medibles") pero no el subtítulo.
 
 ## Nota sobre contenido ya incluido (no es un pendiente, es una aclaración)
 
 - Los textos de PainCards, MethodSteps, AuthorityBand, CommitmentBlock,
-  ServiceGrid, PlansTable, CyclesGrid, StatsBand y DifferentiatorCards son
-  copy exacto o paráfrasis directa de la spec (secciones 6.1, 6.2, 6.3, 6.5,
-  6.7, 6.9), sin datos, cifras ni afirmaciones nuevas.
+  ServiceGrid, PlansTable, CyclesGrid, StatsBand, DifferentiatorCards y
+  TeamGrid son copy exacto o paráfrasis directa de la spec (secciones 6.1,
+  6.2, 6.3, 6.4, 6.5, 6.6, 6.7, 6.9), sin datos, cifras ni afirmaciones
+  nuevas.
 - El titular y subtítulo del Hero de Inicio son copy **[DERIVADO]**: la spec
   (6.1.1) da el eje temático a comunicar, no una frase literal; se redactó
   siguiendo ese eje sin agregar hechos nuevos.
+- "Transformación Digital" y "Optimización comercial y RR.HH." en
+  `/servicios` (familia Tecnología y Laboral & RRHH) reusan textualmente dos
+  bullets del plan EXPANSIÓN (spec 6.9) como título+copy de un servicio
+  independiente — no son datos nuevos, es la misma frase ya existente.

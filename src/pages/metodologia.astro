@@ -1,0 +1,31 @@
+---
+/**
+ * Metodología — spec sección 6.5.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/sections/Hero.astro';
+import MethodStepsDetailed from '@/components/sections/MethodStepsDetailed.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+---
+
+<BaseLayout
+  title="Metodología | Un método claro, resultados medibles — DGV Business Consulting"
+  description="Diagnóstico, estrategia, implementación y seguimiento: el método de 4 etapas con el que DGV ordena, mide y hace rentables a las empresas que acompaña."
+>
+  <Hero
+    variant="image"
+    fallbackLabel="imagen equipo trabajando (hero metodología)"
+    eyebrow="Metodología"
+    title="Un método claro, resultados medibles."
+    subtitle="Cuatro etapas, un mismo hilo conductor: relevar, decidir, ejecutar y medir — con reporting ejecutivo en cada paso."
+    primaryCta={{ label: 'Empecemos por el diagnóstico', href: '/contacto' }}
+  />
+
+  <MethodStepsDetailed />
+
+  <CTASection
+    title="Empecemos por el diagnóstico."
+    subtitle="El primer paso es entender tu situación actual. Sin compromiso."
+    cta={{ label: 'Empecemos por el diagnóstico', href: '/contacto' }}
+  />
+</BaseLayout>

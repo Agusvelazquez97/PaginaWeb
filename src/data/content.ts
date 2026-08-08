@@ -363,3 +363,59 @@ export const methodStepsAviacion = [
   },
   methodStepsFull[3],
 ];
+
+// --- Servicios agrupados por familia — página /servicios (spec 6.4) ---
+// Las 6 familias son literales de la spec; cada servicio dentro reusa texto
+// ya establecido en otras secciones (6.2.5, 6.3.3, 6.9) — no se agregan
+// servicios ni afirmaciones nuevas, solo se reorganizan bajo estas familias.
+export const serviceFamilies = [
+  {
+    slug: 'finanzas-contabilidad',
+    name: 'Finanzas & Contabilidad',
+    items: [
+      { icon: Receipt, title: 'Asesoría Tributaria', copy: pymeServices[0].copy },
+      { icon: Calculator, title: 'Contabilidad & Tercerización', copy: pymeServices[1].copy },
+      { icon: ChartLine, title: 'Finanzas & Reporting Ejecutivo', copy: pymeServices[3].copy },
+      { icon: Wallet, title: 'Consultoría Financiera', copy: aviacionPillars[0].copy },
+    ],
+  },
+  {
+    slug: 'procesos-operaciones',
+    name: 'Procesos & Operaciones',
+    items: [
+      { icon: Wrench, title: 'Mejora de procesos', copy: pymeSolutions[1].copy },
+      { icon: Workflow, title: 'Optimización de Procesos', copy: aviacionPillars[1].copy },
+    ],
+  },
+  {
+    slug: 'estrategia-crecimiento',
+    name: 'Estrategia & Crecimiento',
+    items: [
+      { icon: TargetIcon, title: 'Planificación Estratégica', copy: pymeServices[4].copy },
+      { icon: Globe, title: 'Expansión Nacional e Internacional', copy: pymeServices[5].copy },
+    ],
+  },
+  {
+    slug: 'tecnologia',
+    name: 'Tecnología',
+    items: [
+      { icon: Cpu, title: 'Tecnología Aplicada', copy: aviacionPillars[3].copy },
+      { icon: Rocket, title: 'Transformación Digital', copy: 'Transformación digital y automatización.' },
+    ],
+  },
+  {
+    slug: 'compliance-gobierno',
+    name: 'Compliance & Gobierno',
+    items: [
+      { icon: ShieldCheck, title: 'Compliance & Gobierno', copy: aviacionPillars[2].copy },
+    ],
+  },
+  {
+    slug: 'laboral-rrhh',
+    name: 'Laboral & RRHH',
+    items: [
+      { icon: UsersRound, title: 'Gestión Laboral & RRHH', copy: pymeServices[2].copy },
+      { icon: Users, title: 'Optimización comercial y RR.HH.', copy: 'Optimización comercial y RR.HH.' },
+    ],
+  },
+];

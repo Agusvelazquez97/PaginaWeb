@@ -1,0 +1,50 @@
+---
+/**
+ * Casos de éxito — spec sección 5 (prioridad "Al haber contenido") y
+ * sección 10, paso 7: "plantilla, sin publicar hasta tener contenido".
+ * Página construida y lista para poblarse; no se publican casos ficticios.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CommitmentBlock from '@/components/sections/CommitmentBlock.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import { FileText } from '@lucide/astro';
+---
+
+<BaseLayout
+  title="Casos de éxito | DGV Business Consulting"
+  description="Los casos y resultados de DGV Business Consulting se publican a medida que los proyectos avanzan, con autorización de cada cliente."
+>
+  <section class="bg-bg-tint pt-32 pb-20 md:pt-40 md:pb-28">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 text-center" data-reveal>
+      <p class="text-blue-700 font-semibold uppercase tracking-wide text-small">Casos de éxito</p>
+      <h1 class="mt-3 font-heading font-bold text-h1 text-navy-700">
+        Esta sección se está construyendo.
+      </h1>
+      <p class="mt-4 text-lead text-slate-500">
+        Todavía no publicamos casos: preferimos esperar a tener resultados reales, medibles y
+        autorizados por cada cliente antes de mostrarlos acá.
+      </p>
+
+      <div
+        class="mt-10 rounded-card border-2 border-dashed border-navy-700/15 bg-white p-10"
+      >
+        <FileText class="size-8 text-blue-500 mx-auto" aria-hidden="true" />
+        <p class="mt-4 font-heading font-semibold text-navy-700">
+          [[PENDIENTE: casos y resultados reales]]
+        </p>
+        <p class="mt-2 text-small text-slate-500">
+          En cuanto existan proyectos que se puedan publicar (con autorización del cliente),
+          van a aparecer acá con datos concretos. No se muestran casos ficticios.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CommitmentBlock />
+
+  <CTASection
+    title="¿Querés ser uno de los primeros casos?"
+    subtitle="Agendá un diagnóstico sin cargo y empecemos a construir resultados medibles."
+    cta={{ label: 'Agendá tu diagnóstico sin cargo', href: '/contacto' }}
+  />
+</BaseLayout>

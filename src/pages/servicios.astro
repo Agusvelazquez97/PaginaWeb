@@ -1,0 +1,79 @@
+---
+/**
+ * Servicios — spec sección 6.4. Intro [DERIVADO] + 6 familias [DECK] con
+ * anclas para deep-linking. El contenido de cada familia reusa texto ya
+ * establecido en 6.2/6.3/6.9 (ver src/data/content.ts) — no se agregan
+ * servicios nuevos.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/sections/Hero.astro';
+import ServiceGrid from '@/components/sections/ServiceGrid.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import Button from '@/components/ui/Button.astro';
+import { ArrowRight } from '@lucide/astro';
+import { serviceFamilies } from '@/data/content';
+---
+
+<BaseLayout
+  title="Servicios | Finanzas, procesos, tecnología y compliance — DGV Business Consulting"
+  description="Todos los servicios de DGV Business Consulting agrupados por familia: finanzas y contabilidad, procesos y operaciones, estrategia, tecnología, compliance y laboral."
+>
+  <Hero
+    variant="image"
+    fallbackLabel="imagen equipo en reunión (hero servicios)"
+    eyebrow="Servicios"
+    title="Expertise integral para cada etapa de tu empresa."
+    subtitle="Seis áreas de trabajo, un mismo equipo: desde la contabilidad del día a día hasta la transformación digital y el gobierno corporativo."
+    primaryCta={{ label: 'Agendá un diagnóstico', href: '/contacto' }}
+  />
+
+  <nav aria-label="Familias de servicios" class="bg-white border-b border-navy-700/10 py-6">
+    <ul class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-wrap gap-2">
+      {serviceFamilies.map((family) => (
+        <li>
+          <a
+            href={`#${family.slug}`}
+            class="inline-flex items-center min-h-11 rounded-full border border-navy-700/15 px-4 text-small font-medium text-navy-700 hover:bg-blue-50 hover:text-blue-700"
+          >
+            {family.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  {serviceFamilies.map((family, i) => (
+    <div id={family.slug}>
+      <ServiceGrid
+        heading={family.name}
+        items={family.items}
+        tone={i % 2 === 0 ? 'light' : 'tint'}
+      />
+    </div>
+  ))}
+
+  <section class="bg-navy-900 py-16 md:py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center" data-reveal>
+      <p class="text-blue-200 font-semibold uppercase tracking-wide text-small">
+        ¿Cuál es tu situación?
+      </p>
+      <h2 class="mt-3 font-heading font-bold text-h2 text-white">
+        Elegí tu ruta para ver la solución completa.
+      </h2>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <Button href="/soluciones-pymes" variant="onDark" size="lg">
+          Soluciones para PyMEs <ArrowRight class="size-4" aria-hidden="true" />
+        </Button>
+        <Button href="/aviacion-logistica" variant="onDark" size="lg">
+          Aviación & Logística <ArrowRight class="size-4" aria-hidden="true" />
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="¿No sabés por dónde empezar?"
+    subtitle="Agendá un diagnóstico sin cargo y te ayudamos a priorizar."
+    cta={{ label: 'Agendá un diagnóstico', href: '/contacto' }}
+  />
+</BaseLayout>

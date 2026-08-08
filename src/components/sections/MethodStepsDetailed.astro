@@ -1,0 +1,71 @@
+---
+/**
+ * Detalle del método para /metodologia (spec 6.5). Extiende los 4 pasos con
+ * entregables y duración por etapa — ambos [FALTA] en la spec, se dejan
+ * como placeholder evidente en vez de inventar plazos o entregables.
+ */
+import Card from '@/components/ui/Card.astro';
+import { methodStepsAviacion } from '@/data/content';
+
+const extras = [
+  { deliverable: '[[PENDIENTE: entregables de Diagnóstico]]', duration: '[[PENDIENTE: duración]]' },
+  { deliverable: '[[PENDIENTE: entregables de Estrategia]]', duration: '[[PENDIENTE: duración]]' },
+  {
+    deliverable: '[[PENDIENTE: entregables de Implementación]]',
+    duration: '[[PENDIENTE: duración]]',
+  },
+  { deliverable: '[[PENDIENTE: entregables de Seguimiento]]', duration: '[[PENDIENTE: duración]]' },
+];
+
+const steps = methodStepsAviacion.map((step, i) => ({ ...step, ...extras[i] }));
+
+const tools = ['SAP', 'ERP', 'Business Intelligence', 'Dashboards ejecutivos'];
+---
+
+<section class="bg-white py-20 md:py-28">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <ol class="space-y-5">
+      {steps.map((step, i) => (
+        <li data-reveal style={`transition-delay:${i * 70}ms`}>
+          <Card tone="tint" class="grid grid-cols-1 md:grid-cols-[auto_1fr_auto_auto] gap-x-8 gap-y-4 items-start">
+            <div class="flex items-center gap-3 md:flex-col md:items-start">
+              <span class="text-blue-200 font-heading font-extrabold text-4xl leading-none" aria-hidden="true">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <step.icon class="size-7 text-blue-500" aria-hidden="true" />
+            </div>
+            <div>
+              <h3 class="font-heading font-semibold text-navy-700 text-h3">{step.title}</h3>
+              <p class="mt-1 text-small text-slate-500 max-w-sm">{step.copy}</p>
+            </div>
+            <div class="md:border-l md:border-navy-700/10 md:pl-6">
+              <p class="text-small font-semibold uppercase tracking-wide text-slate-400">
+                Entregables
+              </p>
+              <p class="mt-1 text-small text-slate-500">{step.deliverable}</p>
+            </div>
+            <div class="md:border-l md:border-navy-700/10 md:pl-6">
+              <p class="text-small font-semibold uppercase tracking-wide text-slate-400">
+                Duración típica
+              </p>
+              <p class="mt-1 text-small text-slate-500">{step.duration}</p>
+            </div>
+          </Card>
+        </li>
+      ))}
+    </ol>
+
+    <div class="mt-10 text-center" data-reveal>
+      <p class="text-small font-semibold uppercase tracking-wide text-slate-400 mb-3">
+        Herramientas
+      </p>
+      <ul class="flex flex-wrap justify-center gap-2">
+        {tools.map((tool) => (
+          <li class="rounded-full border border-navy-700/15 bg-bg-tint px-4 py-1.5 text-small font-medium text-navy-700">
+            {tool}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
