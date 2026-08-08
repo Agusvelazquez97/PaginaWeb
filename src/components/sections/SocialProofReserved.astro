@@ -1,0 +1,26 @@
+---
+/**
+ * Módulo de prueba social reservado — spec sección 9.3.8: "Módulos de
+ * prueba social construidos aunque vacíos, para poblarlos apenas exista
+ * contenido." No se publican casos ni testimonios ficticios.
+ */
+interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<section class="bg-bg-tint py-16 md:py-20">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8" data-reveal>
+    <div
+      class="rounded-card border-2 border-dashed border-navy-700/15 bg-white p-10 text-center"
+    >
+      <p class="font-heading font-semibold text-navy-700">Casos y testimonios</p>
+      <p class="mt-2 text-small text-slate-500 max-w-md mx-auto">
+        [[PENDIENTE: {label}]] — este espacio queda reservado y se publica en cuanto haya
+        clientes reales que lo autoricen. No se muestran casos ficticios.
+      </p>
+    </div>
+  </div>
+</section>

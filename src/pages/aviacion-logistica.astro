@@ -1,0 +1,70 @@
+---
+/**
+ * Aviación & Logística — spec sección 6.3. Tono técnico y ejecutivo
+ * (spec 9.3.6).
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/sections/Hero.astro';
+import PainCards from '@/components/sections/PainCards.astro';
+import ServiceGrid from '@/components/sections/ServiceGrid.astro';
+import CyclesGrid from '@/components/sections/CyclesGrid.astro';
+import AuthorityBand from '@/components/sections/AuthorityBand.astro';
+import MethodSteps from '@/components/sections/MethodSteps.astro';
+import DifferentiatorCards from '@/components/sections/DifferentiatorCards.astro';
+import StatsBand from '@/components/sections/StatsBand.astro';
+import SocialProofReserved from '@/components/sections/SocialProofReserved.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import { aviacionProblems, aviacionPillars, methodStepsAviacion, aviacionDifferentiators } from '@/data/content';
+---
+
+<BaseLayout
+  title="Consultoría financiera para aviación y logística | O2C, P2P, compliance BCRA — DGV"
+  description="Consultoría financiera especializada en aviación y logística: CFO advisory, optimización de procesos O2C/P2P/R2R, compliance BCRA y tecnología aplicada."
+>
+  <Hero
+    variant="image"
+    fallbackLabel="imagen aviación / logística (hero)"
+    eyebrow="Aviación & Logística"
+    title="De la turbulencia financiera a la performance sostenida."
+    subtitle="Convertimos la compleja realidad financiera del sector aéreo en ventaja competitiva."
+    tags={['Airlines', 'Cargo', 'Handling', 'Airport Operators']}
+    primaryCta={{ label: 'Solicitá una conversación', href: '/contacto' }}
+    secondaryCta={{ label: 'Ver expertise', href: '#expertise' }}
+  />
+
+  <PainCards
+    eyebrow="El diagnóstico"
+    heading="Una industria que no admite errores financieros."
+    items={aviacionProblems}
+  />
+
+  <ServiceGrid
+    eyebrow="Nuestra propuesta"
+    heading="Cuatro pilares para tu operación financiera."
+    items={aviacionPillars}
+    tone="tint"
+  />
+
+  <div id="expertise">
+    <CyclesGrid />
+  </div>
+
+  <AuthorityBand />
+
+  <MethodSteps heading="Un método claro, resultados medibles." steps={methodStepsAviacion} />
+
+  <DifferentiatorCards
+    heading="Lo que nos hace distintos en la industria aérea y de logística."
+    items={aviacionDifferentiators}
+  />
+
+  <StatsBand />
+
+  <SocialProofReserved label="testimonios y casos reales del sector aéreo/logístico" />
+
+  <CTASection
+    title="Solicitá una conversación."
+    subtitle="Sin compromiso y con foco total en los resultados de tu operación financiera."
+    cta={{ label: 'Solicitá una conversación', href: '/contacto' }}
+  />
+</BaseLayout>

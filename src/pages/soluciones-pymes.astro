@@ -1,0 +1,63 @@
+---
+/**
+ * Soluciones para PyMEs — spec sección 6.2. Tono cálido y pedagógico
+ * (spec 9.3.6).
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/sections/Hero.astro';
+import PainCards from '@/components/sections/PainCards.astro';
+import ServiceGrid from '@/components/sections/ServiceGrid.astro';
+import PlansTable from '@/components/sections/PlansTable.astro';
+import MethodSteps from '@/components/sections/MethodSteps.astro';
+import SocialProofReserved from '@/components/sections/SocialProofReserved.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import { pymePains, pymeSolutions, pymeServices, methodStepsFull } from '@/data/content';
+---
+
+<BaseLayout
+  title="Consultoría para PyMEs en Argentina | Procesos, finanzas y rentabilidad — DGV"
+  description="Ordenamos, medimos y hacemos rentable tu PyME: contabilidad, procesos, financiamiento y planificación estratégica con resultados medibles."
+>
+  <Hero
+    variant="image"
+    fallbackLabel="imagen PyME argentina (hero)"
+    eyebrow="Soluciones para PyMEs"
+    title="Ordená, medí y hacé rentable tu PyME."
+    subtitle="Te acompañamos a poner en orden tus números, tus procesos y tus decisiones, con un equipo que se involucra de cerca en tu negocio."
+    primaryCta={{ label: 'Agendá un diagnóstico sin cargo', href: '/contacto' }}
+    secondaryCta={{ label: 'Ver planes', href: '#planes' }}
+  />
+
+  <PainCards
+    eyebrow="El diagnóstico"
+    heading="Los desafíos que frenan a la mayoría de las PyMEs."
+    items={pymePains}
+  />
+
+  <ServiceGrid
+    eyebrow="Lo que resolvemos"
+    heading="De los problemas de tu PyME a una empresa ordenada y rentable."
+    items={pymeSolutions}
+    tone="tint"
+  />
+
+  <div id="planes">
+    <PlansTable />
+  </div>
+
+  <ServiceGrid
+    eyebrow="Expertise integral"
+    heading="Servicios para cada etapa de tu empresa."
+    items={pymeServices}
+  />
+
+  <MethodSteps heading="Un proceso claro, resultados concretos." steps={methodStepsFull} />
+
+  <SocialProofReserved label="testimonios y casos reales de PyMEs" />
+
+  <CTASection
+    title="Agendá tu diagnóstico sin cargo."
+    subtitle="Sin compromiso, sin burocracia — una conversación sobre cómo ordenar y hacer crecer tu empresa."
+    cta={{ label: 'Agendá tu diagnóstico sin cargo', href: '/contacto' }}
+  />
+</BaseLayout>

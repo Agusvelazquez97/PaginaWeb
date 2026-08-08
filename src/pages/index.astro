@@ -12,6 +12,7 @@ import DifferentiatorCards from '@/components/sections/DifferentiatorCards.astro
 import CommitmentBlock from '@/components/sections/CommitmentBlock.astro';
 import TeamTeaser from '@/components/sections/TeamTeaser.astro';
 import CTASection from '@/components/sections/CTASection.astro';
+import { pymePains, methodStepsCondensed, homeDifferentiators } from '@/data/content';
 ---
 
 <BaseLayout
@@ -33,9 +34,13 @@ import CTASection from '@/components/sections/CTASection.astro';
     <RouteSelector />
   </div>
   <AuthorityBand />
-  <PainCards />
-  <MethodSteps />
-  <DifferentiatorCards />
+  <PainCards
+    eyebrow="El diagnóstico"
+    heading="Los desafíos que frenan el crecimiento"
+    items={pymePains}
+  />
+  <MethodSteps heading="Un proceso claro, resultados concretos." steps={methodStepsCondensed} />
+  <DifferentiatorCards heading="La diferencia está en cómo trabajamos." items={homeDifferentiators} />
   <CommitmentBlock />
   <TeamTeaser />
   <CTASection

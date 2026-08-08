@@ -53,23 +53,56 @@ cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
       genérico de placeholder (fondo navy + "D"). Reemplazar por el logo
       real en cuanto exista (spec 9.2, bloqueante de lanzamiento).
 
+## Etapa 2 (Soluciones para PyMEs + Aviación & Logística)
+
+### Fotografía
+
+- [ ] **Imagen hero de `/soluciones-pymes`** — PyME argentina real, registro
+      cercano/local (spec sección 8). Hoy es un `PlaceholderImage`.
+- [ ] **Imagen hero de `/aviacion-logistica`** — avión/aeropuerto con
+      tratamiento duotono, registro premium/técnico (spec sección 8). Hoy es
+      un `PlaceholderImage`.
+- [ ] 3-4 imágenes de apoyo por vertical que la spec sugiere en la sección 8
+      (revisar números, comercio/taller local para PyMEs; carga, torre de
+      control, pantallas financieras para Aviación) — no se agregaron en
+      esta etapa porque ninguna sección del orden exacto de 6.2/6.3 pedía una
+      imagen de apoyo adicional a la del hero.
+
+### Contenido reservado (no ficticio)
+
+- [ ] **Prueba social PyME** — módulo reservado en `/soluciones-pymes`,
+      marcado `[[PENDIENTE: testimonios y casos reales de PyMEs]]` (spec
+      6.2.7).
+- [ ] **Prueba social Aviación** — módulo reservado en `/aviacion-logistica`,
+      marcado `[[PENDIENTE: testimonios y casos reales del sector
+      aéreo/logístico]]` (spec 6.3.9).
+
+### Copy [DERIVADO] agregado en esta etapa
+
+- Subtítulo del hero de `/soluciones-pymes` ("Te acompañamos a poner en
+  orden..."): la spec solo da el titular literal (6.2.1); el subtítulo se
+  redactó en el mismo eje sin agregar hechos nuevos.
+- Heading de "Nuestra propuesta" en `/aviacion-logistica` ("Cuatro pilares
+  para tu operación financiera."): la spec no da un heading literal para esa
+  sección, solo el contenido de los 4 pilares (6.3.3).
+
 ## Fuera de alcance de esta etapa (ya identificado por la spec, no resuelto aún)
 
-Estos ítems corresponden a páginas/secciones que **no se construyeron** en
-esta primera etapa (Soluciones PyMEs, Aviación & Logística, Servicios,
-Metodología, Nosotros, Casos, Contacto). Se dejan anotados para no perderlos:
+Estos ítems corresponden a páginas/secciones que **no se construyeron**
+todavía (Servicios, Metodología, Nosotros, Casos, Contacto). Se dejan
+anotados para no perderlos:
 
 - Historia y valores de la empresa (`/nosotros`, [FALTA] en spec 6.6).
 - Entregables y duración típica por etapa del método (spec 6.5).
 - Mini-FAQ de Contacto (spec 6.8): cómo cobran, duración, modalidad.
 - SLA de respuesta del formulario (spec sugiere "24 h" a confirmar).
-- Prueba social específica de cada vertical (spec 6.2.7 y 6.3.9).
 
 ## Nota sobre contenido ya incluido (no es un pendiente, es una aclaración)
 
-- Los textos de PainCards, MethodSteps, AuthorityBand y CommitmentBlock son
-  copy exacto o paráfrasis directa de la spec (secciones 6.1, 6.2, 6.5, 6.7,
-  6.3.7), sin datos, cifras ni afirmaciones nuevas.
+- Los textos de PainCards, MethodSteps, AuthorityBand, CommitmentBlock,
+  ServiceGrid, PlansTable, CyclesGrid, StatsBand y DifferentiatorCards son
+  copy exacto o paráfrasis directa de la spec (secciones 6.1, 6.2, 6.3, 6.5,
+  6.7, 6.9), sin datos, cifras ni afirmaciones nuevas.
 - El titular y subtítulo del Hero de Inicio son copy **[DERIVADO]**: la spec
   (6.1.1) da el eje temático a comunicar, no una frase literal; se redactó
   siguiendo ese eje sin agregar hechos nuevos.
