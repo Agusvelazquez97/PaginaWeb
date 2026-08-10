@@ -13,9 +13,8 @@ export const siteConfig = {
   linkedInUrl: '',
   // [FALTA] URL de agenda (Calendly u otro) — ver PENDIENTES.md
   calendlyUrl: '',
-  // [FALTA] Endpoint de Formspree / Web3Forms — ver PENDIENTES.md y spec 7.1.
-  // Sin esto el formulario no puede enviar mails; se deja explícito en la UI.
-  formEndpoint: '',
+  // Formspree — spec 7.1. Envía a daniel.v@dgvbusiness.com (verificado en Formspree).
+  formEndpoint: 'https://formspree.io/f/mzepewle',
   contactSla: 'Te respondemos en 24 h y coordinamos una llamada de 30 min sin cargo.',
 };
 

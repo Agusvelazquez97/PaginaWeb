@@ -92,13 +92,16 @@ Con esta etapa quedan construidas **todas** las páginas de prioridad
 "Imprescindible" y "Recomendada" de la spec (sección 5). Falta solo Blog
 (Fase 2, fuera de alcance por diseño).
 
-### Bloqueante real: el formulario no envía mails todavía
+### ✅ Resuelto: formulario conectado a Formspree
 
-- [ ] **Endpoint de Formspree o Web3Forms** (`siteConfig.formEndpoint` en
-      `src/data/site.ts`, vacío). El `ContactForm` está construido,
-      validado (cliente + honeypot anti-spam) y probado — pero sin este
-      endpoint, al enviar muestra un aviso de "todavía no conectado" en vez
-      de simular un éxito falso. Spec 9.2: bloqueante de lanzamiento.
+- [x] **Endpoint de Formspree** (`siteConfig.formEndpoint` en
+      `src/data/site.ts`) conectado a `https://formspree.io/f/mzepewle`,
+      que envía a `daniel.v@dgvbusiness.com`. Probado end-to-end (POST real
+      contra el endpoint → `{"ok":true}`, HTTP 200). Spec 9.2: bloqueante de
+      lanzamiento cerrado.
+      Pendiente menor: si Formspree pide un captcha/verificación adicional
+      en producción (dominio real en vez de localhost), revisar la config
+      del formulario en Formspree.
 
 ### Contenido reservado (no ficticio)
 
