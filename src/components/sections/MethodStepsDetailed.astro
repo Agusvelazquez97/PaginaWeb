@@ -29,13 +29,13 @@ const tools = ['SAP', 'ERP', 'Business Intelligence', 'Dashboards ejecutivos'];
         <li data-reveal style={`transition-delay:${i * 70}ms`}>
           <Card tone="tint" class="grid grid-cols-1 md:grid-cols-[auto_1fr_auto_auto] gap-x-8 gap-y-4 items-start">
             <div class="flex items-center gap-3 md:flex-col md:items-start">
-              <span class="text-blue-200 font-heading font-extrabold text-4xl leading-none" aria-hidden="true">
+              <span class="text-slate-400 font-heading font-extrabold text-4xl leading-none" aria-hidden="true">
                 {String(i + 1).padStart(2, '0')}
               </span>
               <step.icon class="size-7 text-blue-500" aria-hidden="true" />
             </div>
             <div>
-              <h3 class="font-heading font-semibold text-navy-700 text-h3">{step.title}</h3>
+              <h2 class="font-heading font-semibold text-navy-700 text-h3">{step.title}</h2>
               <p class="mt-1 text-small text-slate-500 max-w-sm">{step.copy}</p>
             </div>
             <div class="md:border-l md:border-navy-700/10 md:pl-6">

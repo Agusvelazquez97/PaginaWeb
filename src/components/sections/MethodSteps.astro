@@ -33,7 +33,7 @@ const { eyebrow = 'Nuestro método', heading, steps } = Astro.props;
       {steps.map((step, i) => (
         <li data-reveal style={`transition-delay:${i * 70}ms`}>
           <Card tone="tint" class="h-full relative">
-            <span class="text-blue-200 font-heading font-extrabold text-4xl leading-none" aria-hidden="true">
+            <span class="text-slate-400 font-heading font-extrabold text-4xl leading-none" aria-hidden="true">
               {String(i + 1).padStart(2, '0')}
             </span>
             <step.icon class="size-7 text-blue-500 mt-4" aria-hidden="true" />
