@@ -42,24 +42,78 @@ Se agrega en cuanto haya respuestas reales.
       compartir en WhatsApp/LinkedIn. Reemplazar por una pieza de marca real
       cuando exista el logo vectorial (mismo pendiente que el favicon).
 
+## Etapa 5 (Media real del cliente: fotos, video, logo)
+
+Contenido con licencia confirmada por el cliente. Se procesaron y
+cablearon en el sitio.
+
+### ✅ Resuelto: video del Hero de Inicio
+
+- [x] **`public/videos/hero.mp4` y `hero.webm`** — video real provisto por el
+      cliente (avión despegando), confirmado con licencia. Se recodificó
+      (sin audio, 1280px de ancho, `faststart`) para quedar liviano:
+      ~710 KB el MP4 (H.264) y ~712 KB el WebM (VP9), ambos muy por debajo
+      del límite de 3 MB de la spec 7.3. Duración original 7.3s (el archivo
+      del cliente, no un stock elegido a medida — la spec sugería 8-12s como
+      referencia para búsquedas de stock, no como límite estricto).
+
+### ✅ Resuelto: fotografía de aviación/logística
+
+- [x] **`public/images/aviacion/hero-avion.jpg`** (avión despegando) — usada
+      como `poster` del video y fallback mobile del Hero de Inicio.
+- [x] **`public/images/aviacion/terminal.jpg`** (aeropuerto/manga de
+      embarque) — usada como imagen del Hero de `/aviacion-logistica`.
+- [x] **`public/images/aviacion/carga.jpg`** (carga aérea) — usada en la
+      tarjeta "Industria Aérea & Logística" de `RouteSelector` (Inicio).
+- [ ] **`public/images/aviacion/finanzas.jpg`** (pantallas financieras) —
+      procesada y disponible, pero **todavía sin usar**: ninguna sección
+      existente tiene un slot de imagen natural para ella (CyclesGrid,
+      AuthorityBand y StatsBand son grillas de texto/ícono, sin hueco de
+      foto). Queda lista para una futura sección que la aproveche.
+
+Las 4 fotos recibieron el tratamiento duotono navy que exige la spec
+sección 3 (grises mapeados de `#050D1C` a `#DDE3F0`).
+
+### ✅ Resuelto (parcial): logo real de DGV
+
+- [x] **Footer** — reemplaza el texto "DGV. Business Consulting" por el
+      logo real (`public/images/brand/dgv-logo.png`, fondo transparente).
+- [x] **`public/favicon.svg`** — el ícono de barras del logo real,
+      reemplaza el monograma "D" genérico.
+- [x] **`public/og-image.png`** — el logo real reemplaza el texto del
+      wordmark en la pieza que se comparte en WhatsApp/LinkedIn.
+- [ ] **Header** (`src/components/layout/Header.astro`) — **sigue con el
+      wordmark de texto**, sin cambios. El archivo de logo que tenemos
+      tiene el fondo navy sólido incorporado a la imagen (texto "DGV" y la
+      barra más alta son blancos): funciona sobre fondos oscuros (footer,
+      OG, favicon) pero **se vuelve invisible sobre el header, que tiene
+      fondo claro**. Falta pedirle al cliente una variante del logo para
+      fondo claro (texto en navy, o un SVG vectorial con las barras en
+      color y el texto en `#0D2461`) antes de poder reemplazar el header.
+
+### Nota sobre imágenes descartadas (no un pendiente, aclaración)
+
+Además de las fotos de aviación/logística, se recibió un lote separado de
+8 imágenes para la vertical PyME (`Imagenes_pymes.docx`). Ese lote se
+revisó y **no se usó**: los metadatos incrustados en el documento
+mostraban evidencia de que las imágenes venían de resultados de búsqueda
+de Google Images / bancos de stock / notas de prensa, sin licencia
+verificable. Sigue faltando fotografía real y con licencia para
+`/soluciones-pymes` (hero y apoyo) y para la tarjeta PyME de
+`RouteSelector` — ver más abajo.
+
 ## Etapa 1 (Setup + componentes base + Inicio)
 
 ### Video y fotografía
 
-- [ ] **`public/videos/hero.mp4`** (y opcionalmente `.webm`) — el `<video>` del
-      Hero de Inicio ya está cableado (autoplay/loop/muted/playsinline,
-      overlay navy, oculto en mobile) apuntando a este archivo, que **no
-      existe todavía**. Spec 7.3: 8-12s, loop, sin sonido, < 3 MB, MP4+WebM.
-      Búsquedas sugeridas por la spec: "airplane takeoff slow motion",
-      "air cargo loading", "airport runway", "aerial airport" (Pexels
-      Video / Coverr / Mixkit).
-- [ ] **Imagen fallback del hero** (`public/images/placeholders/hero-fallback.svg`
-      hoy es un placeholder navy generado, no una foto). Reemplazar por un
-      frame real del video (WebP), que se usa como `poster` del `<video>` y
-      como imagen completa en mobile.
-- [ ] **Imágenes de RouteSelector** (2): una PyME argentina, una
-      aviación/logística, con tratamiento duotono navy (spec sección 8).
-      Hoy son placeholders (componente `PlaceholderImage`, no fotos de stock).
+- [ ] **Imagen fallback del hero para lectores/crawlers sin JS** — el
+      `poster`/fallback mobile del Hero de Inicio ya usa una foto real
+      (`hero-avion.jpg`, ver Etapa 5). Este ítem queda cerrado.
+- [ ] **Imagen de RouteSelector — tarjeta PyME** — sigue siendo un
+      `PlaceholderImage` (`imagen PyME argentina`). La tarjeta de Aviación
+      ya usa una foto real (`carga.jpg`, ver Etapa 5). Falta una foto de
+      PyME argentina real y con licencia (el lote recibido para esta
+      vertical fue descartado, ver nota arriba).
 - [ ] **Fotos de equipo** (4 individuales + 1 grupal). Hoy el Team teaser usa
       **iniciales en círculo** como estado intermedio, tal como indica la
       spec sección 8 ("Reemplazan las iniciales en círculo").
@@ -84,25 +138,30 @@ Se agrega en cuanto haya respuestas reales.
 
 ### Marca
 
-- [ ] **Logo vectorial (SVG) de DGV** — hoy el header/footer usan texto
-      ("DGV. Business Consulting") y `public/favicon.svg` es un monograma
-      genérico de placeholder (fondo navy + "D"). Reemplazar por el logo
-      real en cuanto exista (spec 9.2, bloqueante de lanzamiento).
+- [ ] **Logo vectorial (SVG) de DGV, variante para fondo claro** — el logo
+      real del cliente ya está en uso en footer, favicon y OG image (ver
+      Etapa 5), pero solo sirve sobre fondos oscuros. El header sigue con
+      el wordmark de texto porque el archivo recibido tiene el texto
+      "DGV" en blanco (invisible sobre el fondo claro del header). Falta
+      una variante clara (o el SVG vectorial original) para cerrar este
+      punto (spec 9.2, bloqueante de lanzamiento).
 
 ## Etapa 2 (Soluciones para PyMEs + Aviación & Logística)
 
 ### Fotografía
 
 - [ ] **Imagen hero de `/soluciones-pymes`** — PyME argentina real, registro
-      cercano/local (spec sección 8). Hoy es un `PlaceholderImage`.
-- [ ] **Imagen hero de `/aviacion-logistica`** — avión/aeropuerto con
-      tratamiento duotono, registro premium/técnico (spec sección 8). Hoy es
-      un `PlaceholderImage`.
-- [ ] 3-4 imágenes de apoyo por vertical que la spec sugiere en la sección 8
-      (revisar números, comercio/taller local para PyMEs; carga, torre de
-      control, pantallas financieras para Aviación) — no se agregaron en
-      esta etapa porque ninguna sección del orden exacto de 6.2/6.3 pedía una
-      imagen de apoyo adicional a la del hero.
+      cercano/local (spec sección 8). Hoy es un `PlaceholderImage` (el lote
+      de imágenes recibido para esta vertical fue descartado por falta de
+      licencia verificable, ver Etapa 5).
+- [x] **Imagen hero de `/aviacion-logistica`** — resuelto en Etapa 5:
+      `terminal.jpg`, con tratamiento duotono, registro premium/técnico.
+- [x] Imágenes de apoyo para Aviación (carga, pantallas financieras) —
+      resuelto en Etapa 5: `carga.jpg` en uso (RouteSelector), `finanzas.jpg`
+      procesada y disponible sin usar todavía (sin slot de imagen en las
+      secciones existentes).
+- [ ] Imágenes de apoyo para PyMEs (comercio/taller local) — sigue
+      pendiente, mismo motivo que el hero de PyMEs.
 
 ### Contenido reservado (no ficticio)
 

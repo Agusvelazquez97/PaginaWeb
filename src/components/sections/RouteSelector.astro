@@ -13,6 +13,7 @@ const routes = [
     href: '/soluciones-pymes',
     copy: 'Desorden operativo, falta de métricas y decisiones que se toman a ojo. Te ayudamos a ordenar y medir tu negocio.',
     imageLabel: 'imagen PyME argentina',
+    imageSrc: undefined,
   },
   {
     icon: Plane,
@@ -20,6 +21,7 @@ const routes = [
     href: '/aviacion-logistica',
     copy: 'Márgenes ajustados, regulación cambiaria (BCRA) y operaciones multi-país. Convertimos la complejidad financiera en ventaja.',
     imageLabel: 'imagen aviación / logística',
+    imageSrc: '/images/aviacion/carga.jpg',
   },
 ];
 ---
@@ -35,7 +37,11 @@ const routes = [
           style={`transition-delay:${i * 80}ms`}
         >
           <div class="absolute inset-0">
-            <PlaceholderImage label={route.imageLabel} class="h-full w-full" tone="onDark" />
+            {route.imageSrc ? (
+              <img src={route.imageSrc} alt="" class="h-full w-full object-cover" />
+            ) : (
+              <PlaceholderImage label={route.imageLabel} class="h-full w-full" tone="onDark" />
+            )}
             <div class="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/40 to-navy-900/10"></div>
           </div>
           <div class="relative p-8 md:p-10">

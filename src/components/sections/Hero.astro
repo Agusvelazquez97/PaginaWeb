@@ -23,6 +23,8 @@ interface Props {
   secondaryCta?: CTA;
   variant?: 'video' | 'image';
   fallbackLabel: string;
+  imageSrc?: string;
+  imageAlt?: string;
 }
 
 const {
@@ -35,6 +37,8 @@ const {
   secondaryCta,
   variant = 'image',
   fallbackLabel,
+  imageSrc,
+  imageAlt = '',
 } = Astro.props;
 ---
 
@@ -51,7 +55,7 @@ const {
           muted
           loop
           playsinline
-          poster="/images/placeholders/hero-fallback.svg"
+          poster={imageSrc ?? '/images/placeholders/hero-fallback.svg'}
         >
           <source src="/videos/hero.mp4" type="video/mp4" />
           <source src="/videos/hero.webm" type="video/webm" />
@@ -59,7 +63,11 @@ const {
       )
     }
     <div class:list={['absolute inset-0 h-full w-full', variant === 'video' && 'md:hidden']}>
-      <PlaceholderImage label={fallbackLabel} class="h-full w-full" tone="onDark" />
+      {imageSrc ? (
+        <img src={imageSrc} alt={imageAlt} class="h-full w-full object-cover" />
+      ) : (
+        <PlaceholderImage label={fallbackLabel} class="h-full w-full" tone="onDark" />
+      )}
     </div>
     <div
       class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/85 to-navy-900/60 md:bg-navy-900/65"
