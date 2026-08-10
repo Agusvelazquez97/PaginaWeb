@@ -6,6 +6,42 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 4 (SEO técnico, Schema.org, analítica)
+
+Spec sección 10, paso 8. Con esto el sitio tiene: `robots.txt`, sitemap
+verificado (8 páginas), JSON-LD (Organization/ProfessionalService en todas
+las páginas, Person por cada integrante en `/nosotros`, BreadcrumbList en
+las 7 páginas que no son Inicio), imagen Open Graph propia, y el
+scaffolding de GA4 listo para activar. Auditoría de accesibilidad (axe-core)
+y de links internos: **0 violaciones, 0 links rotos** en las 8 páginas.
+
+### Pendiente: activar GA4
+
+- [ ] **Measurement ID de GA4** (`siteConfig.ga4MeasurementId` en
+      `src/data/site.ts`, vacío). El loader de `gtag.js` y los eventos de
+      conversión (`form_submit` en el envío exitoso del formulario,
+      `whatsapp_click` en cualquier link a `wa.me`) ya están cableados en
+      `BaseLayout.astro` y `src/scripts/analytics.ts` — con el ID vacío
+      simplemente no se cargan (no rompen nada, no ensucian la consola).
+      Pasame el ID (`G-XXXXXXXXXX`) y lo activo.
+- [ ] Evento de click en agenda (Calendly): no se cableó todavía porque el
+      link real de agenda tampoco existe (mismo pendiente de etapas
+      anteriores). Se agrega junto con la URL de Calendly.
+
+### No se agregó FAQPage (Schema.org)
+
+La spec pide FAQPage entre los tipos de Schema.org, pero las respuestas del
+mini-FAQ de `/contacto` siguen siendo `[[PENDIENTE: respuesta]]` — marcarlas
+como datos estructurados reales sería mostrarle a Google contenido falso.
+Se agrega en cuanto haya respuestas reales.
+
+### Placeholder a reemplazar
+
+- [ ] **`public/og-image.png`** — imagen genérica generada con la paleta de
+      la marca (navy + texto), para que los links del sitio se vean bien al
+      compartir en WhatsApp/LinkedIn. Reemplazar por una pieza de marca real
+      cuando exista el logo vectorial (mismo pendiente que el favicon).
+
 ## Etapa 1 (Setup + componentes base + Inicio)
 
 ### Video y fotografía

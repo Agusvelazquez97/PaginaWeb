@@ -8,6 +8,19 @@
 import { ExternalLink } from '@lucide/astro';
 import Card from '@/components/ui/Card.astro';
 import { team } from '@/data/team';
+import { siteConfig } from '@/data/site';
+
+// Person (JSON-LD) — spec 9.1. Sin "image" ni "sameAs": fotos y LinkedIn
+// están [FALTA] (ver PENDIENTES.md).
+const personSchemas = team.map((member) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: member.name,
+  jobTitle: member.role,
+  description: member.bio,
+  worksFor: { '@type': 'Organization', name: siteConfig.name },
+  ...(member.linkedIn ? { sameAs: [member.linkedIn] } : {}),
+}));
 ---
 
 <section class="bg-white py-20 md:py-28">
@@ -49,4 +62,8 @@ import { team } from '@/data/team';
       ))}
     </ul>
   </div>
+
+  {personSchemas.map((schema) => (
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+  ))}
 </section>

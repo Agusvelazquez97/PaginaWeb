@@ -11,6 +11,7 @@ import Card from '@/components/ui/Card.astro';
 import TeamGrid from '@/components/sections/TeamGrid.astro';
 import DifferentiatorCards from '@/components/sections/DifferentiatorCards.astro';
 import CTASection from '@/components/sections/CTASection.astro';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema.astro';
 import { homeDifferentiators } from '@/data/content';
 ---
 
@@ -18,6 +19,7 @@ import { homeDifferentiators } from '@/data/content';
   title="Quiénes somos | Equipo con trayectoria en Air France/KLM y DHL — DGV"
   description="Conocé al equipo de DGV Business Consulting: trayectoria en multinacionales líderes, especialización en PyMEs y en el sector de aviación y logística."
 >
+  <BreadcrumbSchema items={[{ name: 'Inicio', path: '/' }, { name: 'Nosotros', path: '/nosotros' }]} />
   <Hero
     variant="image"
     fallbackLabel="imagen equipo DGV (hero nosotros)"

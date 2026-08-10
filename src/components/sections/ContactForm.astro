@@ -127,6 +127,8 @@ const hasEndpoint = Boolean(siteConfig.formEndpoint);
 </form>
 
 <script>
+  import { trackEvent } from '@/scripts/analytics';
+
   function initContactForm() {
     const form = document.getElementById('contact-form') as HTMLFormElement | null;
     const status = document.getElementById('form-status');
@@ -169,6 +171,7 @@ const hasEndpoint = Boolean(siteConfig.formEndpoint);
         form.reset();
         status.textContent = '¡Listo! Recibimos tu mensaje.';
         status.className = 'text-small font-medium text-success';
+        trackEvent('form_submit', { form: 'contact', type: String(data.get('type') ?? '') });
       } catch {
         status.textContent =
           'No pudimos enviar el mensaje. Escribinos por WhatsApp o reintentá en un momento.';

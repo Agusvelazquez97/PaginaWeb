@@ -11,6 +11,7 @@ import PlansTable from '@/components/sections/PlansTable.astro';
 import MethodSteps from '@/components/sections/MethodSteps.astro';
 import SocialProofReserved from '@/components/sections/SocialProofReserved.astro';
 import CTASection from '@/components/sections/CTASection.astro';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema.astro';
 import { pymePains, pymeSolutions, pymeServices, methodStepsFull } from '@/data/content';
 ---
 
@@ -18,6 +19,12 @@ import { pymePains, pymeSolutions, pymeServices, methodStepsFull } from '@/data/
   title="Consultoría para PyMEs en Argentina | Procesos, finanzas y rentabilidad — DGV"
   description="Ordenamos, medimos y hacemos rentable tu PyME: contabilidad, procesos, financiamiento y planificación estratégica con resultados medibles."
 >
+  <BreadcrumbSchema
+    items={[
+      { name: 'Inicio', path: '/' },
+      { name: 'Soluciones para PyMEs', path: '/soluciones-pymes' },
+    ]}
+  />
   <Hero
     variant="image"
     fallbackLabel="imagen PyME argentina (hero)"

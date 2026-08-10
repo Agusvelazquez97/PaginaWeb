@@ -8,6 +8,7 @@ import ContactForm from '@/components/sections/ContactForm.astro';
 import FAQAccordion from '@/components/sections/FAQAccordion.astro';
 import { Mail, MessageCircle, MapPin, CalendarClock } from '@lucide/astro';
 import { siteConfig, whatsappHref } from '@/data/site';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema.astro';
 
 const faqItems = [
   { question: '¿Cómo cobran los servicios?', answer: '[[PENDIENTE: respuesta — cómo cobran]]' },
@@ -26,6 +27,7 @@ const faqItems = [
   title="Contacto | Agendá un diagnóstico sin cargo — DGV Business Consulting"
   description="Escribinos por WhatsApp, mail o completá el formulario. Te respondemos en 24 h y coordinamos una conversación sin cargo sobre tu empresa."
 >
+  <BreadcrumbSchema items={[{ name: 'Inicio', path: '/' }, { name: 'Contacto', path: '/contacto' }]} />
   <section class="bg-bg-tint pt-32 pb-16 md:pt-40 md:pb-20">
     <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center" data-reveal>
       <p class="text-blue-700 font-semibold uppercase tracking-wide text-small">Contacto</p>

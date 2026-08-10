@@ -14,6 +14,7 @@ import DifferentiatorCards from '@/components/sections/DifferentiatorCards.astro
 import StatsBand from '@/components/sections/StatsBand.astro';
 import SocialProofReserved from '@/components/sections/SocialProofReserved.astro';
 import CTASection from '@/components/sections/CTASection.astro';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema.astro';
 import { aviacionProblems, aviacionPillars, methodStepsAviacion, aviacionDifferentiators } from '@/data/content';
 ---
 
@@ -21,6 +22,12 @@ import { aviacionProblems, aviacionPillars, methodStepsAviacion, aviacionDiffere
   title="Consultoría financiera para aviación y logística | O2C, P2P, compliance BCRA — DGV"
   description="Consultoría financiera especializada en aviación y logística: CFO advisory, optimización de procesos O2C/P2P/R2R, compliance BCRA y tecnología aplicada."
 >
+  <BreadcrumbSchema
+    items={[
+      { name: 'Inicio', path: '/' },
+      { name: 'Aviación & Logística', path: '/aviacion-logistica' },
+    ]}
+  />
   <Hero
     variant="image"
     fallbackLabel="imagen aviación / logística (hero)"
