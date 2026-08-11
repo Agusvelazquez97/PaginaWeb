@@ -90,7 +90,7 @@ cablearon en el sitio.
 Las 4 fotos recibieron el tratamiento duotono navy que exige la spec
 sección 3 (grises mapeados de `#050D1C` a `#DDE3F0`).
 
-### ✅ Resuelto (parcial): logo real de DGV
+### ✅ Resuelto: logo real de DGV (fondo oscuro y fondo claro)
 
 - [x] **Footer** — reemplaza el texto "DGV. Business Consulting" por el
       logo real (`public/images/brand/dgv-logo.png`, fondo transparente).
@@ -98,14 +98,17 @@ sección 3 (grises mapeados de `#050D1C` a `#DDE3F0`).
       reemplaza el monograma "D" genérico.
 - [x] **`public/og-image.png`** — el logo real reemplaza el texto del
       wordmark en la pieza que se comparte en WhatsApp/LinkedIn.
-- [ ] **Header** (`src/components/layout/Header.astro`) — **sigue con el
-      wordmark de texto**, sin cambios. El archivo de logo que tenemos
-      tiene el fondo navy sólido incorporado a la imagen (texto "DGV" y la
-      barra más alta son blancos): funciona sobre fondos oscuros (footer,
-      OG, favicon) pero **se vuelve invisible sobre el header, que tiene
-      fondo claro**. Falta pedirle al cliente una variante del logo para
-      fondo claro (texto en navy, o un SVG vectorial con las barras en
-      color y el texto en `#0D2461`) antes de poder reemplazar el header.
+- [x] **Header** (`src/components/layout/Header.astro`) — resuelto con una
+      **variante clara generada a partir del mismo archivo** (no un asset
+      nuevo del cliente): `public/images/brand/dgv-logo-light.png`. Se
+      recoloreó el "DGV" y la barra más alta (antes blancos, invisibles
+      sobre fondo claro) a navy `#0D2461`, y el subtítulo "BUSINESS
+      CONSULTING" a `#475569` (contraste verificado ≥ 4.5:1 sobre blanco,
+      WCAG AA). Las otras dos barras quedaron igual, ya tenían contraste
+      propio. No es un SVG vectorial real — es un PNG recoloreado a partir
+      del archivo que mandó el cliente —, así que si en algún momento
+      aparece el logo vectorial original, conviene reemplazar los 4 usos
+      (header, footer, favicon, OG) por ese.
 
 ### Nota sobre imágenes descartadas (no un pendiente, aclaración)
 
@@ -159,13 +162,11 @@ tienen foto real (ver Etapa 5 arriba).
 
 ### Marca
 
-- [ ] **Logo vectorial (SVG) de DGV, variante para fondo claro** — el logo
-      real del cliente ya está en uso en footer, favicon y OG image (ver
-      Etapa 5), pero solo sirve sobre fondos oscuros. El header sigue con
-      el wordmark de texto porque el archivo recibido tiene el texto
-      "DGV" en blanco (invisible sobre el fondo claro del header). Falta
-      una variante clara (o el SVG vectorial original) para cerrar este
-      punto (spec 9.2, bloqueante de lanzamiento).
+- [x] **Logo de DGV en el Header** — resuelto en Etapa 5 con una variante
+      clara generada a partir del logo del cliente (recoloreada, no un
+      archivo nuevo). Sigue pendiente el **SVG vectorial original** (spec
+      9.2) si el cliente lo tiene — hoy los 4 usos (header, footer,
+      favicon, OG) son PNG procesados a partir de un solo archivo.
 
 ## Etapa 2 (Soluciones para PyMEs + Aviación & Logística)
 
