@@ -57,6 +57,22 @@ cablearon en el sitio.
       del cliente, no un stock elegido a medida — la spec sugería 8-12s como
       referencia para búsquedas de stock, no como límite estricto).
 
+### ✅ Resuelto: fotografía de PyMEs
+
+- [x] **`public/images/pymes/hero-taller.jpg`** (carpintero en su taller) —
+      usada como Hero de `/soluciones-pymes` y como tarjeta "Soy una PyME"
+      del `RouteSelector` (Inicio). De un lote de 16 fotos de Pexels que
+      subió el cliente, revisadas una por una: se descartaron 3 por mostrar
+      texto de fondo legible que delata otro país (dos con documentos en
+      ruso, una con carteles en turco) y unas cuantas por ser demasiado
+      genéricas/corporativas para el "registro cercano y local" que pide la
+      spec. Esta fue la que mejor encajó: sin texto que la ubique en otro
+      país, taller real, buena luz.
+- [ ] **`public/images/pymes/panaderia.jpg`** y
+      **`public/images/pymes/numeros.jpg`** — procesadas y disponibles,
+      sin usar todavía (mismo caso que `finanzas.jpg` de Aviación: no hay
+      un slot de imagen de apoyo armado en `/soluciones-pymes` todavía).
+
 ### ✅ Resuelto: fotografía de aviación/logística
 
 - [x] **`public/images/aviacion/hero-avion.jpg`** (avión despegando) — usada
@@ -93,14 +109,21 @@ sección 3 (grises mapeados de `#050D1C` a `#DDE3F0`).
 
 ### Nota sobre imágenes descartadas (no un pendiente, aclaración)
 
-Además de las fotos de aviación/logística, se recibió un lote separado de
-8 imágenes para la vertical PyME (`Imagenes_pymes.docx`). Ese lote se
-revisó y **no se usó**: los metadatos incrustados en el documento
-mostraban evidencia de que las imágenes venían de resultados de búsqueda
-de Google Images / bancos de stock / notas de prensa, sin licencia
-verificable. Sigue faltando fotografía real y con licencia para
-`/soluciones-pymes` (hero y apoyo) y para la tarjeta PyME de
-`RouteSelector` — ver más abajo.
+Se recibieron dos lotes distintos de imágenes para la vertical PyME, con
+motivos de descarte distintos:
+
+- **`Imagenes_pymes.docx`** (8 imágenes) — **no se usó ninguna**: los
+  metadatos incrustados en el documento mostraban evidencia de que las
+  imágenes venían de resultados de búsqueda de Google Images / bancos de
+  stock / notas de prensa, sin licencia verificable.
+- **Lote de 16 fotos de Pexels** (licencia libre, sin problema de
+  derechos) — de estas se usaron 3 (ver arriba) y se descartaron el resto
+  por no encajar con el "registro cercano y local" que pide la spec
+  (demasiado genéricas/corporativas) o por mostrar texto de fondo legible
+  que ubica la foto en otro país (documentos en ruso, carteles en turco).
+
+Con esto, `/soluciones-pymes` y la tarjeta PyME de `RouteSelector` ya
+tienen foto real (ver Etapa 5 arriba).
 
 ## Etapa 1 (Setup + componentes base + Inicio)
 
@@ -109,11 +132,9 @@ verificable. Sigue faltando fotografía real y con licencia para
 - [ ] **Imagen fallback del hero para lectores/crawlers sin JS** — el
       `poster`/fallback mobile del Hero de Inicio ya usa una foto real
       (`hero-avion.jpg`, ver Etapa 5). Este ítem queda cerrado.
-- [ ] **Imagen de RouteSelector — tarjeta PyME** — sigue siendo un
-      `PlaceholderImage` (`imagen PyME argentina`). La tarjeta de Aviación
-      ya usa una foto real (`carga.jpg`, ver Etapa 5). Falta una foto de
-      PyME argentina real y con licencia (el lote recibido para esta
-      vertical fue descartado, ver nota arriba).
+- [x] **Imagen de RouteSelector — tarjeta PyME** — resuelto en Etapa 5:
+      `hero-taller.jpg` (carpintero en su taller), la misma que el Hero de
+      `/soluciones-pymes`.
 - [ ] **Fotos de equipo** (4 individuales + 1 grupal). Hoy el Team teaser usa
       **iniciales en círculo** como estado intermedio, tal como indica la
       spec sección 8 ("Reemplazan las iniciales en círculo").
@@ -150,18 +171,18 @@ verificable. Sigue faltando fotografía real y con licencia para
 
 ### Fotografía
 
-- [ ] **Imagen hero de `/soluciones-pymes`** — PyME argentina real, registro
-      cercano/local (spec sección 8). Hoy es un `PlaceholderImage` (el lote
-      de imágenes recibido para esta vertical fue descartado por falta de
-      licencia verificable, ver Etapa 5).
+- [x] **Imagen hero de `/soluciones-pymes`** — resuelto en Etapa 5:
+      `hero-taller.jpg` (carpintero en su taller), con tratamiento duotono,
+      registro cercano y local.
 - [x] **Imagen hero de `/aviacion-logistica`** — resuelto en Etapa 5:
       `terminal.jpg`, con tratamiento duotono, registro premium/técnico.
 - [x] Imágenes de apoyo para Aviación (carga, pantallas financieras) —
       resuelto en Etapa 5: `carga.jpg` en uso (RouteSelector), `finanzas.jpg`
       procesada y disponible sin usar todavía (sin slot de imagen en las
       secciones existentes).
-- [ ] Imágenes de apoyo para PyMEs (comercio/taller local) — sigue
-      pendiente, mismo motivo que el hero de PyMEs.
+- [x] Imágenes de apoyo para PyMEs (panadería/taller, revisar números) —
+      resuelto en Etapa 5: `panaderia.jpg` y `numeros.jpg` procesadas y
+      disponibles, sin usar todavía (mismo motivo que `finanzas.jpg`).
 
 ### Contenido reservado (no ficticio)
 
