@@ -9,8 +9,7 @@ export const siteConfig = {
   whatsappNumber: '5491160941379',
   whatsappMessage: 'Hola, quiero coordinar una conversación con DGV',
   location: 'Buenos Aires, Argentina',
-  // [FALTA] URL de LinkedIn — ver PENDIENTES.md
-  linkedInUrl: '',
+  linkedInUrl: 'https://www.linkedin.com/company/dgv-business-consulting/',
   // [FALTA] URL de agenda (Calendly u otro) — ver PENDIENTES.md
   calendlyUrl: '',
   // Formspree — spec 7.1. Envía a daniel.v@dgvbusiness.com (verificado en Formspree).

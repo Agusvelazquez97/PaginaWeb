@@ -179,9 +179,9 @@ tienen foto real (ver Etapa 5 arriba).
 
 ### Datos de contacto y enlaces
 
-- [ ] **URL de LinkedIn de DGV** — footer preparado (`siteConfig.linkedInUrl`
-      en `src/data/site.ts`) pero vacío; no se muestra el link hasta tener
-      la URL real.
+- [x] **URL de LinkedIn de DGV** — cargada en `siteConfig.linkedInUrl`
+      (`linkedin.com/company/dgv-business-consulting`). Aparece en el
+      footer y en el `sameAs` del Schema.org (`OrganizationSchema.astro`).
 - [ ] **URL de agenda (Calendly u otro)** — `siteConfig.calendlyUrl` vacío.
       Spec 7.2: debe complementar (no reemplazar) al formulario de contacto.
       Se resuelve en la etapa de Contacto.
