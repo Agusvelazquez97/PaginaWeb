@@ -1,20 +1,35 @@
 ---
 /**
  * Detalle del método para /metodologia (spec 6.5). Extiende los 4 pasos con
- * entregables y duración por etapa — ambos [FALTA] en la spec, se dejan
- * como placeholder evidente en vez de inventar plazos o entregables.
+ * entregables y duración por etapa, con contenido real provisto por el
+ * cliente (ver PENDIENTES.md). El cliente describe el proceso en 4 fases
+ * algo distintas ("Diagnóstico / Análisis / Estrategia / Implementación y
+ * seguimiento"); se repartió ese contenido en los 4 pasos que ya usa el
+ * resto del sitio (Diagnóstico/Estrategia/Implementación/Seguimiento) para
+ * no reestructurar la presentación pública: "Análisis" queda absorbido en
+ * Diagnóstico (su entregable ya estaba incluido ahí) y "Implementación y
+ * seguimiento" se separa en los dos pasos existentes.
  */
 import Card from '@/components/ui/Card.astro';
 import { methodStepsAviacion } from '@/data/content';
 
 const extras = [
-  { deliverable: '[[PENDIENTE: entregables de Diagnóstico]]', duration: '[[PENDIENTE: duración]]' },
-  { deliverable: '[[PENDIENTE: entregables de Estrategia]]', duration: '[[PENDIENTE: duración]]' },
   {
-    deliverable: '[[PENDIENTE: entregables de Implementación]]',
-    duration: '[[PENDIENTE: duración]]',
+    deliverable: 'Mapa de brechas + mapa de oportunidades + matriz de priorización + quick wins + informe ejecutivo.',
+    duration: '2 a 3 semanas.',
   },
-  { deliverable: '[[PENDIENTE: entregables de Seguimiento]]', duration: '[[PENDIENTE: duración]]' },
+  {
+    deliverable: 'Plan estratégico de mejora: objetivos, prioridades, iniciativas, KPIs y roadmap a 30/60/90 días.',
+    duration: '3 a 5 días hábiles.',
+  },
+  {
+    deliverable: 'Roadmap de implementación + tablero de KPIs.',
+    duration: '3 a 6 meses, según la complejidad del proyecto.',
+  },
+  {
+    deliverable: 'Informes de avance + seguimiento ejecutivo + informe final de resultados.',
+    duration: 'Continuo durante toda la implementación.',
+  },
 ];
 
 const steps = methodStepsAviacion.map((step, i) => ({ ...step, ...extras[i] }));

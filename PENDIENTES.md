@@ -6,6 +6,41 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 6 (Historia, valores, entregables — contenido real del cliente)
+
+Contenido recibido en `Pendientes_web.docx`. Se aplicó tal cual, sin agregar
+datos ni cifras nuevas.
+
+### ✅ Resuelto: Historia y Valores en `/nosotros`
+
+- [x] **Historia** — reemplaza el placeholder por el texto real (narrativa en
+      primera persona de Daniel G. Velázquez sobre el origen de DGV). Se armó
+      como sección propia con tipografía de lectura (antes estaba forzada
+      dentro de una tarjeta chica junto a Misión/Visión, que no alcanzaba
+      para un texto largo). Cierra con una cita destacada (propósito de DGV)
+      atribuida a Daniel.
+- [x] **Valores** — reemplaza el placeholder por los 6 valores reales
+      (Excelencia, Compromiso, Innovación, Integridad, Cercanía,
+      Resultados), cada uno con su descripción tal cual la mandaron. Se armó
+      como grilla de 6 tarjetas con ícono, sección propia (antes también
+      forzado en la tarjeta chica).
+
+### ✅ Resuelto: Entregables y duración por etapa en `/metodologia`
+
+- [x] Las 4 tarjetas del método (`MethodStepsDetailed.astro`) ya muestran
+      entregables y duración reales en vez de `[[PENDIENTE]]`.
+      **Nota editorial:** el documento del cliente describe el proceso en 4
+      fases con límites algo distintos a los del sitio ("Diagnóstico /
+      Análisis / Estrategia / Implementación y seguimiento", esta última
+      fase junta lo que el sitio muestra como dos pasos separados). Para no
+      reestructurar la presentación pública (que ya usa Diagnóstico /
+      Estrategia / Implementación / Seguimiento en Inicio, PyMEs, Aviación y
+      Metodología), se repartió el contenido real en esos 4 pasos
+      existentes: "Análisis" quedó absorbido en Diagnóstico (su entregable,
+      "mapa de brechas y oportunidades", ya estaba incluido ahí) y
+      "Implementación y seguimiento" se separó en los dos pasos ya
+      existentes. Decisión confirmada con el cliente antes de aplicarla.
+
 ## Etapa 4 (SEO técnico, Schema.org, analítica)
 
 Spec sección 10, paso 8. Con esto el sitio tiene: `robots.txt`, sitemap
@@ -222,16 +257,14 @@ Con esta etapa quedan construidas **todas** las páginas de prioridad
 
 ### Contenido reservado (no ficticio)
 
-- [ ] **Entregables y duración típica por etapa** en `/metodologia` — cada
-      uno de los 4 pasos tiene `[[PENDIENTE: entregables]]` y
-      `[[PENDIENTE: duración]]` (spec 6.5, ambos [FALTA]).
+- [x] **Entregables y duración típica por etapa** en `/metodologia` —
+      resuelto en Etapa 6, con contenido real del cliente.
 - [ ] **Respuestas del mini-FAQ** en `/contacto` — las 3 preguntas están
       (cómo cobran, duración típica, modalidad remoto/presencial) pero las
       respuestas son `[[PENDIENTE: respuesta]]` (spec 6.8, [FALTA
       respuestas]).
-- [ ] **Historia y valores de la empresa** en `/nosotros` — dos tarjetas
-      con borde punteado, `[[PENDIENTE: historia de DGV]]` y
-      `[[PENDIENTE: valores de la empresa]]` (spec 6.6, ambos [FALTA]).
+- [x] **Historia y valores de la empresa** en `/nosotros` — resuelto en
+      Etapa 6, con contenido real del cliente.
 - [ ] **Página `/casos`** — construida como "sección en construcción",
       sin casos ficticios (spec sección 10, paso 7). Reemplazar por casos
       reales cuando existan y estén autorizados.

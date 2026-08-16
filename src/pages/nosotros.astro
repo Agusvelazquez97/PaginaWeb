@@ -12,7 +12,54 @@ import TeamGrid from '@/components/sections/TeamGrid.astro';
 import DifferentiatorCards from '@/components/sections/DifferentiatorCards.astro';
 import CTASection from '@/components/sections/CTASection.astro';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema.astro';
+import { Award, HeartHandshake, Lightbulb, ShieldCheck, Users, TrendingUp } from '@lucide/astro';
 import { homeDifferentiators } from '@/data/content';
+
+const historia = [
+  'DGV Business Consulting nació de una experiencia profesional, pero también de una nueva manera de entender las necesidades de las empresas.',
+  'Luego de finalizar mi etapa profesional en Air France / KLM / Martinair, donde desarrollé gran parte de mi carrera en posiciones vinculadas a la administración y las finanzas, me propuse un nuevo desafío: volver a integrarme a una empresa como Gerente Administrativo Financiero y, al mismo tiempo, comenzar a prepararme para desarrollar una actividad independiente.',
+  'Con ese objetivo inicié un programa de consultoría en el Consejo Profesional de Ciencias Económicas, una experiencia que me permitió no solo incorporar nuevas herramientas, sino también conocer a otros profesionales que compartían la misma inquietud: cómo transformar nuestra experiencia para responder a las nuevas necesidades de las empresas.',
+  'A través de conversaciones con colegas y empresarios, fui identificando una realidad cada vez más evidente: el modelo tradicional de estudio contable ya no era suficiente para muchas PyMEs.',
+  'Las empresas necesitaban mucho más que una contabilidad ordenada o el cumplimiento de obligaciones fiscales. Necesitaban profesionales capaces de entender sus problemas, analizar sus números, optimizar procesos, reducir costos, mejorar su gestión financiera, incorporar tecnología y acompañarlos en la toma de decisiones.',
+  'Al mismo tiempo, la transformación tecnológica comenzó a cambiar profundamente la forma de prestar servicios profesionales. La digitalización, la automatización, la inteligencia artificial y nuevos modelos como el External CFO comenzaron a generar oportunidades para brindar conocimientos especializados de manera flexible, sin necesidad de incorporar estructuras permanentes.',
+  'Esta evolución nos llevó a una conclusión: la especialización y el conocimiento del negocio serían cada vez más importantes.',
+  'Fue entonces cuando surgió la idea de crear una consultora orientada especialmente a las PyMEs, combinando la experiencia acumulada durante más de 35 años en administración, contabilidad y finanzas con el conocimiento específico adquirido durante más de dos décadas en sectores como líneas aéreas y logística.',
+  'Así nació DGV Business Consulting: una consultora construida sobre una combinación que consideramos fundamental para las necesidades actuales — experiencia en gestión empresarial, conocimiento financiero, optimización de procesos y transformación digital.',
+  'DGV está formada por un equipo familiar de profesionales de Ciencias Económicas y Ciencias Digitales, que integra diferentes generaciones, conocimientos y perspectivas para acompañar a las empresas en sus desafíos actuales.',
+];
+
+const valores = [
+  {
+    icon: Award,
+    title: 'Excelencia',
+    copy: 'Buscamos los más altos estándares de calidad en cada proyecto, aportando experiencia, conocimiento y soluciones profesionales.',
+  },
+  {
+    icon: HeartHandshake,
+    title: 'Compromiso',
+    copy: 'Nos involucramos con los objetivos de nuestros clientes y asumimos cada desafío como propio.',
+  },
+  {
+    icon: Lightbulb,
+    title: 'Innovación',
+    copy: 'Buscamos nuevas formas de hacer las cosas, incorporando tecnología, herramientas y metodologías que generen valor.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Integridad',
+    copy: 'Actuamos con transparencia, ética y responsabilidad, construyendo relaciones basadas en la confianza.',
+  },
+  {
+    icon: Users,
+    title: 'Cercanía',
+    copy: 'Trabajamos junto al cliente, entendiendo su realidad, sus necesidades y sus desafíos para brindar soluciones a medida.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Resultados',
+    copy: 'Orientamos nuestras acciones hacia mejoras concretas, medibles y sostenibles que contribuyan al crecimiento del negocio.',
+  },
+];
 ---
 
 <BaseLayout
@@ -64,23 +111,58 @@ import { homeDifferentiators } from '@/data/content';
             </p>
           </Card>
         </div>
-        <div data-reveal style="transition-delay:120ms">
-          <Card class="h-full border-2 border-dashed border-navy-700/15 bg-white shadow-none">
-            <p class="font-heading font-semibold text-navy-700 uppercase tracking-wide text-small">
-              Historia
-            </p>
-            <p class="mt-3 text-small text-slate-500">[[PENDIENTE: historia de DGV]]</p>
-          </Card>
-        </div>
-        <div data-reveal style="transition-delay:180ms">
-          <Card class="h-full border-2 border-dashed border-navy-700/15 bg-white shadow-none">
-            <p class="font-heading font-semibold text-navy-700 uppercase tracking-wide text-small">
-              Valores
-            </p>
-            <p class="mt-3 text-small text-slate-500">[[PENDIENTE: valores de la empresa]]</p>
-          </Card>
-        </div>
       </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-20 md:py-28">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-10" data-reveal>
+        <p class="text-blue-700 font-semibold uppercase tracking-wide text-small">Cómo empezamos</p>
+        <h2 class="mt-3 font-heading font-bold text-h1 text-navy-700">Nuestra historia.</h2>
+      </div>
+
+      <div class="space-y-5" data-reveal style="transition-delay:60ms">
+        {historia.map((paragraph) => (
+          <p class="text-slate-600 leading-relaxed">{paragraph}</p>
+        ))}
+      </div>
+
+      <blockquote class="mt-8 border-l-4 border-blue-500 pl-6" data-reveal style="transition-delay:120ms">
+        <p class="font-heading font-semibold text-navy-700 text-lead leading-snug">
+          Ayudar a las PyMEs a entender dónde están, identificar dónde pueden mejorar y
+          acompañarlas para llegar más lejos.
+        </p>
+        <p class="mt-2 text-small text-slate-500">
+          Porque creemos que una consultoría de valor no consiste solamente en diagnosticar
+          problemas, sino en convertirlos en oportunidades y transformar las oportunidades en
+          resultados.
+        </p>
+        <footer class="mt-3 text-small font-medium text-slate-400">— Daniel G. Velázquez, Socio</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="bg-bg-tint py-20 md:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-12" data-reveal>
+        <p class="text-blue-700 font-semibold uppercase tracking-wide text-small">Lo que nos guía</p>
+        <h2 class="mt-3 font-heading font-bold text-h1 text-navy-700">Nuestros valores.</h2>
+      </div>
+
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {valores.map((valor, i) => (
+          <li data-reveal style={`transition-delay:${i * 60}ms`}>
+            <Card class="h-full">
+              <valor.icon class="size-8 text-blue-500" aria-hidden="true" />
+              <h3 class="mt-4 font-heading font-semibold text-navy-700 text-[17px] leading-snug">
+                {valor.title}
+              </h3>
+              <p class="mt-2 text-small text-slate-500">{valor.copy}</p>
+            </Card>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
