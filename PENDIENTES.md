@@ -185,9 +185,10 @@ tienen foto real (ver Etapa 5 arriba).
 - [ ] **URL de agenda (Calendly u otro)** — `siteConfig.calendlyUrl` vacío.
       Spec 7.2: debe complementar (no reemplazar) al formulario de contacto.
       Se resuelve en la etapa de Contacto.
-- [ ] **Dominio del sitio** — `astro.config.mjs` asume `https://www.dgvbusiness.com`
-      a partir del email de contacto (`contacto@dgvbusiness.com`). Confirmar
-      con el cliente antes de lanzar (afecta sitemap y OG/canonical URLs).
+- [x] **Dominio del sitio** — confirmado por el cliente: `dgvbusiness.com`.
+      No hizo falta tocar nada más allá del comentario en
+      `astro.config.mjs`: ya estaba configurado con ese dominio desde el
+      arranque del proyecto.
 
 ### Contenido reservado (no ficticio)
 
