@@ -1,11 +1,13 @@
 ---
 /**
- * Contacto — spec sección 6.8, 7.1 y 7.2. Agenda (Calendly) [FALTA URL] y
- * respuestas del mini-FAQ [FALTA]: quedan como placeholder evidente.
+ * Contacto — spec sección 6.8, 7.1 y 7.2. Agenda (Calendly) complementa al
+ * formulario, no lo reemplaza. Respuestas del mini-FAQ [FALTA]: quedan
+ * como placeholder evidente.
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ContactForm from '@/components/sections/ContactForm.astro';
 import FAQAccordion from '@/components/sections/FAQAccordion.astro';
+import Button from '@/components/ui/Button.astro';
 import { Mail, MessageCircle, MapPin, CalendarClock } from '@lucide/astro';
 import { siteConfig, whatsappHref } from '@/data/site';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema.astro';
@@ -76,15 +78,18 @@ const faqItems = [
           </ul>
         </div>
 
-        <div class="rounded-card border-2 border-dashed border-navy-700/15 p-6">
+        <div class="rounded-card bg-bg-tint p-6">
           <p class="font-heading font-semibold text-navy-700 mb-2 inline-flex items-center gap-2">
             <CalendarClock class="size-4" aria-hidden="true" />
             Agendar una conversación
           </p>
-          <p class="text-small text-slate-500">
-            [[PENDIENTE: link de agenda (Calendly)]] — mientras tanto, coordinamos por WhatsApp o
-            email.
+          <p class="text-small text-slate-500 mb-4">
+            Elegí vos mismo el día y horario para una charla de 30 minutos sin cargo, sin ir y
+            venir de mails.
           </p>
+          <Button href={siteConfig.calendlyUrl} target="_blank" rel="noopener noreferrer" variant="secondary" class="w-full">
+            Agendar en Calendly
+          </Button>
         </div>
       </div>
     </div>

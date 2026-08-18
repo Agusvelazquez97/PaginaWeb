@@ -25,4 +25,14 @@ function initWhatsAppTracking(): void {
   });
 }
 
+function initCalendlyTracking(): void {
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement | null;
+    if (target?.closest('a[href*="calendly.com"]')) {
+      trackEvent('calendly_click');
+    }
+  });
+}
+
 initWhatsAppTracking();
+initCalendlyTracking();

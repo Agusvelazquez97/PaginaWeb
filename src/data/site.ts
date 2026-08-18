@@ -10,8 +10,7 @@ export const siteConfig = {
   whatsappMessage: 'Hola, quiero coordinar una conversación con DGV',
   location: 'Buenos Aires, Argentina',
   linkedInUrl: 'https://www.linkedin.com/company/dgv-business-consulting/',
-  // [FALTA] URL de agenda (Calendly u otro) — ver PENDIENTES.md
-  calendlyUrl: '',
+  calendlyUrl: 'https://calendly.com/daniel-v-dgvbusiness/30min',
   // Formspree — spec 7.1. Envía a daniel.v@dgvbusiness.com (verificado en Formspree).
   formEndpoint: 'https://formspree.io/f/mzepewle',
   contactSla: 'Te respondemos en 24 h y coordinamos una llamada de 30 min sin cargo.',

@@ -6,6 +6,31 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 7 (LinkedIn, dominio, Calendly)
+
+### ✅ Resuelto: dominio, LinkedIn y agenda (Calendly)
+
+- [x] **Dominio confirmado**: `dgvbusiness.com`. Ya lo tenía bien
+      configurado `astro.config.mjs` desde el arranque del proyecto.
+- [x] **LinkedIn**: `siteConfig.linkedInUrl` cargado con la página real de
+      empresa. Aparece en el footer (antes no estaba armado pese a lo que
+      decía el comentario del código) y en el `sameAs` del Schema.org.
+- [x] **Calendly**: `siteConfig.calendlyUrl` cargado con el link real
+      (`calendly.com/daniel-v-dgvbusiness/30min`). En `/contacto` reemplaza
+      el bloque reservado por un botón real "Agendar en Calendly", que
+      complementa al formulario sin reemplazarlo (spec 7.2). Se agregó
+      también el evento de tracking `calendly_click` en
+      `src/scripts/analytics.ts` (mismo criterio que `whatsapp_click`: no
+      hace nada hasta que haya Measurement ID de GA4).
+
+Nota sobre el dominio: `dgvbusiness.com` ya está registrado (Squarespace
+Domains) y hoy muestra una página placeholder de Squarespace ("Próximamente").
+El sitio construido acá todavía no está desplegado en ningún hosting — quedó
+pausado a pedido del cliente hasta terminar el resto de contenido pendiente.
+Cuando se retome: desplegar en Vercel desde la rama
+`claude/mcp-21st-dev-connection-5745jj` (el repo no tiene una rama `main`
+con el sitio) y apuntar el DNS de Squarespace ahí.
+
 ## Etapa 6 (Historia, valores, entregables — contenido real del cliente)
 
 Contenido recibido en `Pendientes_web.docx`. Se aplicó tal cual, sin agregar
@@ -59,9 +84,10 @@ y de links internos: **0 violaciones, 0 links rotos** en las 8 páginas.
       `BaseLayout.astro` y `src/scripts/analytics.ts` — con el ID vacío
       simplemente no se cargan (no rompen nada, no ensucian la consola).
       Pasame el ID (`G-XXXXXXXXXX`) y lo activo.
-- [ ] Evento de click en agenda (Calendly): no se cableó todavía porque el
-      link real de agenda tampoco existe (mismo pendiente de etapas
-      anteriores). Se agrega junto con la URL de Calendly.
+- [x] Evento de click en agenda (Calendly) — cableado en
+      `src/scripts/analytics.ts` (`calendly_click` en cualquier link a
+      `calendly.com`). Igual que el resto de los eventos, no hace nada
+      hasta que haya Measurement ID de GA4.
 
 ### No se agregó FAQPage (Schema.org)
 
@@ -182,9 +208,9 @@ tienen foto real (ver Etapa 5 arriba).
 - [x] **URL de LinkedIn de DGV** — cargada en `siteConfig.linkedInUrl`
       (`linkedin.com/company/dgv-business-consulting`). Aparece en el
       footer y en el `sameAs` del Schema.org (`OrganizationSchema.astro`).
-- [ ] **URL de agenda (Calendly u otro)** — `siteConfig.calendlyUrl` vacío.
-      Spec 7.2: debe complementar (no reemplazar) al formulario de contacto.
-      Se resuelve en la etapa de Contacto.
+- [x] **URL de agenda (Calendly u otro)** — cargada en
+      `siteConfig.calendlyUrl`. Ver Etapa 7 para el detalle de dónde quedó
+      cableada.
 - [x] **Dominio del sitio** — confirmado por el cliente: `dgvbusiness.com`.
       No hizo falta tocar nada más allá del comentario en
       `astro.config.mjs`: ya estaba configurado con ese dominio desde el
@@ -272,9 +298,7 @@ Con esta etapa quedan construidas **todas** las páginas de prioridad
 
 ### Datos de contacto y enlaces
 
-- [ ] **Link de agenda (Calendly)** en `/contacto` — mismo pendiente que en
-      Etapa 1 (`siteConfig.calendlyUrl`), ahora con su propio bloque
-      reservado visible en la página en vez de solo en CTAs.
+- [x] **Link de agenda (Calendly)** en `/contacto` — resuelto en Etapa 7.
 
 ### Decisión editorial a revisar: agrupación de `/servicios` por familia
 
