@@ -14,9 +14,7 @@ export const siteConfig = {
   // Formspree — spec 7.1. Envía a daniel.v@dgvbusiness.com (verificado en Formspree).
   formEndpoint: 'https://formspree.io/f/mzepewle',
   contactSla: 'Te respondemos en 24 h y coordinamos una llamada de 30 min sin cargo.',
-  // [FALTA] Measurement ID de GA4 (formato "G-XXXXXXXXXX") — ver PENDIENTES.md
-  // y spec 9.1. Sin esto, gtag no se carga y trackEvent() no-opea en silencio.
-  ga4MeasurementId: '',
+  ga4MeasurementId: 'G-X46GF8BR3M',
 };
 
 export const whatsappHref = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(

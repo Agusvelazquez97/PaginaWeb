@@ -77,13 +77,11 @@ y de links internos: **0 violaciones, 0 links rotos** en las 8 páginas.
 
 ### Pendiente: activar GA4
 
-- [ ] **Measurement ID de GA4** (`siteConfig.ga4MeasurementId` en
-      `src/data/site.ts`, vacío). El loader de `gtag.js` y los eventos de
-      conversión (`form_submit` en el envío exitoso del formulario,
-      `whatsapp_click` en cualquier link a `wa.me`) ya están cableados en
-      `BaseLayout.astro` y `src/scripts/analytics.ts` — con el ID vacío
-      simplemente no se cargan (no rompen nada, no ensucian la consola).
-      Pasame el ID (`G-XXXXXXXXXX`) y lo activo.
+- [x] **Measurement ID de GA4** — cargado en `siteConfig.ga4MeasurementId`
+      (`G-X46GF8BR3M`). El loader de `gtag.js` y los eventos de conversión
+      (`form_submit`, `whatsapp_click`, `calendly_click`) ya están activos.
+      Verificado: `window.dataLayer` recibe los eventos y `window.gtag`
+      queda definido correctamente.
 - [x] Evento de click en agenda (Calendly) — cableado en
       `src/scripts/analytics.ts` (`calendly_click` en cualquier link a
       `calendly.com`). Igual que el resto de los eventos, no hace nada
