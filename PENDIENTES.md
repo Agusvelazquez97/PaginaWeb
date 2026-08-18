@@ -6,6 +6,38 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 8 (GA4 y mini-FAQ de Contacto)
+
+### ✅ Resuelto: GA4 activo
+
+- [x] **Measurement ID de GA4** (`G-X46GF8BR3M`) cargado en
+      `siteConfig.ga4MeasurementId`. El loader de `gtag.js` y los eventos de
+      conversión (`form_submit`, `whatsapp_click`, `calendly_click`) quedan
+      activos. Verificado en navegador: `window.dataLayer` recibe los
+      eventos y `window.gtag` queda definido correctamente.
+
+### ✅ Resuelto: respuestas reales del mini-FAQ
+
+- [x] **¿Cómo cobran los servicios?** — "El diagnóstico inicial tiene un
+      valor cerrado, así sabés el costo antes de arrancar. A partir de ahí,
+      según el alcance de la implementación, trabajamos por proyecto o con
+      un abono mensual." (modelo mixto, consistente con la estructura de 4
+      etapas ya publicada en `/metodologia`: diagnóstico acotado con precio
+      cerrado, implementación más larga con abono o por proyecto).
+- [x] **¿Cuánto dura un proyecto típico?** — reutiliza las duraciones reales
+      ya cargadas en Etapa 6 (2-3 semanas de diagnóstico, 3-6 meses de
+      implementación y seguimiento).
+- [x] **¿Trabajan de forma remota o presencial?** — "Somos presenciales en
+      Buenos Aires, pero la modalidad se adapta a cada proyecto: con
+      empresas del interior del país trabajamos de forma remota,
+      coordinando encuentros presenciales puntuales cuando el proyecto lo
+      requiere. Y en Buenos Aires también trabajamos de forma remota cuando
+      la presencialidad no es necesaria."
+
+Con las 3 respuestas reales, se agregó también el `FAQSchema.astro`
+(FAQPage de Schema.org) en `/contacto`, que se había dejado afuera a
+propósito en la Etapa 4 mientras las respuestas eran `[[PENDIENTE]]`.
+
 ## Etapa 7 (LinkedIn, dominio, Calendly)
 
 ### ✅ Resuelto: dominio, LinkedIn y agenda (Calendly)
@@ -87,12 +119,12 @@ y de links internos: **0 violaciones, 0 links rotos** en las 8 páginas.
       `calendly.com`). Igual que el resto de los eventos, no hace nada
       hasta que haya Measurement ID de GA4.
 
-### No se agregó FAQPage (Schema.org)
+### ✅ Resuelto: FAQPage (Schema.org)
 
-La spec pide FAQPage entre los tipos de Schema.org, pero las respuestas del
-mini-FAQ de `/contacto` siguen siendo `[[PENDIENTE: respuesta]]` — marcarlas
-como datos estructurados reales sería mostrarle a Google contenido falso.
-Se agrega en cuanto haya respuestas reales.
+- [x] Con las 3 respuestas reales del mini-FAQ cargadas (ver Etapa 8), se
+      agregó `FAQSchema.astro` (`/contacto`) — el tipo `FAQPage` que la spec
+      pedía en sección 9.1 y que se había dejado afuera a propósito mientras
+      las respuestas eran `[[PENDIENTE]]`.
 
 ### Placeholder a reemplazar
 
@@ -284,10 +316,8 @@ Con esta etapa quedan construidas **todas** las páginas de prioridad
 
 - [x] **Entregables y duración típica por etapa** en `/metodologia` —
       resuelto en Etapa 6, con contenido real del cliente.
-- [ ] **Respuestas del mini-FAQ** en `/contacto` — las 3 preguntas están
-      (cómo cobran, duración típica, modalidad remoto/presencial) pero las
-      respuestas son `[[PENDIENTE: respuesta]]` (spec 6.8, [FALTA
-      respuestas]).
+- [x] **Respuestas del mini-FAQ** en `/contacto` — resuelto en Etapa 8, con
+      contenido real confirmado por el cliente.
 - [x] **Historia y valores de la empresa** en `/nosotros` — resuelto en
       Etapa 6, con contenido real del cliente.
 - [ ] **Página `/casos`** — construida como "sección en construcción",

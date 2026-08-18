@@ -1,8 +1,7 @@
 ---
 /**
  * Contacto — spec sección 6.8, 7.1 y 7.2. Agenda (Calendly) complementa al
- * formulario, no lo reemplaza. Respuestas del mini-FAQ [FALTA]: quedan
- * como placeholder evidente.
+ * formulario, no lo reemplaza.
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ContactForm from '@/components/sections/ContactForm.astro';
@@ -11,16 +10,23 @@ import Button from '@/components/ui/Button.astro';
 import { Mail, MessageCircle, MapPin, CalendarClock } from '@lucide/astro';
 import { siteConfig, whatsappHref } from '@/data/site';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema.astro';
+import FAQSchema from '@/components/seo/FAQSchema.astro';
 
 const faqItems = [
-  { question: '¿Cómo cobran los servicios?', answer: '[[PENDIENTE: respuesta — cómo cobran]]' },
+  {
+    question: '¿Cómo cobran los servicios?',
+    answer:
+      'El diagnóstico inicial tiene un valor cerrado, así sabés el costo antes de arrancar. A partir de ahí, según el alcance de la implementación, trabajamos por proyecto o con un abono mensual.',
+  },
   {
     question: '¿Cuánto dura un proyecto típico?',
-    answer: '[[PENDIENTE: respuesta — duración típica]]',
+    answer:
+      'Depende del alcance: el diagnóstico inicial toma entre 2 y 3 semanas, la definición de estrategia unos días más, y la implementación y seguimiento suele extenderse entre 3 y 6 meses según la complejidad del proyecto.',
   },
   {
     question: '¿Trabajan de forma remota o presencial?',
-    answer: '[[PENDIENTE: respuesta — modalidad remoto/presencial]]',
+    answer:
+      'Somos presenciales en Buenos Aires, pero la modalidad se adapta a cada proyecto: con empresas del interior del país trabajamos de forma remota, coordinando encuentros presenciales puntuales cuando el proyecto lo requiere. Y en Buenos Aires también trabajamos de forma remota cuando la presencialidad no es necesaria.',
   },
 ];
 ---
@@ -30,6 +36,7 @@ const faqItems = [
   description="Escribinos por WhatsApp, mail o completá el formulario. Te respondemos en 24 h y coordinamos una conversación sin cargo sobre tu empresa."
 >
   <BreadcrumbSchema items={[{ name: 'Inicio', path: '/' }, { name: 'Contacto', path: '/contacto' }]} />
+  <FAQSchema items={faqItems} />
   <section class="bg-bg-tint pt-32 pb-16 md:pt-40 md:pb-20">
     <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center" data-reveal>
       <p class="text-blue-700 font-semibold uppercase tracking-wide text-small">Contacto</p>

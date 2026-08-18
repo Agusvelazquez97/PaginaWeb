@@ -1,0 +1,32 @@
+---
+/**
+ * FAQPage (JSON-LD) — spec sección 9.1. Se agrega solo cuando las
+ * respuestas son reales (no marcar contenido [[PENDIENTE]] como datos
+ * estructurados: sería mostrarle a Google información falsa).
+ */
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FAQItem[];
+}
+
+const { items } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
