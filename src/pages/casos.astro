@@ -2,7 +2,8 @@
 /**
  * Casos de éxito — spec sección 5 (prioridad "Al haber contenido") y
  * sección 10, paso 7: "plantilla, sin publicar hasta tener contenido".
- * Página construida y lista para poblarse; no se publican casos ficticios.
+ * Página construida y lista para poblarse, con copy honesto (DGV recién
+ * está lanzando, sin clientes todavía); no se publican casos ficticios.
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import CommitmentBlock from '@/components/sections/CommitmentBlock.astro';
@@ -32,11 +33,12 @@ import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema.astro';
       >
         <FileText class="size-8 text-blue-500 mx-auto" aria-hidden="true" />
         <p class="mt-4 font-heading font-semibold text-navy-700">
-          [[PENDIENTE: casos y resultados reales]]
+          Sé parte de los primeros casos
         </p>
         <p class="mt-2 text-small text-slate-500">
-          En cuanto existan proyectos que se puedan publicar (con autorización del cliente),
-          van a aparecer acá con datos concretos. No se muestran casos ficticios.
+          Estamos recién lanzando DGV Business Consulting. En cuanto tengamos proyectos que se
+          puedan publicar (con autorización del cliente), van a aparecer acá con datos
+          concretos.
         </p>
       </div>
     </div>

@@ -2,7 +2,8 @@
 /**
  * Módulo de prueba social reservado — spec sección 9.3.8: "Módulos de
  * prueba social construidos aunque vacíos, para poblarlos apenas exista
- * contenido." No se publican casos ni testimonios ficticios.
+ * contenido." Copy honesto (DGV recién está lanzando, sin clientes
+ * todavía): no se publican casos ni testimonios ficticios.
  */
 interface Props {
   label: string;
@@ -18,8 +19,9 @@ const { label } = Astro.props;
     >
       <p class="font-heading font-semibold text-navy-700">Casos y testimonios</p>
       <p class="mt-2 text-small text-slate-500 max-w-md mx-auto">
-        [[PENDIENTE: {label}]] — este espacio queda reservado y se publica en cuanto haya
-        clientes reales que lo autoricen. No se muestran casos ficticios.
+        Estamos recién lanzando DGV Business Consulting, así que todavía no tenemos {label} para
+        mostrar. A medida que sumemos los primeros clientes, vas a encontrar acá sus resultados
+        reales, con su autorización.
       </p>
     </div>
   </div>

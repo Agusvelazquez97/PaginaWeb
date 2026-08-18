@@ -6,6 +6,39 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 9 (Copy de lanzamiento para testimonios/casos)
+
+DGV recién está lanzando la consultora: no hay testimonios ni casos reales
+todavía, y no los va a haber hasta tener los primeros clientes. Eso **no es
+un pendiente que bloquee el sitio** — es simplemente el estado actual del
+negocio. Lo único que hacía falta corregir era el texto: los 3 módulos
+reservados (`CommitmentBlock` en Inicio/Casos, `SocialProofReserved` en
+PyMEs/Aviación, y la página `/casos`) mostraban el marcador
+`[[PENDIENTE: ...]]` con corchetes — una convención de uso interno para
+señalar huecos *durante la construcción*, no copy pensado para un visitante
+real de un sitio ya lanzado.
+
+### ✅ Resuelto: copy honesto para un sitio recién lanzado
+
+- [x] **`CommitmentBlock.astro`** — el recuadro reservado ahora dice:
+      *"Estamos recién lanzando DGV Business Consulting, así que todavía no
+      tenemos casos para mostrar. A medida que sumemos los primeros
+      clientes, vas a encontrar acá sus resultados reales, con su
+      autorización."*
+- [x] **`SocialProofReserved.astro`** (usado en `/soluciones-pymes` y
+      `/aviacion-logistica`) — mismo criterio, con el detalle de la
+      vertical (ej. "testimonios y casos reales de PyMEs").
+- [x] **`/casos`** — el recuadro interno pasa de
+      `[[PENDIENTE: casos y resultados reales]]` a *"Sé parte de los
+      primeros casos"* + texto explicando que se publican en cuanto haya
+      proyectos autorizados. El resto de la página (el H1 "Esta sección se
+      está construyendo" y su bajada) ya estaba bien redactado, no se tocó.
+
+Sigue sin haber testimonios ni casos ficticios en ningún lado — nada de
+esto inventa contenido, solo reemplaza el marcador de desarrollo por una
+frase terminada. Se resuelve solo, sin ninguna acción de tu parte, en
+cuanto tengas el primer cliente que autorice publicar su caso.
+
 ## Etapa 8 (GA4 y mini-FAQ de Contacto)
 
 ### ✅ Resuelto: GA4 activo
@@ -246,11 +279,18 @@ tienen foto real (ver Etapa 5 arriba).
       `astro.config.mjs`: ya estaba configurado con ese dominio desde el
       arranque del proyecto.
 
-### Contenido reservado (no ficticio)
+### No bloqueante: testimonios / casos de éxito
 
-- [ ] **Testimonios / casos de éxito** — el `CommitmentBlock` de Inicio
-      incluye un módulo reservado, marcado `[[PENDIENTE: testimonios y casos
-      reales]]`, listo para poblarse. Spec 6.7: "No publicar casos ficticios."
+- [~] **Testimonios / casos de éxito** — el `CommitmentBlock` de Inicio
+      incluye un módulo reservado. **No bloquea el lanzamiento**: DGV recién
+      está arrancando, así que no hay clientes que autoricen casos todavía
+      (spec 6.7: "No publicar casos ficticios" — no hay nada que inventar
+      acá, es un hecho de la etapa actual del negocio, no un dato faltante).
+      En Etapa 9 se reemplazó el copy `[[PENDIENTE]]` (de uso interno,
+      pensado para señalar huecos durante la construcción) por texto
+      honesto y terminado para un sitio ya lanzado. Se completa solo,
+      naturalmente, cuando haya primeros clientes que autoricen publicar su
+      caso — no requiere ninguna acción de tu parte por ahora.
 
 ### Marca
 
@@ -277,14 +317,13 @@ tienen foto real (ver Etapa 5 arriba).
       resuelto en Etapa 5: `panaderia.jpg` y `numeros.jpg` procesadas y
       disponibles, sin usar todavía (mismo motivo que `finanzas.jpg`).
 
-### Contenido reservado (no ficticio)
+### No bloqueante: prueba social por vertical
 
-- [ ] **Prueba social PyME** — módulo reservado en `/soluciones-pymes`,
-      marcado `[[PENDIENTE: testimonios y casos reales de PyMEs]]` (spec
-      6.2.7).
-- [ ] **Prueba social Aviación** — módulo reservado en `/aviacion-logistica`,
-      marcado `[[PENDIENTE: testimonios y casos reales del sector
-      aéreo/logístico]]` (spec 6.3.9).
+- [~] **Prueba social PyME** (`/soluciones-pymes`, spec 6.2.7) y **prueba
+      social Aviación** (`/aviacion-logistica`, spec 6.3.9) — mismo caso que
+      los testimonios de Inicio (ver Etapa 1): no bloquea el lanzamiento, se
+      completa solo cuando haya clientes que autoricen su caso. Copy
+      actualizado en Etapa 9.
 
 ### Copy [DERIVADO] agregado en esta etapa
 
@@ -320,9 +359,9 @@ Con esta etapa quedan construidas **todas** las páginas de prioridad
       contenido real confirmado por el cliente.
 - [x] **Historia y valores de la empresa** en `/nosotros` — resuelto en
       Etapa 6, con contenido real del cliente.
-- [ ] **Página `/casos`** — construida como "sección en construcción",
-      sin casos ficticios (spec sección 10, paso 7). Reemplazar por casos
-      reales cuando existan y estén autorizados.
+- [~] **Página `/casos`** — no bloqueante (spec sección 10, paso 7). Copy
+      actualizado en Etapa 9; se puebla con casos reales cuando existan y
+      estén autorizados.
 
 ### Datos de contacto y enlaces
 
