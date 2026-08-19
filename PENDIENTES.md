@@ -6,6 +6,35 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 10 (ImageBand: una imagen de apoyo por vertical)
+
+Ya con el sitio en vivo, se evaluó si convenía sumar fotos a lo largo de
+todo el contenido (no solo en el Hero). Decisión: **no** — el resto del
+sitio usa un lenguaje de íconos + tarjetas (spec 3.1, "secciones
+minimalistas") y llenarlo de fotos rompería esa consistencia, además de
+multiplicar el trabajo de buscar/filtrar imágenes reales para cada
+sección. En cambio, se sumó **una sola franja de imagen por página**, en
+las dos verticales que ya tenían fotos duotono procesadas y sin usar —
+cero costo de búsqueda nueva.
+
+### ✅ Resuelto: `ImageBand.astro`
+
+- [x] Componente nuevo (`src/components/sections/ImageBand.astro`): franja
+      de imagen + texto corto, distinta visualmente de las tarjetas
+      (para no competir con el lenguaje de íconos del resto del sitio).
+- [x] **`/aviacion-logistica`** — entre `CyclesGrid` y `AuthorityBand`, con
+      `finanzas.jpg` (pantallas financieras). Copy ("Cada ciclo, bajo
+      control" / O2C, P2P, R2R) reutiliza los términos ya establecidos en
+      `CyclesGrid`, sin agregar datos nuevos.
+- [x] **`/soluciones-pymes`** — entre `PainCards` y el `ServiceGrid` de "Lo
+      que resolvemos", con `numeros.jpg` (revisando planillas). Copy ("Tus
+      números, por fin ordenados") reutiliza la promesa central de la
+      página (título del Hero) y el pain point "Falta de indicadores" ya
+      existente, sin agregar datos nuevos.
+
+Quedan sin usar: `panaderia.jpg` (PyMEs) y las 3 imágenes de equipo
+todavía pendientes (Servicios, Metodología, Nosotros — ver más abajo).
+
 ## Etapa 9 (Copy de lanzamiento para testimonios/casos)
 
 DGV recién está lanzando la consultora: no hay testimonios ni casos reales
@@ -192,10 +221,11 @@ cablearon en el sitio.
       genéricas/corporativas para el "registro cercano y local" que pide la
       spec. Esta fue la que mejor encajó: sin texto que la ubique en otro
       país, taller real, buena luz.
-- [ ] **`public/images/pymes/panaderia.jpg`** y
-      **`public/images/pymes/numeros.jpg`** — procesadas y disponibles,
-      sin usar todavía (mismo caso que `finanzas.jpg` de Aviación: no hay
-      un slot de imagen de apoyo armado en `/soluciones-pymes` todavía).
+- [x] **`public/images/pymes/numeros.jpg`** — resuelto en Etapa 10: usada en
+      el `ImageBand` de `/soluciones-pymes` (entre El diagnóstico y Lo que
+      resolvemos).
+- [ ] **`public/images/pymes/panaderia.jpg`** — procesada y disponible, sin
+      usar todavía (no hay un segundo slot de apoyo armado en la página).
 
 ### ✅ Resuelto: fotografía de aviación/logística
 
@@ -205,11 +235,9 @@ cablearon en el sitio.
       embarque) — usada como imagen del Hero de `/aviacion-logistica`.
 - [x] **`public/images/aviacion/carga.jpg`** (carga aérea) — usada en la
       tarjeta "Industria Aérea & Logística" de `RouteSelector` (Inicio).
-- [ ] **`public/images/aviacion/finanzas.jpg`** (pantallas financieras) —
-      procesada y disponible, pero **todavía sin usar**: ninguna sección
-      existente tiene un slot de imagen natural para ella (CyclesGrid,
-      AuthorityBand y StatsBand son grillas de texto/ícono, sin hueco de
-      foto). Queda lista para una futura sección que la aproveche.
+- [x] **`public/images/aviacion/finanzas.jpg`** (pantallas financieras) —
+      resuelto en Etapa 10: usada en el `ImageBand` de
+      `/aviacion-logistica` (entre CyclesGrid y AuthorityBand).
 
 Las 4 fotos recibieron el tratamiento duotono navy que exige la spec
 sección 3 (grises mapeados de `#050D1C` a `#DDE3F0`).
