@@ -16,14 +16,14 @@ export const team: TeamMember[] = [
   {
     name: 'Daniel G. Velázquez',
     initials: 'DV',
-    role: 'Socio',
+    role: 'Fundador',
     formation: 'Contador Público · UBA · Matriculado CPCECABA',
     bio: 'Más de 20 años en aviación y logística (Air France / KLM, DHL Express Argentina) y 35+ de trayectoria total. Especialista en procesos financieros y eficiencia operativa.',
   },
   {
     name: 'Sonia B. Bóveda Paredes',
     initials: 'SB',
-    role: 'Socia',
+    role: 'Fundadora',
     formation: 'Contadora Pública · UBA · Matriculada CPCECABA',
     bio: 'Amplia trayectoria en multinacionales líderes como Western Union. Especialista en finanzas corporativas, contabilidad y gestión operativa.',
   },
