@@ -32,8 +32,34 @@ cero costo de búsqueda nueva.
       página (título del Hero) y el pain point "Falta de indicadores" ya
       existente, sin agregar datos nuevos.
 
-Quedan sin usar: `panaderia.jpg` (PyMEs) y las 3 imágenes de equipo
-todavía pendientes (Servicios, Metodología, Nosotros — ver más abajo).
+Quedan sin usar: `panaderia.jpg` (PyMEs) y la foto de equipo real de
+`/nosotros`, todavía pendiente (ver Etapa 11).
+
+## Etapa 11 (Hero real de Servicios y Metodología)
+
+### ✅ Resuelto: fotografía de Servicios y Metodología
+
+- [x] **`public/images/general/servicios-equipo.jpg`** — usada en el Hero
+      de `/servicios`. De un lote de 6 fotos de Pexels, se descartaron 4:
+      dos con maquetas de "reporte financiero" falsas y marca de tercero
+      (`CFI`) visible, una con carteles armados tipo "ANALYSIS/TRENDS"
+      pegados en la mesa (muy artificial), y una con una composición 3
+      contra 1 que se leía más a entrevista/panel que a reunión de equipo.
+- [x] **`public/images/general/metodologia-equipo.jpg`** — usada en el Hero
+      de `/metodologia`. Mismo lote, elegida por mostrar al equipo
+      revisando gráficos/planillas juntos — encaja con la idea de método y
+      proceso.
+
+Ambas con el mismo tratamiento duotono navy del resto del sitio (spec
+sección 3).
+
+### Pendiente: foto real de equipo para `/nosotros`
+
+- [ ] A diferencia de Servicios/Metodología, la spec y el cliente pidieron
+      explícitamente que el Hero de `/nosotros` use una **foto real del
+      equipo de DGV**, no de stock (tiene sentido: es la página que dice
+      "quiénes somos"). Sigue esperando la foto grupal real, que se puede
+      reusar también en la grilla de equipo (`TeamGrid`).
 
 ## Etapa 9 (Copy de lanzamiento para testimonios/casos)
 
