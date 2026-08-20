@@ -34,7 +34,10 @@ const enHref = getLocalizedPath(Astro.url.pathname, 'en');
 const navLinkClass =
   'inline-flex items-center min-h-11 px-3 rounded-btn text-[15px] font-medium text-navy-700 ' +
   'hover:bg-blue-50 hover:text-blue-700 transition-colors';
-const langLinkClass = 'inline-flex items-center min-h-11 px-2 text-small font-semibold';
+const langLinkClass =
+  'inline-flex items-center justify-center min-h-8 px-2.5 rounded-full text-small font-semibold transition-colors';
+const langLinkActiveClass = 'bg-blue-50 text-blue-700';
+const langLinkInactiveClass = 'text-slate-400 hover:text-navy-700';
 ---
 
 <header
@@ -103,20 +106,19 @@ const langLinkClass = 'inline-flex items-center min-h-11 px-2 text-small font-se
       )}
 
       <div class="hidden lg:flex items-center gap-4">
-        <div class="flex items-center gap-1" aria-label={t.langSwitcherLabel}>
-          <Globe class="size-4 text-slate-400" aria-hidden="true" />
+        <div class="flex items-center gap-0.5" aria-label={t.langSwitcherLabel}>
+          <Globe class="size-4 text-slate-400 mr-1" aria-hidden="true" />
           <a
             href={esHref}
             aria-current={lang === 'es' ? 'true' : undefined}
-            class:list={[langLinkClass, lang === 'es' ? 'text-navy-700' : 'text-slate-400 hover:text-navy-700']}
+            class:list={[langLinkClass, lang === 'es' ? langLinkActiveClass : langLinkInactiveClass]}
           >
             ES
           </a>
-          <span class="text-slate-300" aria-hidden="true">/</span>
           <a
             href={enHref}
             aria-current={lang === 'en' ? 'true' : undefined}
-            class:list={[langLinkClass, lang === 'en' ? 'text-navy-700' : 'text-slate-400 hover:text-navy-700']}
+            class:list={[langLinkClass, lang === 'en' ? langLinkActiveClass : langLinkInactiveClass]}
           >
             EN
           </a>
@@ -173,11 +175,10 @@ const langLinkClass = 'inline-flex items-center min-h-11 px-2 text-small font-se
         <a href="/nosotros" class="mobile-nav-link">Nosotros</a>
         <a href="/casos" class="mobile-nav-link">Casos</a>
         <Button href="/contacto" variant="primary" class="mt-3 w-full">Contacto</Button>
-        <div class="mt-4 pt-4 border-t border-navy-700/10 flex items-center gap-2 px-3 text-small font-semibold">
-          <Globe class="size-4 text-slate-400" aria-hidden="true" />
-          <a href={esHref} class="text-navy-700">ES</a>
-          <span class="text-slate-300" aria-hidden="true">/</span>
-          <a href={enHref} class="text-slate-400">EN</a>
+        <div class="mt-4 pt-4 border-t border-navy-700/10 flex items-center gap-1 px-3">
+          <Globe class="size-4 text-slate-400 mr-1" aria-hidden="true" />
+          <a href={esHref} aria-current="true" class:list={[langLinkClass, langLinkActiveClass]}>ES</a>
+          <a href={enHref} class:list={[langLinkClass, langLinkInactiveClass]}>EN</a>
         </div>
       </nav>
     ) : (
@@ -186,11 +187,10 @@ const langLinkClass = 'inline-flex items-center min-h-11 px-2 text-small font-se
           <a href={link.href} class="mobile-nav-link">{link.label}</a>
         ))}
         <Button href="/en/contact" variant="primary" class="mt-3 w-full">Contact</Button>
-        <div class="mt-4 pt-4 border-t border-navy-700/10 flex items-center gap-2 px-3 text-small font-semibold">
-          <Globe class="size-4 text-slate-400" aria-hidden="true" />
-          <a href={esHref} class="text-slate-400">ES</a>
-          <span class="text-slate-300" aria-hidden="true">/</span>
-          <a href={enHref} class="text-navy-700">EN</a>
+        <div class="mt-4 pt-4 border-t border-navy-700/10 flex items-center gap-1 px-3">
+          <Globe class="size-4 text-slate-400 mr-1" aria-hidden="true" />
+          <a href={esHref} class:list={[langLinkClass, langLinkInactiveClass]}>ES</a>
+          <a href={enHref} aria-current="true" class:list={[langLinkClass, langLinkActiveClass]}>EN</a>
         </div>
       </nav>
     )}
