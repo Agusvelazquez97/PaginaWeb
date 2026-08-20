@@ -1,0 +1,53 @@
+---
+/**
+ * Home (EN) — traducción fiel de src/pages/index.astro. Feature
+ * experimental de i18n (ver PENDIENTES.md): solo 4 páginas traducidas.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/sections/Hero.astro';
+import RouteSelector from '@/components/sections/RouteSelector.astro';
+import AuthorityBand from '@/components/sections/AuthorityBand.astro';
+import PainCards from '@/components/sections/PainCards.astro';
+import MethodSteps from '@/components/sections/MethodSteps.astro';
+import DifferentiatorCards from '@/components/sections/DifferentiatorCards.astro';
+import CommitmentBlock from '@/components/sections/CommitmentBlock.astro';
+import TeamTeaser from '@/components/sections/TeamTeaser.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import { pymePainsEn, methodStepsCondensedEn, homeDifferentiatorsEn, routesEn } from '@/data/content.en';
+---
+
+<BaseLayout
+  title="DGV Business Consulting | Financial & Management Consulting"
+  description="Financial, process and organizational transformation consulting for SMEs and the aviation & logistics sector in Argentina. Integrated team, measurable results."
+>
+  <Hero
+    variant="video"
+    fallbackLabel="aviation video/image (hero)"
+    imageSrc="/images/aviacion/hero-avion.jpg"
+    eyebrow="DGV Business Consulting"
+    title="Finance, processes and technology: one team, measurable results."
+    subtitle="We integrate into your company and measure ourselves by the impact we generate, with a track record at leading global companies."
+    tagline="We drive your business, empower your future."
+    primaryCta={{ label: 'Book a free diagnostic call', href: '/en/contact' }}
+    secondaryCta={{ label: 'See solutions', href: '#solutions' }}
+  />
+
+  <div id="solutions">
+    <RouteSelector routes={routesEn} verMasLabel="See more" />
+  </div>
+  <AuthorityBand lang="en" />
+  <PainCards
+    eyebrow="The diagnosis"
+    heading="The challenges holding back growth"
+    items={pymePainsEn}
+  />
+  <MethodSteps eyebrow="Our method" heading="A clear process, concrete results." steps={methodStepsCondensedEn} />
+  <DifferentiatorCards eyebrow="Why DGV" heading="The difference is in how we work." items={homeDifferentiatorsEn} />
+  <CommitmentBlock lang="en" />
+  <TeamTeaser lang="en" />
+  <CTASection
+    title="Let's talk."
+    subtitle="No commitment, no red tape — a conversation about how to drive your business forward."
+    cta={{ label: 'Book your free conversation', href: '/en/contact' }}
+  />
+</BaseLayout>

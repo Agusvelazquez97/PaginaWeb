@@ -5,6 +5,8 @@ import Footer from '@/components/layout/Footer.astro';
 import WhatsAppFloat from '@/components/layout/WhatsAppFloat.astro';
 import OrganizationSchema from '@/components/seo/OrganizationSchema.astro';
 import { siteConfig } from '@/data/site';
+import { ui } from '@/i18n/ui';
+import { getLocalizedPath, hasTranslation } from '@/i18n/routes';
 
 interface Props {
   title: string;
@@ -12,18 +14,30 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const lang = Astro.currentLocale === 'en' ? 'en' : 'es';
+const t = ui[lang];
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL('/og-image.png', Astro.site);
+const showAlternates = hasTranslation(Astro.url.pathname);
+const esAlternateURL = showAlternates ? new URL(getLocalizedPath(Astro.url.pathname, 'es'), Astro.site) : null;
+const enAlternateURL = showAlternates ? new URL(getLocalizedPath(Astro.url.pathname, 'en'), Astro.site) : null;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonicalURL} />
+    {showAlternates && (
+      <>
+        <link rel="alternate" hreflang="es" href={esAlternateURL} />
+        <link rel="alternate" hreflang="en" href={enAlternateURL} />
+        <link rel="alternate" hreflang="x-default" href={esAlternateURL} />
+      </>
+    )}
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -34,7 +48,7 @@ const ogImageURL = new URL('/og-image.png', Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
-    <meta property="og:locale" content="es_AR" />
+    <meta property="og:locale" content={lang === 'en' ? 'en' : 'es_AR'} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
@@ -68,14 +82,14 @@ const ogImageURL = new URL('/og-image.png', Astro.site);
       href="#contenido"
       class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:rounded-btn focus:bg-white focus:px-4 focus:py-2 focus:text-navy-700 focus:shadow-card"
     >
-      Saltar al contenido
+      {t.skipToContent}
     </a>
-    <Header />
+    <Header lang={lang} />
     <main id="contenido" class="flex-1">
       <slot />
     </main>
-    <Footer />
-    <WhatsAppFloat />
+    <Footer lang={lang} />
+    <WhatsAppFloat lang={lang} />
     <script src="@/scripts/reveal.ts"></script>
     <script src="@/scripts/analytics.ts"></script>
   </body>

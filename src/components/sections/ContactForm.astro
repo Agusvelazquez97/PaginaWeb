@@ -8,15 +8,55 @@
  * vez de simular un envío exitoso que no ocurrió.
  */
 import { siteConfig } from '@/data/site';
+import type { Lang } from '@/i18n/ui';
 
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'es' } = Astro.props;
 const hasEndpoint = Boolean(siteConfig.formEndpoint);
+const sla = lang === 'en' ? siteConfig.contactSlaEn : siteConfig.contactSla;
+
+const copy = {
+  es: {
+    name: 'Nombre',
+    company: 'Empresa',
+    email: 'Email',
+    phone: 'Teléfono',
+    type: 'Tipo',
+    selectOption: 'Seleccioná una opción',
+    typePyme: 'PyME',
+    typeAviacion: 'Aviación / Logística',
+    typeOther: 'Otro',
+    message: 'Mensaje',
+    honeypotLabel: 'No completar este campo',
+    submit: 'Enviar mensaje',
+    pendingNote: '[[PENDIENTE: conectar el formulario a Formspree/Web3Forms — ver PENDIENTES.md]]',
+  },
+  en: {
+    name: 'Name',
+    company: 'Company',
+    email: 'Email',
+    phone: 'Phone',
+    type: 'Type',
+    selectOption: 'Select an option',
+    typePyme: 'SME',
+    typeAviacion: 'Aviation / Logistics',
+    typeOther: 'Other',
+    message: 'Message',
+    honeypotLabel: 'Do not fill in this field',
+    submit: 'Send message',
+    pendingNote: '[[PENDING: connect the form to Formspree/Web3Forms — see PENDIENTES.md]]',
+  },
+}[lang];
 ---
 
-<form id="contact-form" class="space-y-5" data-endpoint={siteConfig.formEndpoint} novalidate>
+<form id="contact-form" class="space-y-5" data-endpoint={siteConfig.formEndpoint} data-lang={lang} novalidate>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
     <div>
       <label for="name" class="block text-small font-medium text-navy-700 mb-1.5">
-        Nombre <span aria-hidden="true">*</span>
+        {copy.name} <span aria-hidden="true">*</span>
       </label>
       <input
         type="text"
@@ -29,7 +69,7 @@ const hasEndpoint = Boolean(siteConfig.formEndpoint);
     </div>
     <div>
       <label for="company" class="block text-small font-medium text-navy-700 mb-1.5">
-        Empresa <span aria-hidden="true">*</span>
+        {copy.company} <span aria-hidden="true">*</span>
       </label>
       <input
         type="text"
@@ -42,7 +82,7 @@ const hasEndpoint = Boolean(siteConfig.formEndpoint);
     </div>
     <div>
       <label for="email" class="block text-small font-medium text-navy-700 mb-1.5">
-        Email <span aria-hidden="true">*</span>
+        {copy.email} <span aria-hidden="true">*</span>
       </label>
       <input
         type="email"
@@ -55,7 +95,7 @@ const hasEndpoint = Boolean(siteConfig.formEndpoint);
     </div>
     <div>
       <label for="phone" class="block text-small font-medium text-navy-700 mb-1.5">
-        Teléfono
+        {copy.phone}
       </label>
       <input
         type="tel"
@@ -69,7 +109,7 @@ const hasEndpoint = Boolean(siteConfig.formEndpoint);
 
   <div>
     <label for="type" class="block text-small font-medium text-navy-700 mb-1.5">
-      Tipo <span aria-hidden="true">*</span>
+      {copy.type} <span aria-hidden="true">*</span>
     </label>
     <select
       id="type"
@@ -77,16 +117,16 @@ const hasEndpoint = Boolean(siteConfig.formEndpoint);
       required
       class="w-full min-h-11 rounded-btn border border-navy-700/20 px-4 py-2.5 text-slate-600 focus-visible:outline-2 focus-visible:outline-offset-2"
     >
-      <option value="">Seleccioná una opción</option>
-      <option value="PyME">PyME</option>
-      <option value="Aviación-Logística">Aviación / Logística</option>
-      <option value="Otro">Otro</option>
+      <option value="">{copy.selectOption}</option>
+      <option value="PyME">{copy.typePyme}</option>
+      <option value="Aviación-Logística">{copy.typeAviacion}</option>
+      <option value="Otro">{copy.typeOther}</option>
     </select>
   </div>
 
   <div>
     <label for="message" class="block text-small font-medium text-navy-700 mb-1.5">
-      Mensaje
+      {copy.message}
     </label>
     <textarea
       id="message"
@@ -98,7 +138,7 @@ const hasEndpoint = Boolean(siteConfig.formEndpoint);
 
   <!-- Honeypot anti-spam: campo oculto que un humano nunca completa -->
   <div class="hidden" aria-hidden="true">
-    <label for="website">No completar este campo</label>
+    <label for="website">{copy.honeypotLabel}</label>
     <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
   </div>
 
@@ -107,9 +147,9 @@ const hasEndpoint = Boolean(siteConfig.formEndpoint);
       type="submit"
       class="w-full sm:w-auto inline-flex items-center justify-center min-h-11 px-7 py-2.5 rounded-btn bg-blue-500 text-white font-heading font-bold text-[20px] leading-none hover:bg-blue-700 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
     >
-      Enviar mensaje
+      {copy.submit}
     </button>
-    <p class="mt-3 text-small text-slate-500">{siteConfig.contactSla}</p>
+    <p class="mt-3 text-small text-slate-500">{sla}</p>
   </div>
 
   <p
@@ -121,7 +161,7 @@ const hasEndpoint = Boolean(siteConfig.formEndpoint);
 
   {!hasEndpoint && (
     <p class="text-small text-slate-400">
-      [[PENDIENTE: conectar el formulario a Formspree/Web3Forms — ver PENDIENTES.md]]
+      {copy.pendingNote}
     </p>
   )}
 </form>
@@ -135,6 +175,21 @@ const hasEndpoint = Boolean(siteConfig.formEndpoint);
     if (!form || !status) return;
 
     const endpoint = form.dataset.endpoint;
+    const lang = form.dataset.lang === 'en' ? 'en' : 'es';
+    const messages = {
+      es: {
+        notConnected: 'El formulario todavía no está conectado. Mientras tanto, escribinos por WhatsApp.',
+        sending: 'Enviando...',
+        success: '¡Listo! Recibimos tu mensaje.',
+        error: 'No pudimos enviar el mensaje. Escribinos por WhatsApp o reintentá en un momento.',
+      },
+      en: {
+        notConnected: "The form isn't connected yet. In the meantime, message us on WhatsApp.",
+        sending: 'Sending...',
+        success: "Done! We've received your message.",
+        error: "We couldn't send the message. Message us on WhatsApp or try again shortly.",
+      },
+    }[lang];
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -148,15 +203,14 @@ const hasEndpoint = Boolean(siteConfig.formEndpoint);
       if (data.get('website')) return; // honeypot: descarta silenciosamente
 
       if (!endpoint) {
-        status.textContent =
-          'El formulario todavía no está conectado. Mientras tanto, escribinos por WhatsApp.';
+        status.textContent = messages.notConnected;
         status.className = 'text-small font-medium text-slate-500';
         return;
       }
 
       const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
       submitButton.disabled = true;
-      status.textContent = 'Enviando...';
+      status.textContent = messages.sending;
       status.className = 'text-small font-medium text-slate-500';
 
       try {
@@ -169,12 +223,11 @@ const hasEndpoint = Boolean(siteConfig.formEndpoint);
         if (!response.ok) throw new Error('request failed');
 
         form.reset();
-        status.textContent = '¡Listo! Recibimos tu mensaje.';
+        status.textContent = messages.success;
         status.className = 'text-small font-medium text-success';
-        trackEvent('form_submit', { form: 'contact', type: String(data.get('type') ?? '') });
+        trackEvent('form_submit', { form: 'contact', type: String(data.get('type') ?? ''), lang });
       } catch {
-        status.textContent =
-          'No pudimos enviar el mensaje. Escribinos por WhatsApp o reintentá en un momento.';
+        status.textContent = messages.error;
         status.className = 'text-small font-medium text-red-600';
       } finally {
         submitButton.disabled = false;

@@ -6,6 +6,51 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 12 (i18n experimental: versión en inglés de 4 páginas)
+
+El cliente preguntó si convenía traducir el sitio para visitantes del
+exterior. Se acordó un alcance acotado para poder evaluarlo antes de
+comprometerse: **solo inglés** (no varios idiomas) y **solo las 4 páginas
+más relevantes** para un lead extranjero — Inicio, Servicios, Aviación &
+Logística y Contacto —, no las 8. Queda explícitamente como algo a
+revisar: si el resultado no convence, se puede revertir sin tocar el
+resto del sitio (las páginas en español no cambiaron de contenido).
+
+### ✅ Resuelto: infraestructura de i18n + 4 páginas traducidas
+
+- [x] Ruteo con el `i18n` nativo de Astro (`astro.config.mjs`): español
+      sin prefijo (default) e inglés bajo `/en/...`. Slugs traducidos:
+      `/en`, `/en/services`, `/en/aviation-logistics`, `/en/contact`.
+- [x] `src/i18n/routes.ts` — mapa de rutas traducidas + helper para el
+      selector de idioma (si una página no tiene traducción, el link a
+      "EN" cae al inicio en inglés en vez de un 404).
+- [x] `src/i18n/ui.ts` — diccionario de textos de interfaz compartida
+      (menú, footer, WhatsApp, skip link).
+- [x] Selector de idioma "ES / EN" en el header (desktop y mobile),
+      visible en las 8 páginas — es la "solapa" que pidió el cliente.
+      Etiqueta `hreflang` (es/en/x-default) agregada solo en las páginas
+      que sí tienen ambas versiones.
+- [x] Traducción fiel de todo el copy usado en las 4 páginas (Hero, cards
+      de dolor, método, diferenciadores, FAQ de Contacto, formulario,
+      footer, ciclos financieros de Aviación, etc.) — sin agregar datos,
+      cifras ni afirmaciones nuevas, solo traducción del contenido ya
+      aprobado en español. Ver `src/data/content.en.ts`.
+- [x] Los nombres del equipo no se traducen (son nombres propios); solo
+      el cargo (`Socio` → `Partner`, etc.) en la vista resumida de Inicio.
+- [x] Verificado: `npx astro check` (0 errores), `npm run build` (12
+      páginas), 0 violaciones de axe-core en las 4 páginas EN + las 2
+      páginas ES más tocadas (Inicio, Aviación & Logística).
+
+### Fuera de alcance (a propósito, por ahora)
+
+- [ ] El resto de las páginas (Metodología, Nosotros, Casos, Soluciones
+      para PyMEs) sigue solo en español. Los links del header/footer en
+      inglés que apuntan a esas páginas lo hacen en español (no hay
+      traducción todavía) — es un compromiso aceptado del alcance
+      acotado, no un bug.
+- [ ] Si el cliente confirma que le gusta el resultado, evaluar sumar las
+      4 páginas restantes.
+
 ## Etapa 10 (ImageBand: una imagen de apoyo por vertical)
 
 Ya con el sitio en vivo, se evaluó si convenía sumar fotos a lo largo de

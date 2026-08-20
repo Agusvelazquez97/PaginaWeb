@@ -4,11 +4,23 @@
  * El conteo respeta prefers-reduced-motion (si está activo, muestra el
  * valor final directamente, sin animar).
  */
-const stats = [
+interface Stat {
+  value: number;
+  suffix: string;
+  label: string;
+}
+
+interface Props {
+  stats?: Stat[];
+}
+
+const defaultStats: Stat[] = [
   { value: 20, suffix: '+', label: 'años de experiencia financiera y operativa en el sector.' },
   { value: 3, suffix: '', label: 'países de contraloría de operaciones financieras.' },
   { value: 100, suffix: '%', label: 'de atención desde el inicio de cada proyecto.' },
 ];
+
+const { stats = defaultStats } = Astro.props;
 ---
 
 <section class="bg-navy-900 py-16 md:py-20">

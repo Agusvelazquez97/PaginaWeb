@@ -6,7 +6,21 @@
 import { Building2, Plane, ArrowRight } from '@lucide/astro';
 import PlaceholderImage from '@/components/ui/PlaceholderImage.astro';
 
-const routes = [
+interface Route {
+  icon: any;
+  label: string;
+  href: string;
+  copy: string;
+  imageLabel: string;
+  imageSrc: string;
+}
+
+interface Props {
+  routes?: Route[];
+  verMasLabel?: string;
+}
+
+const defaultRoutes: Route[] = [
   {
     icon: Building2,
     label: 'Soy una PyME',
@@ -24,6 +38,8 @@ const routes = [
     imageSrc: '/images/aviacion/carga.jpg',
   },
 ];
+
+const { routes = defaultRoutes, verMasLabel = 'Ver más' } = Astro.props;
 ---
 
 <section class="bg-white py-20 md:py-28">
@@ -51,7 +67,7 @@ const routes = [
             <span
               class="mt-6 inline-flex items-center gap-2 font-heading font-semibold text-white group-hover:gap-3 transition-all"
             >
-              Ver más
+              {verMasLabel}
               <ArrowRight class="size-4" aria-hidden="true" />
             </span>
           </div>
