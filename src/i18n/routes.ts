@@ -8,6 +8,7 @@ export const translatedRoutes: Record<string, string> = {
   '/servicios': '/en/services',
   '/aviacion-logistica': '/en/aviation-logistics',
   '/contacto': '/en/contact',
+  '/nosotros': '/en/about',
 };
 
 const reverseRoutes: Record<string, string> = Object.fromEntries(

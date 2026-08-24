@@ -56,16 +56,18 @@ export const footerNav: NavLink[] = [
   { label: 'Contacto', href: '/contacto' },
 ];
 
-// --- Versión en inglés: solo las 4 páginas traducidas (ver src/i18n/routes.ts) ---
+// --- Versión en inglés: solo las páginas traducidas (ver src/i18n/routes.ts) ---
 export const mainNavEn: NavLink[] = [
   { label: 'Home', href: '/en' },
   { label: 'Services', href: '/en/services' },
   { label: 'Aviation & Logistics', href: '/en/aviation-logistics' },
+  { label: 'About', href: '/en/about' },
 ];
 
 export const footerNavEn: NavLink[] = [
   { label: 'Home', href: '/en' },
   { label: 'Aviation & Logistics', href: '/en/aviation-logistics' },
   { label: 'Services', href: '/en/services' },
+  { label: 'About', href: '/en/about' },
   { label: 'Contact', href: '/en/contact' },
 ];

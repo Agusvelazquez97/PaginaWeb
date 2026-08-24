@@ -1,0 +1,176 @@
+---
+/**
+ * About (EN) — traducción fiel de src/pages/nosotros.astro. Feature
+ * experimental de i18n (ver PENDIENTES.md). Historia/Valores: traducción
+ * literal del contenido real ya aprobado en español, sin agregar nada.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/sections/Hero.astro';
+import Card from '@/components/ui/Card.astro';
+import TeamGrid from '@/components/sections/TeamGrid.astro';
+import DifferentiatorCards from '@/components/sections/DifferentiatorCards.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema.astro';
+import { Award, HeartHandshake, Lightbulb, ShieldCheck, Users, TrendingUp } from '@lucide/astro';
+import { homeDifferentiatorsEn } from '@/data/content.en';
+
+const historia = [
+  'DGV Business Consulting was born out of a professional experience, but also out of a new way of understanding what companies need.',
+  "After finishing my professional stage at Air France / KLM / Martinair, where I spent much of my career in administration- and finance-related roles, I set myself a new challenge: rejoining a company as Finance & Administration Manager while, at the same time, starting to prepare myself to build an independent practice.",
+  "With that goal, I started a consulting program at the Professional Council of Economic Sciences (Consejo Profesional de Ciencias Económicas) — an experience that let me pick up new tools and also meet other professionals who shared the same question: how to turn our experience into something that answered companies' new needs.",
+  'Through conversations with colleagues and business owners, I kept noticing an increasingly clear reality: the traditional accounting-firm model was no longer enough for many SMEs.',
+  'Companies needed far more than organized bookkeeping or tax compliance. They needed professionals capable of understanding their problems, analyzing their numbers, optimizing processes, cutting costs, improving financial management, adopting technology and supporting them in decision-making.',
+  'At the same time, technological transformation began to profoundly change how professional services were delivered. Digitalization, automation, artificial intelligence and new models such as the External CFO started creating opportunities to provide specialized expertise flexibly, without the need to build permanent in-house structures.',
+  'This evolution led us to one conclusion: specialization and real business knowledge would only become more important.',
+  "That's when the idea came up to create a consultancy focused specifically on SMEs, combining more than 35 years of accumulated experience in administration, accounting and finance with the specific knowledge gained over more than two decades in industries such as airlines and logistics.",
+  "That's how DGV Business Consulting was born: a firm built on a combination we consider essential for today's needs — business management experience, financial expertise, process optimization and digital transformation.",
+  'DGV is made up of a family team of professionals from Economic Sciences and Digital Sciences, bringing together different generations, areas of knowledge and perspectives to support companies through their current challenges.',
+];
+
+const valores = [
+  {
+    icon: Award,
+    title: 'Excellence',
+    copy: 'We pursue the highest quality standards in every project, bringing experience, knowledge and professional solutions.',
+  },
+  {
+    icon: HeartHandshake,
+    title: 'Commitment',
+    copy: "We engage with our clients' goals and take on every challenge as our own.",
+  },
+  {
+    icon: Lightbulb,
+    title: 'Innovation',
+    copy: 'We look for new ways of doing things, adopting technology, tools and methodologies that create value.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Integrity',
+    copy: 'We act with transparency, ethics and responsibility, building relationships based on trust.',
+  },
+  {
+    icon: Users,
+    title: 'Closeness',
+    copy: 'We work alongside the client, understanding their reality, needs and challenges to deliver tailored solutions.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Results',
+    copy: 'We focus our work on concrete, measurable and sustainable improvements that contribute to business growth.',
+  },
+];
+---
+
+<BaseLayout
+  title="About Us | A team with a track record at Air France/KLM and DHL — DGV"
+  description="Meet the DGV Business Consulting team: a track record at leading multinationals, with specialization in SMEs and the aviation & logistics sector."
+>
+  <BreadcrumbSchema items={[{ name: 'Home', path: '/en' }, { name: 'About', path: '/en/about' }]} />
+  <Hero
+    variant="image"
+    fallbackLabel="DGV team image (about hero)"
+    imageSrc="/images/team/equipo-nosotros.jpg"
+    eyebrow="About us"
+    title="Meet the team driving your business forward."
+    subtitle="We support SMEs and aviation & logistics companies through their transformation, with real specialization and measurable results."
+    primaryCta={{ label: "Let's talk", href: '/en/contact' }}
+  />
+
+  <section class="bg-bg-tint py-20 md:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-12" data-reveal>
+        <p class="text-blue-700 font-semibold uppercase tracking-wide text-small">
+          The purpose and vision that guide us
+        </p>
+        <h2 class="mt-3 font-heading font-bold text-h1 text-navy-700">Who we are.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div data-reveal>
+          <Card class="h-full">
+            <p class="font-heading font-semibold text-blue-700 uppercase tracking-wide text-small">
+              Mission
+            </p>
+            <p class="mt-3 text-slate-600 leading-relaxed">
+              To support SMEs and aviation & logistics companies through their transformation and
+              growth process, providing specialized consulting in process management, finance and
+              digital innovation to improve their profitability and competitiveness.
+            </p>
+          </Card>
+        </div>
+        <div data-reveal style="transition-delay:60ms">
+          <Card class="h-full">
+            <p class="font-heading font-semibold text-blue-700 uppercase tracking-wide text-small">
+              Vision
+            </p>
+            <p class="mt-3 text-slate-600 leading-relaxed">
+              To be the go-to consultancy for SMEs and the aviation & logistics sector in
+              Argentina, recognized for transforming organizations through practical
+              methodologies, measurable results and genuine, personalized support.
+            </p>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-20 md:py-28">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-10" data-reveal>
+        <p class="text-blue-700 font-semibold uppercase tracking-wide text-small">How we started</p>
+        <h2 class="mt-3 font-heading font-bold text-h1 text-navy-700">Our story.</h2>
+      </div>
+
+      <div class="space-y-5" data-reveal style="transition-delay:60ms">
+        {historia.map((paragraph) => (
+          <p class="text-slate-600 leading-relaxed">{paragraph}</p>
+        ))}
+      </div>
+
+      <blockquote class="mt-8 border-l-4 border-blue-500 pl-6" data-reveal style="transition-delay:120ms">
+        <p class="font-heading font-semibold text-navy-700 text-lead leading-snug">
+          Helping SMEs understand where they stand, identify where they can improve, and support
+          them in going further.
+        </p>
+        <p class="mt-2 text-small text-slate-500">
+          Because we believe real value in consulting isn't just about diagnosing problems — it's
+          about turning them into opportunities and turning those opportunities into results.
+        </p>
+        <footer class="mt-3 text-small font-medium text-slate-400">— Daniel G. Velázquez, Founder</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="bg-bg-tint py-20 md:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-12" data-reveal>
+        <p class="text-blue-700 font-semibold uppercase tracking-wide text-small">What guides us</p>
+        <h2 class="mt-3 font-heading font-bold text-h1 text-navy-700">Our values.</h2>
+      </div>
+
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {valores.map((valor, i) => (
+          <li data-reveal style={`transition-delay:${i * 60}ms`}>
+            <Card class="h-full">
+              <valor.icon class="size-8 text-blue-500" aria-hidden="true" />
+              <h3 class="mt-4 font-heading font-semibold text-navy-700 text-[17px] leading-snug">
+                {valor.title}
+              </h3>
+              <p class="mt-2 text-small text-slate-500">{valor.copy}</p>
+            </Card>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <TeamGrid lang="en" />
+
+  <DifferentiatorCards eyebrow="Why DGV" heading="Why DGV." items={homeDifferentiatorsEn} />
+
+  <CTASection
+    title="Let's talk."
+    subtitle="No commitment, no red tape — a conversation about how to drive your business forward."
+    cta={{ label: 'Book your free conversation', href: '/en/contact' }}
+  />
+</BaseLayout>

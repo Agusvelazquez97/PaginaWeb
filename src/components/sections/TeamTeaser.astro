@@ -52,7 +52,7 @@ const roleEn: Record<string, string> = {
     </ul>
 
     <div class="mt-12 flex justify-center" data-reveal>
-      <Button href="/nosotros" variant="secondary">
+      <Button href={lang === 'en' ? '/en/about' : '/nosotros'} variant="secondary">
         {lang === 'en' ? 'Meet the full team' : 'Conocé al equipo completo'}
         <ArrowRight class="size-4" aria-hidden="true" />
       </Button>

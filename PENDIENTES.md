@@ -6,6 +6,31 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 15 (i18n: se suma `/nosotros` en inglés)
+
+El cliente probó la versión en inglés y encontró una discrepancia real:
+desde la home en inglés, el botón "Meet the full team" llevaba a
+`/nosotros` en español. Eligió la opción recomendada: traducir
+`/nosotros` también, en vez de solo ocultar el botón.
+
+### ✅ Resuelto
+
+- [x] Nueva página `/en/about` — traducción fiel de `/nosotros`
+      (Historia de 10 párrafos, Valores, Misión/Visión, equipo,
+      diferenciadores). Sin agregar contenido nuevo, solo traducción del
+      texto real ya aprobado en español.
+- [x] `src/data/team.en.ts` — traducción de rol/formación/bio de cada
+      integrante (los nombres no se traducen). `TeamGrid.astro` ahora
+      acepta `lang` y usa esta traducción cuando corresponde.
+- [x] Corregido el link "Meet the full team" / "Conocé al equipo
+      completo" en `TeamTeaser` — antes apuntaba a `/nosotros` sin
+      importar el idioma; ahora respeta `lang`.
+- [x] `/nosotros` sumada al mapa de rutas traducidas (`src/i18n/routes.ts`)
+      → aparece en el selector de idioma y en las etiquetas `hreflang`.
+      "About" agregado a la navegación en inglés (header y footer).
+- [x] Verificado: `astro check` (0 errores), build (13 páginas), 0
+      violaciones de axe-core en `/en/about`, `/en/` y `/nosotros`.
+
 ## Etapa 14 (Ajustes de feedback: fondo foto grupal + brillo del Hero)
 
 Feedback del cliente sobre la Etapa 13 y sobre el Hero en general:
@@ -108,13 +133,13 @@ resto del sitio (las páginas en español no cambiaron de contenido).
 
 ### Fuera de alcance (a propósito, por ahora)
 
-- [ ] El resto de las páginas (Metodología, Nosotros, Casos, Soluciones
-      para PyMEs) sigue solo en español. Los links del header/footer en
-      inglés que apuntan a esas páginas lo hacen en español (no hay
-      traducción todavía) — es un compromiso aceptado del alcance
-      acotado, no un bug.
+- [ ] Metodología, Casos y Soluciones para PyMEs siguen solo en español
+      (`/nosotros` se sumó al inglés en la Etapa 15). Los links del
+      header/footer en inglés que apuntan a esas páginas lo hacen en
+      español (no hay traducción todavía) — es un compromiso aceptado
+      del alcance acotado, no un bug.
 - [ ] Si el cliente confirma que le gusta el resultado, evaluar sumar las
-      4 páginas restantes.
+      3 páginas restantes.
 
 ## Etapa 10 (ImageBand: una imagen de apoyo por vertical)
 
