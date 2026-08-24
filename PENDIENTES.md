@@ -6,6 +6,26 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 16 (Copy + fix visual: solapas repetidas y notebook borrosa)
+
+Tres ajustes menores de feedback tras seguir revisando el sitio con el
+equipo:
+
+- [x] `/servicios`, familia "Procesos & Operaciones": los títulos "Mejora
+      de procesos" y "Optimización de Procesos" sonaban a sinónimos.
+      Renombrado el segundo a "Optimización de Ciclos Financieros" (EN:
+      "Financial Cycle Optimization") — el contenido no cambia, solo el
+      título, para diferenciarlos a simple vista.
+- [x] `/soluciones-pymes`: el título de Planes y el de Servicios
+      repetían "para cada etapa de tu empresa" en la misma página.
+      Planes ahora dice "Un plan que crece con tu negocio."
+- [x] Foto grupal de `/nosotros`: el desenfoque de fondo de la Etapa 14
+      también había desenfocado la notebook en primer plano (no era la
+      intención — el cliente la vio "poco clara"). Se agregó al área que
+      queda nítida toda la franja inferior de la foto (mesa + notebooks
+      + manos), no solo las personas, así el mueble de fondo sigue
+      desenfocado pero la notebook vuelve a verse nítida.
+
 ## Etapa 15 (i18n: se suma `/nosotros` en inglés)
 
 El cliente probó la versión en inglés y encontró una discrepancia real:
