@@ -287,7 +287,7 @@ export const serviceFamiliesEn = [
         title: 'Process improvement',
         copy: 'We redesign workflows to increase efficiency, reduce turnaround times and minimize errors.',
       },
-      { icon: Workflow, title: 'Process Optimization', copy: aviacionPillarsEn[1].copy },
+      { icon: Workflow, title: 'Financial Cycle Optimization', copy: aviacionPillarsEn[1].copy },
     ],
   },
   {

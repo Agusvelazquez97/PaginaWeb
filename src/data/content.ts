@@ -384,7 +384,7 @@ export const serviceFamilies = [
     name: 'Procesos & Operaciones',
     items: [
       { icon: Wrench, title: 'Mejora de procesos', copy: pymeSolutions[1].copy },
-      { icon: Workflow, title: 'Optimización de Procesos', copy: aviacionPillars[1].copy },
+      { icon: Workflow, title: 'Optimización de Ciclos Financieros', copy: aviacionPillars[1].copy },
     ],
   },
   {
