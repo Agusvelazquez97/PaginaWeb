@@ -6,6 +6,34 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 14 (Ajustes de feedback: fondo foto grupal + brillo del Hero)
+
+Feedback del cliente sobre la Etapa 13 y sobre el Hero en general:
+
+### ✅ Resuelto: fondo de la foto grupal
+
+- [x] La foto grupal original mostraba de fondo un aparador de madera y
+      una lámpara de pie (mobiliario doméstico reconocible), y el cliente
+      pidió que se pareciera más a una oficina. En vez de reemplazar el
+      fondo por uno falso (iría en contra de la regla de no inventar
+      contenido), se aplicó un desenfoque de profundidad de campo real:
+      segmentación de las 4 personas (`rembg`, modelo de personas) +
+      blur + oscurecido leve del fondo, manteniendo a las personas
+      nítidas. El mueble y la lámpara ya no se reconocen, queda como un
+      fondo desenfocado genérico tipo oficina, sin fabricar nada que no
+      esté en la foto real.
+
+### ✅ Resuelto: Hero más claro en desktop
+
+- [x] El cliente notó que las imágenes del Hero se veían más oscuras en
+      computadora que en el celular. Causa: `Hero.astro` usa un overlay
+      de degradé en mobile (más claro arriba, sólido abajo donde está el
+      texto) pero en desktop lo reemplazaba por un navy plano al 65% de
+      opacidad sobre toda la imagen. Se bajó a 50% (`md:bg-navy-900/50`)
+      — afecta a las 6 páginas con Hero de imagen/video por igual, ya
+      que es un solo componente compartido. Verificado que el contraste
+      del texto blanco sigue pasando axe-core en las 6 páginas.
+
 ## Etapa 13 (Fotos reales del equipo: grupal + individuales)
 
 El cliente subió 47 fotos reales del equipo a Drive (una sesión con
@@ -38,14 +66,10 @@ los colores del sitio.
 - [x] Verificado: `astro check` (0 errores), build (12 páginas), 0
       violaciones de axe-core en `/nosotros`, `/` y `/en/`.
 
-### ⚠️ A confirmar con el cliente
+### ✅ Confirmado con el cliente
 
-- [ ] La asignación de fotos individuales a Agustín Velázquez y a
-      Victoria Velázquez se infirió (no hay forma de leerlo de la
-      imagen): las fotos están en el Drive de `agusvelazquez3@gmail.com`,
-      así que se asumió que el joven de la sesión es Agustín y la joven
-      es Victoria. Confirmar que la asignación es correcta antes de
-      darla por definitiva.
+- [x] La asignación de fotos individuales (Agustín / Victoria) fue
+      confirmada correcta por el cliente.
 
 ## Etapa 12 (i18n experimental: versión en inglés de 4 páginas)
 
