@@ -1,7 +1,8 @@
 /**
  * Equipo — contenido exacto de la spec, sección 6.9. No inventar bios ni roles.
- * Fotos y LinkedIn: [FALTA] — ver PENDIENTES.md. Mientras tanto se usan
- * iniciales en círculo (spec, sección 8 — "plan de imágenes").
+ * Fotos individuales reales, subidas por el cliente y procesadas con fondo
+ * navy (spec sección 3) — ver PENDIENTES.md. LinkedIn de cada integrante:
+ * [FALTA].
  */
 export interface TeamMember {
   name: string;
@@ -9,6 +10,7 @@ export interface TeamMember {
   role: string;
   formation: string;
   bio: string;
+  photo: string;
   linkedIn?: string;
 }
 
@@ -19,6 +21,7 @@ export const team: TeamMember[] = [
     role: 'Fundador',
     formation: 'Contador Público · UBA · Matriculado CPCECABA',
     bio: 'Más de 20 años en aviación y logística (Air France / KLM, DHL Express Argentina) y 35+ de trayectoria total. Especialista en procesos financieros y eficiencia operativa.',
+    photo: '/images/team/daniel.jpg',
   },
   {
     name: 'Sonia B. Bóveda Paredes',
@@ -26,6 +29,7 @@ export const team: TeamMember[] = [
     role: 'Fundadora',
     formation: 'Contadora Pública · UBA · Matriculada CPCECABA',
     bio: 'Amplia trayectoria en multinacionales líderes como Western Union. Especialista en finanzas corporativas, contabilidad y gestión operativa.',
+    photo: '/images/team/sonia.jpg',
   },
   {
     name: 'Victoria Velázquez',
@@ -33,6 +37,7 @@ export const team: TeamMember[] = [
     role: 'Consultora Senior',
     formation: 'Lic. Negocios Globales · UADE',
     bio: 'Especialista en negocios internacionales, estrategia comercial y expansión regional.',
+    photo: '/images/team/victoria.jpg',
   },
   {
     name: 'Agustín Velázquez',
@@ -40,5 +45,6 @@ export const team: TeamMember[] = [
     role: 'Consultor Digital',
     formation: 'Lic. Negocios Digitales · UCEMA',
     bio: 'Especialista en transformación digital, digitalización de procesos, ERP, automatización y estrategia de negocios en entornos tecnológicos.',
+    photo: '/images/team/agustin.jpg',
   },
 ];

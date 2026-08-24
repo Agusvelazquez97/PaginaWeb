@@ -6,6 +6,47 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 13 (Fotos reales del equipo: grupal + individuales)
+
+El cliente subió 47 fotos reales del equipo a Drive (una sesión con
+tomas grupales en la mesa de trabajo y retratos individuales de cada
+integrante contra fondo blanco). Se pidió elegir las mejores según
+criterio propio y, para las individuales, ponerles un fondo acorde a
+los colores del sitio.
+
+### ✅ Resuelto
+
+- [x] **Foto grupal** (`public/images/team/equipo-nosotros.jpg`) — de las
+      ~30 tomas grupales, se eligió la que muestra a los 4 juntos mirando
+      hacia la pantalla con mejor composición y expresión (los otros
+      candidatos, o bien no tenían a los 4 presentes, o mostraban a cada
+      uno trabajando por separado). Tratamiento duotono navy, igual que
+      el resto de las fotos del sitio (spec sección 3). Reemplaza el
+      placeholder del Hero de `/nosotros`.
+- [x] **Fotos individuales** (`public/images/team/{daniel,sonia,agustin,victoria}.jpg`)
+      — se eligió el mejor retrato de cada integrante (de 2 a 6 tomas
+      candidatas cada uno, foco en nitidez y expresión natural). Fondo
+      original (pared) reemplazado por segmentación (`rembg`) + color
+      sólido navy-700 (`#0D2461`, el mismo azul de los círculos con
+      iniciales que reemplazan), para que quede acorde al diseño del
+      sitio sin depender del entorno real de la foto.
+- [x] Reemplazados los círculos con iniciales por las fotos reales en
+      `TeamGrid` (`/nosotros`) y `TeamTeaser` (Inicio, ES y EN).
+      `src/data/team.ts` ahora tiene un campo `photo` por integrante.
+- [x] Agregado `image` al schema.org `Person` de cada integrante (antes
+      no se incluía porque no había foto real).
+- [x] Verificado: `astro check` (0 errores), build (12 páginas), 0
+      violaciones de axe-core en `/nosotros`, `/` y `/en/`.
+
+### ⚠️ A confirmar con el cliente
+
+- [ ] La asignación de fotos individuales a Agustín Velázquez y a
+      Victoria Velázquez se infirió (no hay forma de leerlo de la
+      imagen): las fotos están en el Drive de `agusvelazquez3@gmail.com`,
+      así que se asumió que el joven de la sesión es Agustín y la joven
+      es Victoria. Confirmar que la asignación es correcta antes de
+      darla por definitiva.
+
 ## Etapa 12 (i18n experimental: versión en inglés de 4 páginas)
 
 El cliente preguntó si convenía traducir el sitio para visitantes del
@@ -98,13 +139,7 @@ Quedan sin usar: `panaderia.jpg` (PyMEs) y la foto de equipo real de
 Ambas con el mismo tratamiento duotono navy del resto del sitio (spec
 sección 3).
 
-### Pendiente: foto real de equipo para `/nosotros`
-
-- [ ] A diferencia de Servicios/Metodología, la spec y el cliente pidieron
-      explícitamente que el Hero de `/nosotros` use una **foto real del
-      equipo de DGV**, no de stock (tiene sentido: es la página que dice
-      "quiénes somos"). Sigue esperando la foto grupal real, que se puede
-      reusar también en la grilla de equipo (`TeamGrid`).
+### ✅ Resuelto: foto real de equipo para `/nosotros` (ver Etapa 13)
 
 ## Etapa 9 (Copy de lanzamiento para testimonios/casos)
 

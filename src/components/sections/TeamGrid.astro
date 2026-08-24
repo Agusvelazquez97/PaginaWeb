@@ -1,23 +1,23 @@
 ---
 /**
  * TeamGrid — spec sección 4: foto, nombre, rol, formación, bio, LinkedIn.
- * Fotos y LinkedIn están [FALTA] (ver PENDIENTES.md): se usan iniciales en
- * círculo (spec sección 8) y el ícono de LinkedIn no se muestra hasta tener
- * la URL real de cada persona.
+ * Fotos reales (ver PENDIENTES.md). LinkedIn de cada integrante: [FALTA]
+ * — el ícono no se muestra hasta tener la URL real de cada persona.
  */
 import { ExternalLink } from '@lucide/astro';
 import Card from '@/components/ui/Card.astro';
 import { team } from '@/data/team';
 import { siteConfig } from '@/data/site';
 
-// Person (JSON-LD) — spec 9.1. Sin "image" ni "sameAs": fotos y LinkedIn
-// están [FALTA] (ver PENDIENTES.md).
+// Person (JSON-LD) — spec 9.1. Sin "sameAs": LinkedIn de cada integrante
+// está [FALTA] (ver PENDIENTES.md).
 const personSchemas = team.map((member) => ({
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: member.name,
   jobTitle: member.role,
   description: member.bio,
+  image: new URL(member.photo, Astro.site).toString(),
   worksFor: { '@type': 'Organization', name: siteConfig.name },
   ...(member.linkedIn ? { sameAs: [member.linkedIn] } : {}),
 }));
@@ -36,12 +36,14 @@ const personSchemas = team.map((member) => ({
       {team.map((member, i) => (
         <li data-reveal style={`transition-delay:${i * 60}ms`}>
           <Card class="h-full text-center">
-            <div
-              class="mx-auto size-20 rounded-full bg-navy-700 text-white flex items-center justify-center font-heading font-bold text-xl"
-              aria-hidden="true"
-            >
-              {member.initials}
-            </div>
+            <img
+              src={member.photo}
+              alt=""
+              class="mx-auto size-20 rounded-full object-cover"
+              width="160"
+              height="160"
+              loading="lazy"
+            />
             <p class="mt-4 font-heading font-semibold text-navy-700">{member.name}</p>
             <p class="text-small font-medium text-blue-700">{member.role}</p>
             <p class="mt-1 text-small text-slate-400">{member.formation}</p>
