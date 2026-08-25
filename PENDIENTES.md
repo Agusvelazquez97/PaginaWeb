@@ -6,6 +6,34 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 17 (Consolidar el mensaje de "todavía no hay casos" en un solo lugar)
+
+El cliente notó que el aviso de "recién estamos lanzando, todavía no hay
+casos" aparecía en 3 lugares (Inicio, `/soluciones-pymes`,
+`/aviacion-logistica`) además de la propia página `/casos` — repetirlo
+tanto llamaba más la atención sobre el vacío que un solo mensaje bien
+planteado. Se evaluaron 3 alcances y se eligió el recomendado: recortar
+a un solo lugar, no sacar la sección `/casos` del todo.
+
+### ✅ Resuelto
+
+- [x] **`CommitmentBlock.astro`** — se quita el recuadro "Casos y
+      testimonios" (ES/EN). La grilla de 4 tarjetas de compromiso ahora
+      ocupa el ancho completo (`sm:grid-cols-2 lg:grid-cols-4`) en vez
+      de compartir fila con el recuadro. Se usa en Inicio, `/en`, y
+      también en `/casos` — ahí el cambio de paso también saca una
+      redundancia que había en esa misma página (el recuadro y el H1 de
+      arriba decían básicamente lo mismo).
+- [x] **`SocialProofReserved.astro`** — eliminado (ya no se usa en
+      ningún lado): se sacó de `/soluciones-pymes`,
+      `/aviacion-logistica` y `/en/aviation-logistics`.
+- [x] `/casos` queda como el único lugar del sitio con el mensaje —
+      sigue con el mismo copy honesto y positivo de la Etapa 9 ("Sé
+      parte de los primeros casos").
+- [x] Verificado: `astro check` (0 errores), build (13 páginas, un
+      componente menos), 0 violaciones de axe-core en las 6 páginas
+      tocadas (Inicio, PyMEs, Aviación, Casos, y sus versiones EN).
+
 ## Etapa 16 (Copy + fix visual: solapas repetidas y notebook borrosa)
 
 Tres ajustes menores de feedback tras seguir revisando el sitio con el

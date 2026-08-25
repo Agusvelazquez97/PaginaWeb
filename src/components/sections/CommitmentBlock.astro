@@ -1,9 +1,8 @@
 ---
 /**
- * CommitmentBlock — spec 6.7. Sustituye la sección de casos hasta que existan
- * casos reales. El módulo de testimonios queda reservado con copy honesto
- * (DGV recién está lanzando, sin clientes todavía): no se publican casos
- * ficticios (regla explícita de la spec).
+ * CommitmentBlock — spec 6.7. Cuatro compromisos reales del método DGV.
+ * El mensaje de "todavía no hay casos" vive una sola vez en /casos (no se
+ * repite acá) para no saturar el sitio con el mismo aviso.
  */
 import { Repeat2, ShieldCheck, HeartHandshake, Building2 } from '@lucide/astro';
 import Card from '@/components/ui/Card.astro';
@@ -75,49 +74,18 @@ const commitments = lang === 'en' ? commitmentsEn : commitmentsEs;
       </h2>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-6 md:gap-8 items-stretch">
-      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        {commitments.map((item, i) => (
-          <li data-reveal style={`transition-delay:${i * 60}ms`}>
-            <Card class="h-full">
-              <item.icon class="size-7 text-blue-500" aria-hidden="true" />
-              <h3 class="mt-4 font-heading font-semibold text-navy-700 text-[16px] leading-snug">
-                {item.title}
-              </h3>
-              <p class="mt-2 text-small text-slate-500">{item.copy}</p>
-            </Card>
-          </li>
-        ))}
-      </ul>
-
-      <div
-        class="rounded-card border-2 border-dashed border-navy-700/15 bg-blue-50 p-8 flex flex-col items-center justify-center text-center gap-3 min-h-64"
-        data-reveal
-      >
-        {lang === 'en' ? (
-          <>
-            <p class="font-heading font-semibold text-navy-700">
-              Cases and testimonials
-            </p>
-            <p class="text-small text-slate-500 max-w-xs">
-              We're just launching DGV Business Consulting, so we don't have cases to show yet.
-              As we onboard our first clients, you'll find their real results here, with their
-              authorization.
-            </p>
-          </>
-        ) : (
-          <>
-            <p class="font-heading font-semibold text-navy-700">
-              Casos y testimonios
-            </p>
-            <p class="text-small text-slate-500 max-w-xs">
-              Estamos recién lanzando DGV Business Consulting, así que todavía no tenemos casos
-              para mostrar. A medida que sumemos los primeros clientes, vas a encontrar acá sus
-              resultados reales, con su autorización.
-            </p>
-          </>
-        )}
-      </div>
-    </div>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {commitments.map((item, i) => (
+        <li data-reveal style={`transition-delay:${i * 60}ms`}>
+          <Card class="h-full">
+            <item.icon class="size-7 text-blue-500" aria-hidden="true" />
+            <h3 class="mt-4 font-heading font-semibold text-navy-700 text-[16px] leading-snug">
+              {item.title}
+            </h3>
+            <p class="mt-2 text-small text-slate-500">{item.copy}</p>
+          </Card>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>
