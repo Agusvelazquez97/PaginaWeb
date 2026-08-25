@@ -6,6 +6,25 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 18 (Aclarar más el overlay del Hero, video incluido)
+
+Pedido del cliente: tanto el video de Inicio como las fotos del Hero de
+cada página se veían todavía un poco oscuras (después del ajuste de la
+Etapa 14, que ya las había aclarado una vez).
+
+- [x] `Hero.astro`: overlay navy bajado de nuevo — desktop de 50% a 35%
+      de opacidad, mobile de un degradé 100%→85%→60% a uno 100%→70%→45%
+      (el 100% del extremo inferior en mobile se mantiene igual a
+      propósito, es donde está el texto y no conviene arriesgar
+      legibilidad ahí). Afecta a las 8 páginas con Hero de imagen/video
+      (ES + EN).
+- [x] Verificado con el video de Inicio realmente reproduciéndose (no
+      solo el poster) — con `prefers-reduced-motion` el video se oculta
+      en desktop y hay que mirarlo sin ese emulado para juzgar el
+      brillo real.
+- [x] 0 violaciones de axe-core en 8 páginas (ES + EN, incluye Inicio,
+      Aviación, Servicios, Nosotros, PyMEs, Metodología).
+
 ## Etapa 17 (Consolidar el mensaje de "todavía no hay casos" en un solo lugar)
 
 El cliente notó que el aviso de "recién estamos lanzando, todavía no hay
