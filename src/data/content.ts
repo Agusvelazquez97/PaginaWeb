@@ -161,7 +161,7 @@ export const pymePlans = [
     ],
   },
   {
-    name: 'PERSONALIZADO',
+    name: 'ESTRATÉGICO',
     forWhom: 'Dirección estratégica externa a medida. Todo lo de Expansión, más:',
     includes: [
       'Solución 100% diseñada para tu empresa',
