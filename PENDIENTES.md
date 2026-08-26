@@ -64,10 +64,23 @@ Personales).
   vía CUIT en el padrón de AFIP de todos modos). Si prefiere no exponerlo
   en el sitio, avisar para reemplazarlo por un domicilio comercial/fiscal
   distinto, si lo hay.
-- **Registro ante la AAIP (art. 21)**: verificado que **no aplica** — esa
-  obligación es solo para bases de datos "destinadas a proporcionar
-  informes" (burós de crédito, etc.), no para el CRM propio de una
-  consultora. No se agregó como pendiente porque no corresponde.
+- **Registro ante la AAIP (art. 21) — PENDIENTE DE ANÁLISIS, no descartado.**
+  Revisión anterior concluía que no aplicaba (bases "destinadas a
+  proporcionar informes" = burós de crédito, etc.), pero un análisis legal
+  específico sobre este artículo advierte que **no** corresponde una lectura
+  restrictiva: "ciertas bases internas de clientes, proveedores o incluso
+  registros laborales pueden quedar alcanzadas si permiten generar
+  información sobre personas que pueda ser comunicada o utilizada con fines
+  informativos" — el criterio es cómo se usa la base en la práctica, no su
+  propósito declarado. Es un análisis caso por caso.
+  Antes del lanzamiento definitivo del CRM (más allá del formulario simple
+  actual), definir exactamente qué va a contener (empresa → contacto →
+  email → teléfono → oportunidad → seguimiento comercial, según lo
+  planteado por el cliente) y confirmar con un análisis legal puntual si
+  encuadra en el supuesto registrable. Si corresponde, la inscripción se
+  hace online vía TAD (con clave fiscal nivel 2), es gratuita, y se recibe
+  el certificado por email — no es un trámite costoso ni lento si termina
+  aplicando. No bloquea el lanzamiento del sitio actual.
 - **Banner de cookies**: GA4 corre hoy sin ningún gate de consentimiento.
   La Ley 25.326 (a diferencia del RGPD europeo) no exige un banner de
   cookies explícito, solo informar su uso — lo cual ya hace la nueva
