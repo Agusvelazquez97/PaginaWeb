@@ -6,6 +6,27 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 20 (Política de Cookies como página propia)
+
+El cliente pasó un checklist de legales "obligatorios/recomendables" con 4
+ítems; 3 ya estaban cubiertos por la Etapa 19, pero "Política de cookies"
+pedía ser un ítem propio (la Etapa 19 solo la había cubierto como una
+sección dentro de `/politica-privacidad`).
+
+- [x] **`/politica-cookies`** (nueva) — cookies verificadas contra la
+      documentación oficial de Google para GA4 (no vinculado a Google Ads):
+      solo `_ga` y `_ga_<container-id>`, ambas de 2 años. El nombre de la
+      segunda cookie se arma con el Measurement ID real
+      (`siteConfig.ga4MeasurementId`), no un placeholder genérico. Incluye
+      tabla de cookies, cookies de terceros (WhatsApp/Calendly/LinkedIn),
+      cómo desactivarlas por navegador, y el opt-out oficial de Google
+      Analytics.
+- [x] `/politica-privacidad` sección 5 ahora enlaza a `/politica-cookies`
+      para el detalle, en vez de duplicar la tabla ahí.
+- [x] Tercer enlace agregado al pie (`Footer.astro`, ES y EN).
+- [x] Verificado: `astro check` (0 errores), build (16 páginas), página
+      revisada visualmente en el navegador.
+
 ## Etapa 19 (Legales: Política de Privacidad y Términos y Condiciones)
 
 Pedido del cliente: el formulario de contacto recolecta nombre, empresa,

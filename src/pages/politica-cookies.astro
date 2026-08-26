@@ -1,0 +1,150 @@
+---
+/**
+ * Política de Cookies — página dedicada (antes solo era la sección 5 de
+ * /politica-privacidad). Cookies verificadas contra la documentación
+ * oficial de Google (GA4 JS tags sin vincular a Google Ads: solo _ga y
+ * _ga_<container-id>, ambas de 2 años) — no se inventan cookies ni se listan
+ * genéricamente sin confirmar que el sitio realmente las usa.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema.astro';
+import { siteConfig } from '@/data/site';
+---
+
+<BaseLayout
+  title="Política de Cookies | DGV Business Consulting"
+  description="Qué cookies utiliza el sitio dgvbusiness.com, con qué finalidad y cómo desactivarlas."
+>
+  <BreadcrumbSchema
+    items={[{ name: 'Inicio', path: '/' }, { name: 'Política de Cookies', path: '/politica-cookies' }]}
+  />
+
+  <section class="bg-bg-tint pt-32 pb-16 md:pt-40 md:pb-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center" data-reveal>
+      <p class="text-blue-700 font-semibold uppercase tracking-wide text-small">Legales</p>
+      <h1 class="mt-3 font-heading font-bold text-h1 text-navy-700">Política de Cookies</h1>
+      <p class="mt-4 text-lead text-slate-500">
+        Última actualización: 26 de agosto de 2026
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-10 text-slate-600 leading-relaxed">
+      <div>
+        <p>
+          Las cookies son pequeños archivos de texto que un sitio guarda en tu navegador. Esta
+          página detalla qué cookies usa <strong>dgvbusiness.com</strong>, con qué finalidad, y cómo
+          podés desactivarlas. Este es un complemento de nuestra{' '}
+          <a href="/politica-privacidad" class="text-blue-700 underline hover:text-blue-500">
+            Política de Privacidad
+          </a>.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">1. Cookies que usa este sitio</h2>
+        <p>
+          Usamos únicamente cookies de <strong>Google Analytics 4</strong>, para entender de forma
+          agregada y anónima cómo se usa el sitio. No usamos cookies de publicidad ni de
+          seguimiento entre sitios, y no vinculamos estas cookies a ninguna cuenta de Google Ads.
+        </p>
+        <div class="mt-4 overflow-x-auto">
+          <table class="w-full border-collapse text-small">
+            <thead>
+              <tr class="bg-bg-tint text-left">
+                <th class="border border-navy-700/10 px-4 py-2.5 font-heading font-semibold text-navy-700">
+                  Cookie
+                </th>
+                <th class="border border-navy-700/10 px-4 py-2.5 font-heading font-semibold text-navy-700">
+                  Proveedor
+                </th>
+                <th class="border border-navy-700/10 px-4 py-2.5 font-heading font-semibold text-navy-700">
+                  Finalidad
+                </th>
+                <th class="border border-navy-700/10 px-4 py-2.5 font-heading font-semibold text-navy-700">
+                  Duración
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-navy-700/10 px-4 py-2.5 font-mono text-[13px]">_ga</td>
+                <td class="border border-navy-700/10 px-4 py-2.5">Google Analytics 4</td>
+                <td class="border border-navy-700/10 px-4 py-2.5">Distingue usuarios únicos.</td>
+                <td class="border border-navy-700/10 px-4 py-2.5">2 años</td>
+              </tr>
+              <tr>
+                <td class="border border-navy-700/10 px-4 py-2.5 font-mono text-[13px]">
+                  _ga_{siteConfig.ga4MeasurementId.replace('G-', '')}
+                </td>
+                <td class="border border-navy-700/10 px-4 py-2.5">Google Analytics 4</td>
+                <td class="border border-navy-700/10 px-4 py-2.5">Mantiene el estado de la sesión.</td>
+                <td class="border border-navy-700/10 px-4 py-2.5">2 años</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-3 text-small text-slate-400">
+          Fuente: documentación oficial de Google sobre uso de cookies en GA4.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">2. Cookies de terceros</h2>
+        <p>
+          Si hacés clic en un enlace hacia WhatsApp, Calendly o LinkedIn, salís de nuestro sitio
+          hacia un servicio de terceros que puede utilizar sus propias cookies, bajo su propia
+          política — no las controlamos ni las emitimos nosotros.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">3. Cómo desactivar las cookies</h2>
+        <p>
+          Podés bloquear, eliminar o recibir un aviso antes de que se guarden cookies desde la
+          configuración de privacidad de tu navegador. El sitio va a seguir funcionando con
+          normalidad sin las cookies de analítica; solo dejaremos de recibir esos datos de uso
+          agregados.
+        </p>
+        <ul class="list-disc pl-6 mt-3 space-y-1.5">
+          <li>Chrome: Configuración → Privacidad y seguridad → Cookies y otros datos de sitios.</li>
+          <li>Firefox: Opciones → Privacidad y seguridad → Cookies y datos del sitio.</li>
+          <li>Safari: Preferencias → Privacidad.</li>
+          <li>Edge: Configuración → Cookies y permisos del sitio.</li>
+        </ul>
+        <p class="mt-3">
+          También podés instalar el{' '}
+          <a
+            href="https://tools.google.com/dlpage/gaoptout"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 underline hover:text-blue-500"
+          >
+            complemento de inhabilitación de Google Analytics
+          </a>{' '}
+          para no ser incluido en las mediciones de Google Analytics en ningún sitio que visites.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">4. Cambios a esta política</h2>
+        <p>
+          Si en el futuro incorporamos nuevas herramientas que usen cookies (por ejemplo,
+          publicidad), vamos a actualizar esta página antes de activarlas. La fecha de la última
+          actualización figura al inicio de esta página.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">5. Contacto</h2>
+        <p>
+          Ante cualquier consulta sobre esta política, escribinos a{' '}
+          <a href={`mailto:${siteConfig.email}`} class="text-blue-700 underline hover:text-blue-500">
+            {siteConfig.email}
+          </a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
