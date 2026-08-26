@@ -6,6 +6,33 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 21 (Versión en inglés de las 3 páginas legales)
+
+Pedido del cliente: dado que el sitio tiene versión en inglés justamente
+para atraer al público internacional de aviación/logística (Air France/KLM,
+DHL), tiene más sentido traducir las páginas legales que dejarlas solo en
+español como el resto de páginas sin versión EN.
+
+- [x] **`/en/privacy-policy`**, **`/en/cookie-policy`**,
+      **`/en/terms-and-conditions`** (nuevas) — traducción fiel de las 3
+      páginas en español, mismos datos reales (CUIT, domicilio, cookies,
+      proveedores), nada agregado ni cambiado más allá del idioma.
+- [x] Las 3 rutas se agregaron a `src/i18n/routes.ts`
+      (`translatedRoutes`) — esto activa automáticamente los
+      `hreflang` alternates en `BaseLayout` (verificado en el HTML
+      generado).
+- [x] `Footer.astro` y `ContactForm.astro`: los links a legales ahora son
+      dinámicos según `lang` (antes apuntaban siempre a las páginas en
+      español, incluso desde el sitio en inglés).
+- [x] Corregido un comentario desactualizado en
+      `politica-privacidad.astro` que todavía decía "el registro AAIP NO
+      aplica" (ya corregido a "pendiente de análisis" en el commit
+      "Corregir conclusión sobre registro AAIP", previo a esta etapa).
+- [x] Verificado: `astro check` (0 errores), build (19 páginas), las 6
+      páginas legales (ES+EN) revisadas visualmente en el navegador,
+      incluido el aviso de privacidad del formulario en `/en/contact`
+      apuntando a `/en/privacy-policy`.
+
 ## Etapa 20 (Política de Cookies como página propia)
 
 El cliente pasó un checklist de legales "obligatorios/recomendables" con 4
@@ -86,11 +113,12 @@ Personales).
   cookies explícito, solo informar su uso — lo cual ya hace la nueva
   política (sección 5). Se deja mencionado por si el cliente prefiere
   agregar un banner de todos modos como buena práctica adicional.
-- **Versión en inglés**: `/politica-privacidad` y `/terminos-condiciones`
-  se armaron solo en español (mismo criterio que `/metodologia`,
-  `/nosotros`, `/casos`, `/soluciones-pymes`, que tampoco tienen versión
-  EN). Los enlaces desde el sitio en inglés apuntan a las páginas en
-  español. Si se quiere traducir, es una etapa aparte.
+- ~~**Versión en inglés**~~ — **Resuelto en la Etapa 21**: el cliente pidió
+  traducir las 3 páginas legales, dado que el sitio en inglés apunta
+  justamente al público internacional de aviación/logística. (Corrección:
+  esta nota decía que `/nosotros` tampoco tenía versión EN — sí la tiene,
+  `/en/about`; las que siguen sin traducir son `/metodologia`, `/casos` y
+  `/soluciones-pymes`.)
 
 ## Etapa 18 (Aclarar más el overlay del Hero, video incluido)
 

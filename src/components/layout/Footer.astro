@@ -16,6 +16,7 @@ const t = ui[lang];
 const nav = lang === 'en' ? footerNavEn : footerNav;
 const waHref = lang === 'en' ? whatsappHrefEn : whatsappHref;
 const year = new Date().getFullYear();
+const legalHref = (es: string, en: string) => (lang === 'en' ? en : es);
 ---
 
 <footer class="bg-navy-900 text-blue-100">
@@ -102,13 +103,22 @@ const year = new Date().getFullYear();
       <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         <p>{t.footerRights(year)}</p>
         <div class="flex items-center gap-4">
-          <a href="/politica-privacidad" class="hover:text-white transition-colors underline underline-offset-2">
+          <a
+            href={legalHref('/politica-privacidad', '/en/privacy-policy')}
+            class="hover:text-white transition-colors underline underline-offset-2"
+          >
             {t.footerPrivacy}
           </a>
-          <a href="/politica-cookies" class="hover:text-white transition-colors underline underline-offset-2">
+          <a
+            href={legalHref('/politica-cookies', '/en/cookie-policy')}
+            class="hover:text-white transition-colors underline underline-offset-2"
+          >
             {t.footerCookies}
           </a>
-          <a href="/terminos-condiciones" class="hover:text-white transition-colors underline underline-offset-2">
+          <a
+            href={legalHref('/terminos-condiciones', '/en/terms-and-conditions')}
+            class="hover:text-white transition-colors underline underline-offset-2"
+          >
             {t.footerTerms}
           </a>
         </div>

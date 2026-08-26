@@ -9,6 +9,9 @@ export const translatedRoutes: Record<string, string> = {
   '/aviacion-logistica': '/en/aviation-logistics',
   '/contacto': '/en/contact',
   '/nosotros': '/en/about',
+  '/politica-privacidad': '/en/privacy-policy',
+  '/politica-cookies': '/en/cookie-policy',
+  '/terminos-condiciones': '/en/terms-and-conditions',
 };
 
 const reverseRoutes: Record<string, string> = Object.fromEntries(

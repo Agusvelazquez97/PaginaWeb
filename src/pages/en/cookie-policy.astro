@@ -1,0 +1,145 @@
+---
+/**
+ * Cookie Policy (EN) — faithful translation of politica-cookies.astro.
+ * Same real cookie list (verified against Google's official GA4 docs) —
+ * nothing added beyond language. Keep both files in sync.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema.astro';
+import { siteConfig } from '@/data/site';
+---
+
+<BaseLayout
+  title="Cookie Policy | DGV Business Consulting"
+  description="What cookies dgvbusiness.com uses, for what purpose, and how to disable them."
+>
+  <BreadcrumbSchema
+    items={[{ name: 'Home', path: '/en' }, { name: 'Cookie Policy', path: '/en/cookie-policy' }]}
+  />
+
+  <section class="bg-bg-tint pt-32 pb-16 md:pt-40 md:pb-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center" data-reveal>
+      <p class="text-blue-700 font-semibold uppercase tracking-wide text-small">Legal</p>
+      <h1 class="mt-3 font-heading font-bold text-h1 text-navy-700">Cookie Policy</h1>
+      <p class="mt-4 text-lead text-slate-500">Last updated: August 26, 2026</p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-10 text-slate-600 leading-relaxed">
+      <div>
+        <p>
+          Cookies are small text files a site stores in your browser. This page details which
+          cookies <strong>dgvbusiness.com</strong> uses, for what purpose, and how you can disable
+          them. This page complements our{' '}
+          <a href="/en/privacy-policy" class="text-blue-700 underline hover:text-blue-500">
+            Privacy Policy
+          </a>.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">1. Cookies this site uses</h2>
+        <p>
+          We only use <strong>Google Analytics 4</strong> cookies, to understand, in aggregate and
+          anonymously, how the site is used. We don't use advertising or cross-site tracking
+          cookies, and we don't link these cookies to any Google Ads account.
+        </p>
+        <div class="mt-4 overflow-x-auto">
+          <table class="w-full border-collapse text-small">
+            <thead>
+              <tr class="bg-bg-tint text-left">
+                <th class="border border-navy-700/10 px-4 py-2.5 font-heading font-semibold text-navy-700">
+                  Cookie
+                </th>
+                <th class="border border-navy-700/10 px-4 py-2.5 font-heading font-semibold text-navy-700">
+                  Provider
+                </th>
+                <th class="border border-navy-700/10 px-4 py-2.5 font-heading font-semibold text-navy-700">
+                  Purpose
+                </th>
+                <th class="border border-navy-700/10 px-4 py-2.5 font-heading font-semibold text-navy-700">
+                  Duration
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-navy-700/10 px-4 py-2.5 font-mono text-[13px]">_ga</td>
+                <td class="border border-navy-700/10 px-4 py-2.5">Google Analytics 4</td>
+                <td class="border border-navy-700/10 px-4 py-2.5">Distinguishes unique users.</td>
+                <td class="border border-navy-700/10 px-4 py-2.5">2 years</td>
+              </tr>
+              <tr>
+                <td class="border border-navy-700/10 px-4 py-2.5 font-mono text-[13px]">
+                  _ga_{siteConfig.ga4MeasurementId.replace('G-', '')}
+                </td>
+                <td class="border border-navy-700/10 px-4 py-2.5">Google Analytics 4</td>
+                <td class="border border-navy-700/10 px-4 py-2.5">Persists session state.</td>
+                <td class="border border-navy-700/10 px-4 py-2.5">2 years</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-3 text-small text-slate-400">
+          Source: Google's official documentation on GA4 cookie usage.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">2. Third-party cookies</h2>
+        <p>
+          If you click a link to WhatsApp, Calendly, or LinkedIn, you leave our site for a
+          third-party service that may use its own cookies, under its own policy — we don't control
+          or set those.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">3. How to disable cookies</h2>
+        <p>
+          You can block, delete, or get a warning before cookies are stored from your browser's
+          privacy settings. The site will keep working normally without analytics cookies; we'll
+          just stop receiving that aggregate usage data.
+        </p>
+        <ul class="list-disc pl-6 mt-3 space-y-1.5">
+          <li>Chrome: Settings → Privacy and security → Cookies and other site data.</li>
+          <li>Firefox: Options → Privacy & Security → Cookies and Site Data.</li>
+          <li>Safari: Preferences → Privacy.</li>
+          <li>Edge: Settings → Cookies and site permissions.</li>
+        </ul>
+        <p class="mt-3">
+          You can also install the{' '}
+          <a
+            href="https://tools.google.com/dlpage/gaoptout"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-700 underline hover:text-blue-500"
+          >
+            Google Analytics Opt-out Browser Add-on
+          </a>{' '}
+          to be excluded from Google Analytics measurement on every site you visit.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">4. Changes to this policy</h2>
+        <p>
+          If we add new tools that use cookies in the future (for example, advertising), we'll
+          update this page before turning them on. The date of the last update appears at the top
+          of this page.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">5. Contact</h2>
+        <p>
+          For any questions about this policy, email us at{' '}
+          <a href={`mailto:${siteConfig.email}`} class="text-blue-700 underline hover:text-blue-500">
+            {siteConfig.email}
+          </a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

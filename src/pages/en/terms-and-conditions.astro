@@ -1,0 +1,129 @@
+---
+/**
+ * Terms and Conditions (EN) — faithful translation of
+ * terminos-condiciones.astro. Same trademark status disclosure ("in
+ * process", never "registered") — nothing added beyond language. Keep both
+ * files in sync.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema.astro';
+import { siteConfig } from '@/data/site';
+---
+
+<BaseLayout
+  title="Terms and Conditions | DGV Business Consulting"
+  description="Terms of use for dgvbusiness.com, the site of DGV Business Consulting."
+>
+  <BreadcrumbSchema
+    items={[{ name: 'Home', path: '/en' }, { name: 'Terms and Conditions', path: '/en/terms-and-conditions' }]}
+  />
+
+  <section class="bg-bg-tint pt-32 pb-16 md:pt-40 md:pb-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center" data-reveal>
+      <p class="text-blue-700 font-semibold uppercase tracking-wide text-small">Legal</p>
+      <h1 class="mt-3 font-heading font-bold text-h1 text-navy-700">Terms and Conditions</h1>
+      <p class="mt-4 text-lead text-slate-500">Last updated: August 26, 2026</p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-10 text-slate-600 leading-relaxed">
+      <div>
+        <p>
+          These terms govern the use of <strong>dgvbusiness.com</strong>, operated by DGV Business
+          Consulting (Daniel Gustavo Velázquez, Argentine Tax ID / CUIT 20-18125486-7). By browsing
+          this site, you accept these terms. If you don't agree, please don't use it.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">1. Purpose of the site</h2>
+        <p>
+          The site has informational and commercial purposes: it presents DGV Business
+          Consulting's services and lets you start a conversation through the contact form,
+          WhatsApp, or by scheduling a call. Nothing published here constitutes, on its own, a
+          services contract or binding professional advice — that only happens once we agree on a
+          specific proposal with you.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">2. Intellectual property</h2>
+        <p>
+          The text, design, images, and logo on this site are the property of DGV Business
+          Consulting, unless otherwise noted. The name "DGV Business Consulting" and its logo are,
+          as of this publication, under a pending trademark registration application before
+          Argentina's Instituto Nacional de la Propiedad Industrial (INPI).
+        </p>
+        <p class="mt-3">
+          Reproducing, copying, or distributing this site's content for commercial purposes without
+          prior written authorization is not permitted.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">3. Permitted use</h2>
+        <p>By using this site, you agree not to:</p>
+        <ul class="list-disc pl-6 mt-3 space-y-1.5">
+          <li>Use it for unlawful purposes or in ways contrary to these terms.</li>
+          <li>Attempt to gain unauthorized access to the site's systems or data.</li>
+          <li>Send malicious content, spam, or false information through the contact form.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">4. Links to third-party sites</h2>
+        <p>
+          This site includes links to third-party services — WhatsApp, Calendly, LinkedIn — that we
+          don't operate or control. We're not responsible for the content, availability, or privacy
+          policies of those sites. We recommend reviewing their own terms before using them.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">5. Contact form</h2>
+        <p>
+          Data you enter in the contact form is processed as described in our{' '}
+          <a href="/en/privacy-policy" class="text-blue-700 underline hover:text-blue-500">
+            Privacy Policy
+          </a>.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">6. Limitation of liability</h2>
+        <p>
+          This site's content is of a general informational nature. We make a reasonable effort to
+          keep it accurate and up to date, but we don't guarantee it's free of errors at all times.
+          The site is provided "as is," without guarantees of uninterrupted availability.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">7. Changes</h2>
+        <p>
+          We may update these terms at any time to reflect changes to the site or to applicable
+          regulations. The date of the last update appears at the top of this page.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">8. Governing law and jurisdiction</h2>
+        <p>
+          These terms are governed by the laws of Argentina. Any dispute arising from the use of
+          this site is subject to the competent ordinary courts of Argentina.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">9. Contact</h2>
+        <p>
+          For any questions about these terms, email us at{' '}
+          <a href={`mailto:${siteConfig.email}`} class="text-blue-700 underline hover:text-blue-500">
+            {siteConfig.email}
+          </a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

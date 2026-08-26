@@ -6,9 +6,11 @@
  * de contacto (ContactForm.astro) recolecta nombre/empresa/email/teléfono/
  * tipo/mensaje y los envía a Formspree (siteConfig.formEndpoint); GA4
  * (siteConfig.ga4MeasurementId) corre en BaseLayout sin gate de consentimiento.
- * El registro ante la AAIP (art. 21) NO aplica: solo es obligatorio para
- * bases de datos "destinadas a proporcionar informes" (ej. burós de crédito),
- * no para el CRM propio de una consultora.
+ * El registro ante la AAIP (art. 21) queda como pendiente de análisis
+ * específico, no descartado — ver PENDIENTES.md, Etapa 19: la obligación es
+ * para bases "destinadas a proporcionar informes", pero la doctrina advierte
+ * contra una lectura restrictiva de esa frase para bases internas de
+ * clientes. No bloquea el formulario simple actual.
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema.astro';
