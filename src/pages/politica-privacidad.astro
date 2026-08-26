@@ -1,0 +1,204 @@
+---
+/**
+ * Política de Privacidad — Ley 25.326 de Protección de Datos Personales.
+ * Contenido verificado contra el texto oficial de la ley (arts. 4, 5, 6, 11,
+ * 12, 14, 16 y 21) y contra la implementación real del sitio: el formulario
+ * de contacto (ContactForm.astro) recolecta nombre/empresa/email/teléfono/
+ * tipo/mensaje y los envía a Formspree (siteConfig.formEndpoint); GA4
+ * (siteConfig.ga4MeasurementId) corre en BaseLayout sin gate de consentimiento.
+ * El registro ante la AAIP (art. 21) NO aplica: solo es obligatorio para
+ * bases de datos "destinadas a proporcionar informes" (ej. burós de crédito),
+ * no para el CRM propio de una consultora.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema.astro';
+import { siteConfig } from '@/data/site';
+---
+
+<BaseLayout
+  title="Política de Privacidad | DGV Business Consulting"
+  description="Cómo DGV Business Consulting recolecta, usa y protege los datos personales de quienes visitan este sitio o completan el formulario de contacto."
+>
+  <BreadcrumbSchema
+    items={[{ name: 'Inicio', path: '/' }, { name: 'Política de Privacidad', path: '/politica-privacidad' }]}
+  />
+
+  <section class="bg-bg-tint pt-32 pb-16 md:pt-40 md:pb-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center" data-reveal>
+      <p class="text-blue-700 font-semibold uppercase tracking-wide text-small">Legales</p>
+      <h1 class="mt-3 font-heading font-bold text-h1 text-navy-700">Política de Privacidad</h1>
+      <p class="mt-4 text-lead text-slate-500">
+        Última actualización: 26 de agosto de 2026
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-10 text-slate-600 leading-relaxed">
+      <div>
+        <p>
+          Esta política explica qué datos personales recolecta DGV Business Consulting a través del
+          sitio <strong>dgvbusiness.com</strong>, con qué finalidad, con quién se comparten y cómo
+          podés ejercer tus derechos, en cumplimiento de la Ley 25.326 de Protección de Datos
+          Personales de la República Argentina.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">1. Responsable del tratamiento</h2>
+        <p>
+          El responsable de los datos personales recolectados a través de este sitio es{' '}
+          <strong>DGV Business Consulting</strong>, operada por Daniel Gustavo Velázquez
+          (CUIT 20-18125486-7), con domicilio en Martín J. Haedo 1450, Muñiz, Partido de San
+          Miguel, Provincia de Buenos Aires, Argentina.
+        </p>
+        <p class="mt-3">
+          Contacto para consultas sobre esta política o sobre tus datos personales:
+          <a href={`mailto:${siteConfig.email}`} class="text-blue-700 underline hover:text-blue-500">
+            {siteConfig.email}
+          </a>.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">2. Qué datos recolectamos</h2>
+        <p>
+          Recolectamos datos personales únicamente cuando los proporcionás de forma voluntaria a
+          través del <strong>formulario de contacto</strong> del sitio:
+        </p>
+        <ul class="list-disc pl-6 mt-3 space-y-1.5">
+          <li>Nombre (obligatorio)</li>
+          <li>Empresa (obligatorio)</li>
+          <li>Email (obligatorio)</li>
+          <li>Teléfono (opcional)</li>
+          <li>Tipo de consulta — PyME, Aviación/Logística u otro (obligatorio)</li>
+          <li>Mensaje (opcional)</li>
+        </ul>
+        <p class="mt-3">
+          Los campos marcados como obligatorios son necesarios para poder responder tu consulta; si
+          no los completás, no vamos a poder contactarte. El resto de los campos son facultativos y
+          su omisión no tiene otra consecuencia que la de brindarnos menos contexto sobre tu
+          consulta.
+        </p>
+        <p class="mt-3">
+          Además, el sitio recolecta datos de navegación de forma automática a través de Google
+          Analytics 4 (ver sección 5, "Cookies y analítica").
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">3. Para qué usamos tus datos</h2>
+        <p>Usamos los datos que nos proporcionás exclusivamente para:</p>
+        <ul class="list-disc pl-6 mt-3 space-y-1.5">
+          <li>Responder tu consulta y coordinar una conversación o llamada.</li>
+          <li>Elaborar propuestas comerciales cuando corresponda.</li>
+          <li>Gestionar la relación comercial, si decidís avanzar con nuestros servicios.</li>
+        </ul>
+        <p class="mt-3">
+          No usamos tus datos con fines distintos a los mencionados, ni los utilizamos para armar
+          perfiles publicitarios ni para enviarte comunicaciones de marketing sin tu consentimiento
+          expreso adicional.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">4. Con quién compartimos tus datos</h2>
+        <p>
+          No vendemos ni cedemos tus datos personales a terceros con fines comerciales. Sí
+          utilizamos los siguientes proveedores para operar el sitio, que procesan datos en nuestro
+          nombre:
+        </p>
+        <ul class="list-disc pl-6 mt-3 space-y-1.5">
+          <li>
+            <strong>Formspree</strong> (Formspree, Inc., Estados Unidos) — procesa y nos entrega los
+            envíos del formulario de contacto.
+          </li>
+          <li>
+            <strong>Google Analytics 4</strong> (Google LLC, Estados Unidos) — analiza el uso
+            agregado del sitio mediante cookies (ver sección 5).
+          </li>
+        </ul>
+        <p class="mt-3">
+          Si hacés clic para escribirnos por WhatsApp, esa conversación queda sujeta a la política
+          de privacidad de WhatsApp/Meta. Si hacés clic para agendar una llamada, Calendly procesa
+          esos datos bajo su propia política de privacidad. En ambos casos salís de nuestro sitio
+          hacia un servicio de terceros que no controlamos.
+        </p>
+        <p class="mt-3">
+          Formspree y Google tienen sede en Estados Unidos, por lo que el envío del formulario y la
+          navegación por el sitio implican una <strong>transferencia internacional de datos</strong>{' '}
+          hacia ese país. Al completar y enviar el formulario, o al continuar navegando el sitio,
+          consentís esa transferencia, necesaria para el funcionamiento de estos servicios.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">5. Cookies y analítica</h2>
+        <p>
+          El sitio utiliza cookies de Google Analytics 4 para entender de forma agregada cómo se
+          usa el sitio (páginas visitadas, clics en WhatsApp o en agendar una llamada, envíos del
+          formulario). No usamos cookies de publicidad ni de seguimiento entre sitios.
+        </p>
+        <p class="mt-3">
+          Podés bloquear o eliminar estas cookies desde la configuración de tu navegador en
+          cualquier momento; el sitio va a seguir funcionando con normalidad, aunque dejaremos de
+          recibir esos datos de uso agregados.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">6. Cuánto tiempo conservamos tus datos</h2>
+        <p>
+          Conservamos los datos del formulario de contacto mientras dure el intercambio comercial
+          con vos, y mientras sea razonablemente necesario para los fines descriptos en la sección
+          3. Si no avanza una relación comercial, podés solicitar la supresión de tus datos en
+          cualquier momento (ver sección 8).
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">7. Seguridad</h2>
+        <p>
+          Tomamos medidas razonables para proteger tus datos personales. Sin embargo, ningún medio
+          de transmisión por internet es completamente seguro, por lo que no podemos garantizar una
+          seguridad absoluta.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">8. Tus derechos (ARCO)</h2>
+        <p>
+          De acuerdo con la Ley 25.326, tenés derecho a acceder, rectificar, actualizar y solicitar
+          la supresión de tus datos personales de forma gratuita. Para ejercer estos derechos,
+          escribinos a{' '}
+          <a href={`mailto:${siteConfig.email}`} class="text-blue-700 underline hover:text-blue-500">
+            {siteConfig.email}
+          </a>{' '}
+          indicando tu nombre y el dato sobre el que querés ejercer tu derecho. Vamos a responder
+          dentro de los plazos que establece la ley.
+        </p>
+        <p class="mt-3">
+          La <strong>Agencia de Acceso a la Información Pública (AAIP)</strong>, órgano de control
+          de la Ley 25.326, es la autoridad ante la cual podés presentar un reclamo si considerás
+          que tus derechos no fueron respetados.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">9. Menores de edad</h2>
+        <p>
+          Este sitio está dirigido a empresas y profesionales; no está destinado a menores de edad
+          y no recolectamos deliberadamente datos personales de menores.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">10. Cambios a esta política</h2>
+        <p>
+          Podemos actualizar esta política para reflejar cambios en el sitio o en la normativa
+          aplicable. La fecha de la última actualización figura al inicio de esta página.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

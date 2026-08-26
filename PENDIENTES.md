@@ -6,6 +6,58 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 19 (Legales: Política de Privacidad y Términos y Condiciones)
+
+Pedido del cliente: el formulario de contacto recolecta nombre, empresa,
+email y teléfono, y el sitio no tenía página de privacidad — necesaria antes
+de recibir el primer lead real (Ley 25.326 de Protección de Datos
+Personales).
+
+- [x] **`/politica-privacidad`** (nueva) — contenido verificado contra el
+      texto oficial de la Ley 25.326 (arts. 4, 5, 6, 11, 12, 14, 16 y 21,
+      confirmados directamente en el texto de la ley, no de memoria).
+      Describe exactamente lo que el sitio hace hoy: los campos reales que
+      recolecta `ContactForm.astro`, el envío a Formspree
+      (`siteConfig.formEndpoint`) y el tracking de GA4
+      (`siteConfig.ga4MeasurementId`), ambos con sede en EE.UU. (transferencia
+      internacional, art. 12). Responsable identificado con los datos reales
+      de Daniel Gustavo Velázquez (CUIT y domicilio) — ver nota abajo.
+- [x] **`/terminos-condiciones`** (nueva) — uso del sitio, propiedad
+      intelectual (aclara que "DGV Business Consulting" está **en trámite**
+      de registro ante el INPI, no "registrada" — la solicitud recién se
+      presentó), enlaces a terceros, límite de responsabilidad, ley
+      aplicable.
+- [x] Enlaces agregados al pie del sitio (`Footer.astro`, ES y EN — EN
+      apunta a las mismas páginas en español, ver pendiente abajo) y aviso
+      con link a la política justo debajo del botón de envío en
+      `ContactForm.astro` (ES y EN), para informar en el momento mismo de
+      la recolección de datos (art. 6).
+- [x] Verificado: `astro check` (0 errores), build (15 páginas), páginas
+      revisadas visualmente en el navegador.
+
+### Decisiones a confirmar con el cliente
+
+- **Domicilio publicado en la política de privacidad**: el art. 6(b) de la
+  Ley 25.326 exige informar el domicilio del responsable del tratamiento.
+  Se publicó el domicilio real de Daniel (ya es públicamente consultable
+  vía CUIT en el padrón de AFIP de todos modos). Si prefiere no exponerlo
+  en el sitio, avisar para reemplazarlo por un domicilio comercial/fiscal
+  distinto, si lo hay.
+- **Registro ante la AAIP (art. 21)**: verificado que **no aplica** — esa
+  obligación es solo para bases de datos "destinadas a proporcionar
+  informes" (burós de crédito, etc.), no para el CRM propio de una
+  consultora. No se agregó como pendiente porque no corresponde.
+- **Banner de cookies**: GA4 corre hoy sin ningún gate de consentimiento.
+  La Ley 25.326 (a diferencia del RGPD europeo) no exige un banner de
+  cookies explícito, solo informar su uso — lo cual ya hace la nueva
+  política (sección 5). Se deja mencionado por si el cliente prefiere
+  agregar un banner de todos modos como buena práctica adicional.
+- **Versión en inglés**: `/politica-privacidad` y `/terminos-condiciones`
+  se armaron solo en español (mismo criterio que `/metodologia`,
+  `/nosotros`, `/casos`, `/soluciones-pymes`, que tampoco tienen versión
+  EN). Los enlaces desde el sitio en inglés apuntan a las páginas en
+  español. Si se quiere traducir, es una etapa aparte.
+
 ## Etapa 18 (Aclarar más el overlay del Hero, video incluido)
 
 Pedido del cliente: tanto el video de Inicio como las fotos del Hero de

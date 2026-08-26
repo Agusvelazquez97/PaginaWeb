@@ -1,0 +1,140 @@
+---
+/**
+ * Términos y Condiciones de uso del sitio. La marca "DGV Business
+ * Consulting" está en trámite de solicitud ante el INPI (denominativa +
+ * mixta, clases 35 y 36) al momento de escribir esto — se describe así,
+ * nunca como "marca registrada", para no afirmar algo que todavía no ocurrió.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema.astro';
+import { siteConfig } from '@/data/site';
+---
+
+<BaseLayout
+  title="Términos y Condiciones | DGV Business Consulting"
+  description="Condiciones de uso del sitio dgvbusiness.com de DGV Business Consulting."
+>
+  <BreadcrumbSchema
+    items={[{ name: 'Inicio', path: '/' }, { name: 'Términos y Condiciones', path: '/terminos-condiciones' }]}
+  />
+
+  <section class="bg-bg-tint pt-32 pb-16 md:pt-40 md:pb-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center" data-reveal>
+      <p class="text-blue-700 font-semibold uppercase tracking-wide text-small">Legales</p>
+      <h1 class="mt-3 font-heading font-bold text-h1 text-navy-700">Términos y Condiciones</h1>
+      <p class="mt-4 text-lead text-slate-500">
+        Última actualización: 26 de agosto de 2026
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-10 text-slate-600 leading-relaxed">
+      <div>
+        <p>
+          Estos términos regulan el uso del sitio <strong>dgvbusiness.com</strong>, operado por
+          DGV Business Consulting (Daniel Gustavo Velázquez, CUIT 20-18125486-7). Al navegar este
+          sitio, aceptás estos términos. Si no estás de acuerdo, te pedimos que no lo utilices.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">1. Objeto del sitio</h2>
+        <p>
+          El sitio tiene fines informativos y comerciales: presenta los servicios de consultoría de
+          DGV Business Consulting y permite iniciar contacto a través del formulario, WhatsApp o
+          agendando una llamada. Ninguna información publicada acá constituye, por sí sola, un
+          contrato de servicios ni asesoramiento profesional vinculante — eso recién ocurre cuando
+          acordamos una propuesta específica con vos.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">2. Propiedad intelectual</h2>
+        <p>
+          Los textos, el diseño, las imágenes y el isotipo de este sitio son propiedad de DGV
+          Business Consulting, salvo que se indique lo contrario. La denominación "DGV Business
+          Consulting" y su isotipo se encuentran, al momento de esta publicación, en trámite de
+          solicitud de registro como marca ante el Instituto Nacional de la Propiedad Industrial
+          (INPI) de la República Argentina.
+        </p>
+        <p class="mt-3">
+          No está permitido reproducir, copiar o distribuir el contenido de este sitio con fines
+          comerciales sin autorización previa por escrito.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">3. Uso permitido</h2>
+        <p>Al usar este sitio, te comprometés a no:</p>
+        <ul class="list-disc pl-6 mt-3 space-y-1.5">
+          <li>Usarlo con fines ilícitos o contrarios a estos términos.</li>
+          <li>Intentar acceder sin autorización a sistemas o datos del sitio.</li>
+          <li>
+            Enviar contenido malicioso, spam o información falsa a través del formulario de
+            contacto.
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">4. Enlaces a sitios de terceros</h2>
+        <p>
+          Este sitio incluye enlaces a servicios de terceros — WhatsApp, Calendly, LinkedIn — que
+          no operamos ni controlamos. No nos hacemos responsables por el contenido, la
+          disponibilidad ni las políticas de privacidad de esos sitios. Te recomendamos revisar sus
+          propios términos antes de usarlos.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">5. Formulario de contacto</h2>
+        <p>
+          Los datos que completes en el formulario de contacto se procesan según lo descripto en
+          nuestra{' '}
+          <a href="/politica-privacidad" class="text-blue-700 underline hover:text-blue-500">
+            Política de Privacidad
+          </a>.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">6. Limitación de responsabilidad</h2>
+        <p>
+          El contenido de este sitio es de carácter informativo general. Hacemos un esfuerzo
+          razonable para que la información sea precisa y esté actualizada, pero no garantizamos
+          que esté libre de errores en todo momento. El sitio se ofrece "tal cual", sin garantías de
+          disponibilidad ininterrumpida.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">7. Modificaciones</h2>
+        <p>
+          Podemos actualizar estos términos en cualquier momento para reflejar cambios en el sitio
+          o en la normativa aplicable. La fecha de la última actualización figura al inicio de esta
+          página.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">8. Ley aplicable y jurisdicción</h2>
+        <p>
+          Estos términos se rigen por las leyes de la República Argentina. Ante cualquier
+          controversia derivada del uso de este sitio, las partes se someten a los tribunales
+          ordinarios competentes de la República Argentina.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading font-bold text-h3 text-navy-700 mb-3">9. Contacto</h2>
+        <p>
+          Ante cualquier consulta sobre estos términos, escribinos a{' '}
+          <a href={`mailto:${siteConfig.email}`} class="text-blue-700 underline hover:text-blue-500">
+            {siteConfig.email}
+          </a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

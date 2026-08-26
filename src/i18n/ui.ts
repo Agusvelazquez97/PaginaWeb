@@ -19,6 +19,8 @@ export const ui = {
     footerRights: (year: number) => `© ${year} DGV Business Consulting. Todos los derechos reservados.`,
     footerTrayectorias:
       'Las trayectorias del equipo se comunican en texto, sin usar logos de terceros.',
+    footerPrivacy: 'Política de Privacidad',
+    footerTerms: 'Términos y Condiciones',
     whatsappAriaLabel: (phone: string) => `Escribinos por WhatsApp: ${phone}`,
     inicio: 'Inicio',
     langSwitcherLabel: 'Idioma',
@@ -36,6 +38,9 @@ export const ui = {
     footerRights: (year: number) => `© ${year} DGV Business Consulting. All rights reserved.`,
     footerTrayectorias:
       "The team's track record is communicated in text, without using third-party logos.",
+    // Sin versión en inglés todavía — enlazan a las páginas en español. Ver PENDIENTES.md.
+    footerPrivacy: 'Privacy Policy',
+    footerTerms: 'Terms and Conditions',
     whatsappAriaLabel: (phone: string) => `Message us on WhatsApp: ${phone}`,
     inicio: 'Home',
     langSwitcherLabel: 'Language',
