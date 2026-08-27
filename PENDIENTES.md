@@ -6,6 +6,38 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 26 (Halo blanco en las fotos de Sonia y Victoria)
+
+El cliente notó un reflejo/halo blanco alrededor del cabello en las fotos
+individuales de Sonia y Victoria (`public/images/team/sonia.jpg` y
+`victoria.jpg`). Diagnóstico: son fotos con fondo reemplazado
+digitalmente por el navy sólido del sitio (`rgb(14,36,96)`, uniforme en
+las 4 esquinas — confirmado con muestreo de píxeles), y el recorte
+original dejó un remanente claro/blanquecino de unos 12-18px de ancho
+alrededor del contorno del cabello (más visible en pelo oscuro contra el
+navy, por eso se notaba más en Sonia y Victoria que en Daniel, de pelo
+canoso).
+
+- [x] Corregido con un script de "choke" del borde: se detecta el fondo
+      navy exacto, se mide la distancia de cada píxel al fondo, y dentro
+      de una franja de ~18px se atenúa gradualmente hacia el color de
+      fondo (más fuerte cerca del borde, sin efecto en el interior) —
+      pero **solo donde el contexto es cabello** (se verifica que haya
+      píxeles oscuros más adentro antes de tocar cualquier píxel, para no
+      afectar por error el saco negro ni la ropa clara).
+      Iteración: un primer intento con una franja de 6px no alcanzaba a
+      cubrir todo el halo (que en algunos puntos, sobre todo cerca de la
+      coronilla, llega a 12-15px de ancho real) — se corrigió ampliando a
+      18px después de medir el perfil de píxeles real con un scan
+      vertical sobre la imagen original.
+- [x] Verificado a nivel de píxel (zoom 3-4x, comparación antes/después en
+      la zona de la frente y el nacimiento del pelo de ambas) — el halo
+      se redujo drásticamente, sin tocar la ropa ni el rostro. A tamaño
+      real (avatar circular de `/nosotros`) el resultado es limpio.
+- [x] Reemplazados directamente `sonia.jpg` y `victoria.jpg` en
+      `public/images/team/` — mismo nombre de archivo, no requiere
+      cambios en `src/data/team.ts` ni en ningún componente.
+
 ## Etapa 25 (Imagen faltante en el Hero de /contacto)
 
 El cliente notó que `/contacto` era la única página principal del sitio
