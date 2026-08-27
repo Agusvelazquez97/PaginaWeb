@@ -6,6 +6,47 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 27 (Foto nueva de Daniel)
+
+El cliente compartió una foto nueva de Daniel ("Daniel - nueva.jpg", vía
+Google Drive de Agustín) para reemplazar `public/images/team/daniel.jpg`,
+manteniendo el mismo formato/fondo que el resto del equipo (recorte
+cuadrado 1000×1000, compuesto sobre el navy sólido del sitio
+`rgb(14,36,96)`).
+
+- [x] Descargada desde Drive (`mcp__Google_Drive__download_file_content`,
+      fileId `1SnKAUCZZ3QQfvIbfygRE2aJL86o5otWT`) — el acceso directo a
+      Drive había sido denegado en un intento anterior; funcionó al
+      reintentar.
+- [x] **Defecto encontrado en el archivo original, sin relación con el
+      procesamiento**: 2 instancias de un ícono cuadriculado
+      blanco/negro/verde (parece un ícono de "imagen no cargada" de
+      alguna app de mensajería) incrustadas en la foto — una cerca del
+      cuello/solapa, otra cerca de un botón de la camisa. Detectadas con
+      un filtro de contraste direccional (alto en X y en Y a la vez, a
+      diferencia de las rayas de la camisa que solo varían en X) y
+      corregidas con inpainting real (`cv2.inpaint`, algoritmo Telea) en
+      vez de un parche de color plano — reconstruye la textura de la tela
+      respetando el borde diagonal cuello/saco, sin dejar un parche visible.
+- [x] Fondo removido con `rembg` (modelo BRIA RMBG 2.0) — recorte limpio,
+      sin halos visibles incluso contra un fondo de prueba magenta.
+- [x] **Encuadre**: la foto nueva tiene menos torso visible debajo de la
+      cara que el resto de las fotos del equipo (recorte más cerrado en
+      el original). Igualar el ancho de cabeza exacto a los demás dejaba
+      un hueco de navy visible debajo de los hombros (efecto "cabeza
+      flotante"); se probó primero rellenar ese hueco extendiendo/
+      difuminando el color del saco hacia el fondo, pero el resultado se
+      veía como un manchón borroso poco convincente. Se optó en cambio por
+      escalar la foto para que el contenido real llegue exactamente hasta
+      el borde inferior del lienzo (sin inventar tela), aceptando una
+      cabeza  ligeramente más grande (~30%) que la de sus compañeros —
+      compromiso verificado visualmente como el resultado más limpio,
+      confirmado además a tamaño real del avatar circular de 80px que usa
+      el sitio (`object-cover` + `rounded-full` en `TeamGrid.astro`).
+- [x] Reemplazado `public/images/team/daniel.jpg`. Verificado: `astro
+      check` (0 errores), build (20 páginas), captura real de la sección
+      "Nuestro equipo" en `/nosotros`.
+
 ## Etapa 26 (Halo blanco en las fotos de Sonia y Victoria)
 
 El cliente notó un reflejo/halo blanco alrededor del cabello en las fotos
