@@ -6,6 +6,30 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 22 (Corrección de artefacto en el isotipo DGV)
+
+Pedido del cliente al revisar el archivo del logo para el trámite de marca
+ante INPI: los trazos de "DGV" y "BUSINESS CONSULTING" se veían con puntos
+dispersos por fuera del borde de las letras.
+
+- [x] Diagnosticado con análisis de histograma del canal alfa: el ruido
+      está en los dos archivos máster (`dgv-logo.png` variante blanca para
+      fondo oscuro, y `dgv-logo-light.png` variante navy para fondo claro),
+      no en ninguna conversión posterior — ambos tienen exactamente 6.144
+      píxeles con alfa 1-29 dispersos fuera de las letras (ruido de
+      exportación, no antialiasing normal).
+- [x] **Corregidos ambos archivos directamente en
+      `public/images/brand/`** (`dgv-logo.png` y `dgv-logo-light.png`) con
+      binarización del canal alfa (umbral 128: ≥128 → opaco, si no →
+      transparente). No se tocó ningún píxel de color, solo la
+      transparencia — el logo es idéntico, sin los puntos sueltos.
+- [x] Verificado a nivel de píxel (zoom 6x) sobre capturas reales del
+      Header y Footer del sitio (`npm run build` + `astro preview` +
+      Playwright) — sin puntos fuera del contorno de las letras en ninguna
+      de las dos variantes.
+- [x] Regenerado el archivo JPG para el trámite INPI a partir del archivo
+      ya corregido (mismo resultado, ahora con una única fuente de verdad).
+
 ## Etapa 21 (Versión en inglés de las 3 páginas legales)
 
 Pedido del cliente: dado que el sitio tiene versión en inglés justamente
