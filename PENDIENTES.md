@@ -65,8 +65,35 @@ isotipo).
       letras legibles sin cortes), 0 manchas aisladas (análisis de
       componentes conexas), y confirmado también sobre capturas reales del
       Header y Footer del sitio (`deviceScaleFactor: 3` vía Playwright).
+- [x] **Tercer round de feedback:** el cliente prefirió el resultado del
+      filtro de mediana solo (sin cierre) para "BUSINESS CONSULTING" —
+      ahí no se veían dientes — pero señaló que "DGV" seguía mostrando
+      dientes salientes marcados. Comparando ambas palabras a mismo nivel
+      de zoom (8x, nearest-neighbor) se confirmó que el cierre morfológico
+      con estructura tipo cruz (4-conectada) del intento anterior no era
+      isotrópico: al aplicarse sobre toda la imagen agregaba protuberancias
+      asimétricas en curvas grandes (D, G, V) que no aparecían en el texto
+      chico, donde el mismo cierre pasaba más desapercibido a esa escala.
+- [x] **Corrección definitiva: cierre morfológico con elemento estructural
+      circular (`skimage.morphology.disk(2)`)**, aplicado **solo dentro
+      del recuadro que contiene "DGV"** (`x:170-430, y:0-100`, verificado
+      contra el bounding box real de esas 3 letras por componentes
+      conexas) — nunca sobre las barras ni sobre "BUSINESS CONSULTING",
+      que se dejan tal cual quedaron con el filtro de mediana ya aprobado.
+      Un disco es isotrópico (mismo efecto en todas las direcciones), así
+      que rellena el mordisco de la "D" sin agregar protuberancias en
+      otras curvas. Se agregó además un blur gaussiano suave (r=0.8) solo
+      en ese recuadro, para emparejar el nivel de antialiasing de "DGV"
+      con el de "BUSINESS CONSULTING" (las letras grandes partían de un
+      antialiasing más "duro" en el archivo original).
+- [x] Verificado: "D" sin mordisco, "G" y "V" sin dientes a zoom 8x (mismo
+      nivel de suavidad que "BUSINESS CONSULTING"), sin costura visible en
+      el borde del recuadro de recorte, 0 manchas aisladas, y confirmado
+      sobre una captura real del Header del sitio a alta resolución
+      (`deviceScaleFactor: 3` vía Playwright).
 - [x] Regenerado el archivo JPG para el trámite INPI a partir del archivo
-      final ya corregido (mediana + cierre morfológico).
+      final ya corregido (mediana global + cierre circular localizado en
+      "DGV").
 
 ## Etapa 21 (Versión en inglés de las 3 páginas legales)
 
