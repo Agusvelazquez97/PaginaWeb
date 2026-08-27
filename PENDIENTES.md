@@ -6,6 +6,49 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 23 (Reconstrucción del isotipo DGV con la paleta real del sitio)
+
+Después de 4 rondas de ajuste sobre el PNG máster original (Etapa 22), se
+confirmó por medición cuantitativa que ese archivo (756×200px) había
+llegado al límite de lo que se puede corregir sin más resolución de
+origen. El cliente compartió dos variantes del isotipo procesadas con otra
+herramienta ("Claude Design") y pidió aplicarles la paleta de colores real
+del sitio — se optó por **reconstruir el isotipo de cero** en vez de
+recolorear esos archivos (no eran accesibles como archivo en este entorno,
+solo visibles en el chat).
+
+- [x] **Reconstrucción con la tipografía real del sitio**: en vez de seguir
+      parcheando el PNG rasterizado con artefactos, se renderizó el
+      wordmark completo (3 barras + "DGV" + "BUSINESS CONSULTING") de cero
+      usando `@fontsource/sora` (ya es una dependencia del proyecto — es la
+      fuente real de `--font-heading` en `global.css`): Sora 800 para
+      "DGV", Sora 400 con letter-spacing para "BUSINESS CONSULTING".
+      Renderizado a 8x de supersampling y reducido con Lanczos — texto
+      genuinamente vectorial, sin ningún artefacto de los que se venían
+      arrastrando (mordiscos, dientes, ruido). Geometría de las barras y
+      posición del texto calcada de las coordenadas exactas del archivo
+      original (mismo layout, mismas proporciones).
+- [x] **Colores tomados 1:1 de los tokens ya definidos en
+      `src/styles/global.css`** (no inventados, no aproximados a ojo):
+      - Variante fondo oscuro (Header sobre navy, Footer):
+        barra 1 `slate-400` `#64748b`, barra 2 `blue-200` `#c5d8f2`, barra 3
+        blanco, "DGV" blanco, "BUSINESS CONSULTING" `blue-200` `#c5d8f2`.
+      - Variante fondo claro (documentos, trámite INPI):
+        barra 1 `slate-400` `#64748b`, barra 2 `blue-500` `#3b82f6`, barra 3
+        `navy-700` `#0d2461`, "DGV" `navy-700` `#0d2461`,
+        "BUSINESS CONSULTING" `slate-500` `#475569`.
+- [x] Reemplazados `dgv-logo.png` y `dgv-logo-light.png` en
+      `public/images/brand/` — ahora a 1512×400px (2x el tamaño anterior,
+      más nítido en pantallas retina), manteniendo el mismo nombre de
+      archivo para que todos los usos existentes (Header, Footer) tomen la
+      versión nueva automáticamente.
+- [x] Verificado con capturas reales del Header (fondo claro) y Footer
+      (fondo navy) del sitio — colores y proporciones correctas, sin
+      ningún artefacto visual a ningún nivel de zoom (por ser texto
+      renderizado desde fuente vectorial, no un raster parcheado).
+- [x] Regenerado el archivo JPG para el trámite INPI a partir del nuevo
+      máster.
+
 ## Etapa 22 (Corrección de artefacto en el isotipo DGV)
 
 Pedido del cliente al revisar el archivo del logo para el trámite de marca
