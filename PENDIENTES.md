@@ -38,12 +38,35 @@ isotipo).
       quedaban con la binarización). Aplicado a los dos archivos máster en
       `public/images/brand/` reconstruidos desde el PNG original (sin
       binarizar), no encadenado sobre el intento anterior.
-- [x] Verificado a nivel de píxel (zoom 5x del canal alfa y captura real
-      del Header del sitio a `deviceScaleFactor: 3` vía Playwright,
-      `npm run build` + `astro preview`) — bordes suaves en "D", "G",
-      "BUSINESS", sin puntos ni dientes por fuera del contorno.
+- [x] **Segundo defecto encontrado (no era ruido, era geometría real):** el
+      cliente reportó que después del filtro de mediana, "DGV" (letras
+      grandes) todavía mostraba un diente saliente, pero "BUSINESS
+      CONSULTING" (letras chicas) no. Se confirmó comparando contra el PNG
+      original sin ningún procesamiento: la "D" tiene un mordisco real
+      tallado en la curva interior (esquina superior derecha del ojal),
+      preexistente en el archivo máster a resolución nativa — no es ruido
+      de antialiasing, es un defecto geométrico real del asset original
+      (posiblemente de una operación de recorte fallida en el diseño
+      original), y solo es visible en "DGV" porque ahí las curvas son
+      mucho más grandes y el defecto ocupa varios píxeles; en el texto
+      chico el mismo tipo de defecto sería sub-píxel.
+- [x] **Corrección final: cierre morfológico (`binary_closing`, 1
+      iteración) sobre la máscara binaria del canal alfa**, después del
+      filtro de mediana y antes de reintroducir un antialiasing suave
+      (blur gaussiano r=0.5). El cierre rellena mordiscos/hendiduras sin
+      erosionar los trazos — se probó primero con apertura morfológica
+      adicional (`binary_opening`) para eliminar dientes salientes, pero
+      esa combinación **rompía los trazos finos de "BUSINESS
+      CONSULTING"** (letras discontinuas, "T" partida) al ser más angostos
+      que el kernel; se descartó y se dejó solo el cierre, que no tiene ese
+      efecto secundario.
+- [x] Verificado a nivel de píxel: sin mordiscos en la "D" (zoom 8x),
+      "BUSINESS CONSULTING" con los trazos intactos (zoom 3x, las 19
+      letras legibles sin cortes), 0 manchas aisladas (análisis de
+      componentes conexas), y confirmado también sobre capturas reales del
+      Header y Footer del sitio (`deviceScaleFactor: 3` vía Playwright).
 - [x] Regenerado el archivo JPG para el trámite INPI a partir del archivo
-      ya corregido con el filtro de mediana.
+      final ya corregido (mediana + cierre morfológico).
 
 ## Etapa 21 (Versión en inglés de las 3 páginas legales)
 
