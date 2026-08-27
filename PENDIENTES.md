@@ -25,10 +25,11 @@ Contacto arrancaba con un `<section>` de solo texto sobre `bg-tint`).
       requiere un CTA principal — no cambia ningún copy existente.
 - [x] Verificado: `astro check` (0 errores), build (20 páginas), revisado
       visualmente en el navegador.
-- [ ] **Pendiente, sin resolver todavía**: `/en/contact` tiene el mismo
-      hueco (mismo `<section>` de solo texto) — no se tocó porque el
-      cliente aprobó específicamente el cambio en la página en español.
-      Aplicar el mismo fix ahí si se confirma.
+- [x] **Aplicado también en `/en/contact`** (mismo cambio, confirmado por
+      el cliente): `Hero variant="image"` con la misma foto
+      `equipo-nosotros.jpg`, título "Let's talk.", CTA "Send your
+      message" anclado a `#formulario`. Verificado: `astro check` (0
+      errores), build (20 páginas), revisado visualmente.
 
 ## Etapa 24 (Traducir /soluciones-pymes: faltaba en el sitio en inglés)
 
