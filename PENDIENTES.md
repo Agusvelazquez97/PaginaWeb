@@ -94,6 +94,27 @@ isotipo).
 - [x] Regenerado el archivo JPG para el trámite INPI a partir del archivo
       final ya corregido (mediana global + cierre circular localizado en
       "DGV").
+- [x] **Cuarto round:** el cliente confirmó mejora ("mucho menos, pero
+      sigue") en "DGV" a zoom alto, con "BUSINESS CONSULTING" y el resto ya
+      aprobado. Se probó supersampling (subir la región de "DGV" a 8x con
+      Lanczos antes del cierre circular, cerrar a esa escala, y volver a
+      bajar con Lanczos — antialiasing por supersampled, más preciso que
+      blurrear un cierre hecho a resolución nativa) — mejora visual leve.
+      Se hizo además una medición cuantitativa (posición sub-píxel del
+      borde de la "V", desviación respecto de un ajuste lineal) comparando
+      las 4 variantes probadas: los valores de rugosidad del borde son
+      prácticamente idénticos entre todas (~9.06-9.07), lo que confirma
+      que el procesamiento del canal alfa ya llegó al límite de lo que se
+      puede mejorar sin más datos — **el archivo máster tiene sólo 756×200px
+      (el bloque "DGV" ocupa ~95px de alto)**, y a ese tamaño cualquier
+      curva rasterizada muestra algo de escalonado si se la mira a zoom
+      alto (8x+); no es un defecto que se pueda seguir "puliendo" sin subir
+      la resolución real del archivo de origen. Aplicado igual como mejor
+      versión disponible.
+      **Pendiente:** preguntarle al cliente si existe un archivo vectorial
+      u original de mayor resolución del isotipo (AI/EPS/SVG/PDF del
+      diseñador) — eso permitiría reconstruir el máster sin este límite,
+      en vez de seguir iterando sobre el PNG de 756×200px actual.
 
 ## Etapa 21 (Versión en inglés de las 3 páginas legales)
 
