@@ -6,6 +6,49 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 24 (Traducir /soluciones-pymes: faltaba en el sitio en inglés)
+
+Bug reportado por el cliente: en el sitio en inglés, el botón/tarjeta
+"Solutions for SMEs" (en `/en/services` y en el RouteSelector de `/en`)
+llevaba a la página en **español** (`/soluciones-pymes`) en vez de a una
+versión en inglés — porque esa página nunca se había traducido (quedó
+agrupada, por error de mi parte en la Etapa 21, con Metodología/Nosotros/
+Casos como "solo en español", cuando en realidad sí tiene enlaces directos
+desde el sitio en inglés).
+
+- [x] **`/en/solutions-for-smes`** (nueva) — traducción fiel de
+      `soluciones-pymes.astro`, mismo contenido y estructura (Hero, 5
+      pain points, franja de imagen, 5 soluciones, tabla de 4 planes, 6
+      servicios, 4 pasos del método, CTA final).
+- [x] Agregada a `translatedRoutes` (`src/i18n/routes.ts`) — activa el
+      `hreflang` alternate automáticamente.
+- [x] Nuevos datos en `content.en.ts`: `pymeSolutionsEn`, `pymeServicesEn`,
+      `pymePlansEn` (con los 4 planes: BASE, MOMENTUM, EXPANSION,
+      STRATEGIC — nombres traducidos salvo BASE que ya es igual en los dos
+      idiomas). Se reusó `methodStepsFullEn`, que ya existía internamente
+      (sin exportar) para armar `methodStepsAviacionEn` — se exportó en
+      vez de duplicarlo.
+- [x] `PlansTable.astro` ahora acepta `eyebrow`/`heading`/`plans` como
+      props opcionales (antes tenía todo hardcodeado en español) — mismo
+      patrón que ya usan PainCards/ServiceGrid/MethodSteps. Sin cambios de
+      comportamiento en español (los props tienen el valor por defecto
+      que ya estaba hardcodeado).
+- [x] Corregidos los 2 links que apuntaban a la ruta en español desde
+      contexto en inglés: el botón "Solutions for SMEs" en
+      `en/services.astro` (antes `/soluciones-pymes`, ahora
+      `/en/solutions-for-smes`) y la tarjeta "I'm an SME" del
+      RouteSelector en `/en` (`routesEn` en `content.en.ts`, mismo
+      cambio). El resto de las referencias a `/soluciones-pymes` que
+      quedan en el código son legítimamente de contexto en español
+      (`solucionesDropdown`, `footerNav`, `RouteSelector`'s
+      `defaultRoutes` — el `Header` ya rama por `lang` y no usa esos
+      arrays cuando `lang === 'en'`).
+- [x] Verificado: `astro check` (0 errores), build (20 páginas), y
+      confirmado con `curl` que los 3 puntos de entrada (`/en/services`,
+      `/en` RouteSelector, y el propio `hreflang` de `/soluciones-pymes`)
+      apuntan correctamente a `/en/solutions-for-smes`. Revisado
+      visualmente en el navegador (Hero y tabla de planes).
+
 ## Etapa 23 (Reconstrucción del isotipo DGV con la paleta real del sitio)
 
 Después de 4 rondas de ajuste sobre el PNG máster original (Etapa 22), se

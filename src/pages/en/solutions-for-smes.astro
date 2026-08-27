@@ -1,0 +1,78 @@
+---
+/**
+ * Solutions for SMEs (EN) — faithful translation of
+ * soluciones-pymes.astro. Same content, no new claims or data added.
+ * Keep both files in sync.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/sections/Hero.astro';
+import PainCards from '@/components/sections/PainCards.astro';
+import ImageBand from '@/components/sections/ImageBand.astro';
+import ServiceGrid from '@/components/sections/ServiceGrid.astro';
+import PlansTable from '@/components/sections/PlansTable.astro';
+import MethodSteps from '@/components/sections/MethodSteps.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema.astro';
+import { pymePainsEn, pymeSolutionsEn, pymeServicesEn, pymePlansEn, methodStepsFullEn } from '@/data/content.en';
+---
+
+<BaseLayout
+  title="SME Consulting in Argentina | Processes, finance and profitability — DGV"
+  description="We organize, measure and make your SME profitable: accounting, processes, financing and strategic planning with measurable results."
+>
+  <BreadcrumbSchema
+    items={[
+      { name: 'Home', path: '/en' },
+      { name: 'Solutions for SMEs', path: '/en/solutions-for-smes' },
+    ]}
+  />
+  <Hero
+    variant="image"
+    fallbackLabel="Argentine SME image (hero)"
+    imageSrc="/images/pymes/hero-taller.jpg"
+    eyebrow="Solutions for SMEs"
+    title="Organize, measure and make your SME profitable."
+    subtitle="We help you put your numbers, processes and decisions in order, with a team that gets closely involved in your business."
+    primaryCta={{ label: 'Book a free diagnostic', href: '/en/contact' }}
+    secondaryCta={{ label: 'See plans', href: '#planes' }}
+  />
+
+  <PainCards
+    eyebrow="The diagnostic"
+    heading="The challenges holding back most SMEs."
+    items={pymePainsEn}
+  />
+
+  <ImageBand
+    imageSrc="/images/pymes/numeros.jpg"
+    imageAlt=""
+    eyebrow="The first step"
+    heading="Your numbers, finally in order."
+    copy="Without clear metrics it's impossible to measure real business performance. We start there: order and visibility before anything else."
+  />
+
+  <ServiceGrid
+    eyebrow="What we solve"
+    heading="From your SME's problems to an organized, profitable company."
+    items={pymeSolutionsEn}
+    tone="tint"
+  />
+
+  <div id="planes">
+    <PlansTable eyebrow="Plans" heading="A plan that grows with your business." plans={pymePlansEn} />
+  </div>
+
+  <ServiceGrid
+    eyebrow="Comprehensive expertise"
+    heading="Services for every stage of your company."
+    items={pymeServicesEn}
+  />
+
+  <MethodSteps heading="A clear process, concrete results." steps={methodStepsFullEn} />
+
+  <CTASection
+    title="Book your free diagnostic."
+    subtitle="No commitment, no red tape — a conversation about how to organize and grow your business."
+    cta={{ label: 'Book your free diagnostic', href: '/en/contact' }}
+  />
+</BaseLayout>

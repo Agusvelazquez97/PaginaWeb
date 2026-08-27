@@ -5,6 +5,7 @@
  */
 export const translatedRoutes: Record<string, string> = {
   '/': '/en',
+  '/soluciones-pymes': '/en/solutions-for-smes',
   '/servicios': '/en/services',
   '/aviacion-logistica': '/en/aviation-logistics',
   '/contacto': '/en/contact',

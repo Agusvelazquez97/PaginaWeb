@@ -32,6 +32,9 @@ import {
   Cpu,
   Building2,
   Plane,
+  PiggyBank,
+  HandCoins,
+  Sparkles,
 } from '@lucide/astro';
 
 // --- Diagnóstico PyME condensado — Inicio (EN) ---
@@ -60,6 +63,113 @@ export const pymePainsEn = [
     icon: Globe,
     title: 'Shifting macro environment',
     copy: 'New regulations that demand constant adaptation.',
+  },
+];
+
+// --- What we solve — SMEs (EN) ---
+export const pymeSolutionsEn = [
+  {
+    icon: PiggyBank,
+    title: 'Cost optimization',
+    copy: 'We identify hidden costs and savings opportunities without affecting quality or productivity.',
+  },
+  {
+    icon: Wrench,
+    title: 'Process improvement',
+    copy: 'We redesign workflows to boost efficiency, cut turnaround times and minimize errors.',
+  },
+  {
+    icon: HandCoins,
+    title: 'Financing advisory',
+    copy: 'We help you navigate credit, subsidies and investment alternatives tailored to your situation.',
+  },
+  {
+    icon: GaugeIcon,
+    title: 'Measurable results',
+    copy: 'Every project includes clear savings, efficiency and ROI indicators.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Tailored approach',
+    copy: 'Solutions adapted to each client’s size, industry and context.',
+  },
+];
+
+// --- SME services grid (EN) ---
+export const pymeServicesEn = [
+  {
+    icon: Receipt,
+    title: 'Tax Advisory',
+    copy: 'Registrations, filings and tax returns. Compliance and tax optimization.',
+  },
+  {
+    icon: Calculator,
+    title: 'Accounting & Outsourcing',
+    copy: 'Fully outsourced accounting management with monthly management reports.',
+  },
+  {
+    icon: UsersRound,
+    title: 'HR & Payroll Management',
+    copy: 'Payroll processing, social security contributions and labor law compliance.',
+  },
+  {
+    icon: ChartLine,
+    title: 'Finance & Executive Reporting',
+    copy: 'Financial analysis and periodic dashboards for data-driven decisions.',
+  },
+  {
+    icon: TargetIcon,
+    title: 'Strategic Planning',
+    copy: 'Support on key decisions, expansion and competitive positioning.',
+  },
+  {
+    icon: Globe,
+    title: 'National & International Expansion',
+    copy: 'Strategy and structuring for companies looking to grow beyond their borders.',
+  },
+];
+
+// --- SME plans (EN) ---
+export const pymePlansEn = [
+  {
+    name: 'BASE',
+    forWhom: 'Get your business in order. Ideal for micro and small companies.',
+    includes: [
+      'Monthly bookkeeping and closings',
+      'Basic tax planning',
+      'Administrative organization and KPIs',
+      'Monthly executive report',
+    ],
+  },
+  {
+    name: 'MOMENTUM',
+    forWhom: 'Manage growth. Everything in Base, plus:',
+    includes: [
+      'Cash flow and annual budget',
+      'Cost and profitability analysis',
+      'Process diagnostics and optimization',
+      'Executive dashboard with KPIs',
+    ],
+  },
+  {
+    name: 'EXPANSION',
+    forWhom: 'Transform the company. Everything in Momentum, plus:',
+    includes: [
+      'Digital transformation and automation',
+      'Applied artificial intelligence',
+      'Strategic planning and OKRs',
+      'Commercial and HR optimization',
+    ],
+  },
+  {
+    name: 'STRATEGIC',
+    forWhom: 'Tailored external strategic leadership. Everything in Expansion, plus:',
+    includes: [
+      '100% custom-designed solution for your company',
+      'External CFO',
+      'Business advisor',
+      'Corporate governance and technology',
+    ],
   },
 ];
 
@@ -101,7 +211,7 @@ export const methodStepsCondensedEn = [
   { icon: ChartLine, title: 'Follow-up', copy: 'Executive reporting and continuous improvement.' },
 ];
 
-const methodStepsFullEn = [
+export const methodStepsFullEn = [
   {
     icon: ClipboardList,
     title: 'Diagnosis',
@@ -342,7 +452,7 @@ export const routesEn = [
   {
     icon: Building2,
     label: "I'm an SME",
-    href: '/soluciones-pymes',
+    href: '/en/solutions-for-smes',
     copy: 'Operational disarray, lack of metrics and decisions made by gut feel. We help you organize and measure your business.',
     imageLabel: 'Argentine SME image',
     imageSrc: '/images/pymes/hero-taller.jpg',
