@@ -10,25 +10,40 @@ cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 
 Pedido del cliente al revisar el archivo del logo para el trámite de marca
 ante INPI: los trazos de "DGV" y "BUSINESS CONSULTING" se veían con puntos
-dispersos por fuera del borde de las letras.
+dispersos por fuera del borde de las letras (no así en las barras del
+isotipo).
 
 - [x] Diagnosticado con análisis de histograma del canal alfa: el ruido
       está en los dos archivos máster (`dgv-logo.png` variante blanca para
       fondo oscuro, y `dgv-logo-light.png` variante navy para fondo claro),
-      no en ninguna conversión posterior — ambos tienen exactamente 6.144
-      píxeles con alfa 1-29 dispersos fuera de las letras (ruido de
-      exportación, no antialiasing normal).
-- [x] **Corregidos ambos archivos directamente en
-      `public/images/brand/`** (`dgv-logo.png` y `dgv-logo-light.png`) con
-      binarización del canal alfa (umbral 128: ≥128 → opaco, si no →
-      transparente). No se tocó ningún píxel de color, solo la
-      transparencia — el logo es idéntico, sin los puntos sueltos.
-- [x] Verificado a nivel de píxel (zoom 6x) sobre capturas reales del
-      Header y Footer del sitio (`npm run build` + `astro preview` +
-      Playwright) — sin puntos fuera del contorno de las letras en ninguna
-      de las dos variantes.
+      no en ninguna conversión posterior — ambos con miles de píxeles de
+      alfa parcial dispersos por todo el fondo (ruido de exportación),
+      concentrado en el área de texto y prácticamente ausente en las
+      barras (que son formas rectas simples).
+- [x] **Primer intento (insuficiente):** binarización dura del canal alfa
+      (umbral 128). Eliminó el ruido disperso del fondo, pero como
+      subproducto convirtió los bordes curvos/diagonales de las letras
+      (que antes tenían degradado de antialiasing suave) en un contorno
+      "escalonado" con pequeños dientes salientes — visualmente casi
+      idéntico al problema original, y por eso el cliente lo siguió viendo
+      igual. Las barras (bordes rectos) no mostraban este efecto, lo cual
+      coincide con lo que el cliente reportó.
+- [x] **Corrección real: filtro de mediana (3×3) sobre el canal alfa**, en
+      vez de binarizar. Un filtro de mediana descarta los píxeles aislados
+      que no coinciden con su entorno (el ruido disperso) pero preserva el
+      degradado de antialiasing real en los bordes de las letras, porque
+      ahí los valores de alfa cambian de forma gradual y coherente entre
+      píxeles vecinos. Verificado con análisis de componentes conexas: 0
+      manchas aisladas menores a 15px después del filtro (vs. 8 que
+      quedaban con la binarización). Aplicado a los dos archivos máster en
+      `public/images/brand/` reconstruidos desde el PNG original (sin
+      binarizar), no encadenado sobre el intento anterior.
+- [x] Verificado a nivel de píxel (zoom 5x del canal alfa y captura real
+      del Header del sitio a `deviceScaleFactor: 3` vía Playwright,
+      `npm run build` + `astro preview`) — bordes suaves en "D", "G",
+      "BUSINESS", sin puntos ni dientes por fuera del contorno.
 - [x] Regenerado el archivo JPG para el trámite INPI a partir del archivo
-      ya corregido (mismo resultado, ahora con una única fuente de verdad).
+      ya corregido con el filtro de mediana.
 
 ## Etapa 21 (Versión en inglés de las 3 páginas legales)
 
