@@ -6,6 +6,30 @@ contenido inventado: son huecos explícitos a completar con material real del
 cliente antes de lanzar. Ver también `DGV_Spec_Desarrollo.md` sección 9.2
 (checklist de lanzamiento), que ya listaba varios de estos ítems.
 
+## Etapa 25 (Imagen faltante en el Hero de /contacto)
+
+El cliente notó que `/contacto` era la única página principal del sitio
+sin foto en el Hero (Servicios, Soluciones PyMEs, Aviación & Logística,
+Metodología y Nosotros arrancan todas con `Hero variant="image"`;
+Contacto arrancaba con un `<section>` de solo texto sobre `bg-tint`).
+
+- [x] Convertido el hero de `/contacto` a `Hero variant="image"`, mismo
+      componente que ya usan todas las demás páginas — mismo título
+      ("Hablemos.") y subtítulo, sin tocar el resto de la página
+      (formulario, canales directos, Calendly, FAQ quedan intactos).
+- [x] **Reusada `equipo-nosotros.jpg`** (foto real del equipo, ya usada en
+      `/nosotros`) — no se generó ni se buscó una imagen nueva; encaja
+      temáticamente ("hablemos con el equipo"). Se le agregó un
+      `primaryCta` ("Enviá tu mensaje") que ancla a `#formulario` (nuevo
+      `id` en la sección del formulario), porque el componente `Hero`
+      requiere un CTA principal — no cambia ningún copy existente.
+- [x] Verificado: `astro check` (0 errores), build (20 páginas), revisado
+      visualmente en el navegador.
+- [ ] **Pendiente, sin resolver todavía**: `/en/contact` tiene el mismo
+      hueco (mismo `<section>` de solo texto) — no se tocó porque el
+      cliente aprobó específicamente el cambio en la página en español.
+      Aplicar el mismo fix ahí si se confirma.
+
 ## Etapa 24 (Traducir /soluciones-pymes: faltaba en el sitio en inglés)
 
 Bug reportado por el cliente: en el sitio en inglés, el botón/tarjeta
