@@ -6,12 +6,12 @@
 export const teamEn = [
   {
     role: 'Founder',
-    formation: 'Certified Public Accountant · UBA (University of Buenos Aires) · Registered with CPCECABA',
+    formation: 'Certified Public Accountant · UBA (Universidad de Buenos Aires) · Registered with CPCECABA',
     bio: 'Over 20 years in aviation and logistics (Air France / KLM, DHL Express Argentina) and 35+ years of overall experience. Specialist in financial processes and operational efficiency.',
   },
   {
     role: 'Founder',
-    formation: 'Certified Public Accountant · UBA · Registered with CPCECABA',
+    formation: 'Certified Public Accountant · UBA (Universidad de Buenos Aires) · Registered with CPCECABA',
     bio: 'Extensive experience at leading multinationals such as Western Union. Specialist in corporate finance, accounting and operations management.',
   },
   {
