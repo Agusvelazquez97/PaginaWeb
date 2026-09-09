@@ -43,13 +43,13 @@ export const mainNav: NavLink[] = [
 
 export const solucionesDropdown: NavLink[] = [
   { label: 'Soluciones para PyMEs', href: '/soluciones-pymes' },
-  { label: 'Aviación & Logística', href: '/aviacion-logistica' },
+  { label: 'Industria Aérea & Logística', href: '/aviacion-logistica' },
 ];
 
 export const footerNav: NavLink[] = [
   { label: 'Inicio', href: '/' },
   { label: 'Soluciones para PyMEs', href: '/soluciones-pymes' },
-  { label: 'Aviación & Logística', href: '/aviacion-logistica' },
+  { label: 'Industria Aérea & Logística', href: '/aviacion-logistica' },
   { label: 'Servicios', href: '/servicios' },
   { label: 'Metodología', href: '/metodologia' },
   { label: 'Nosotros', href: '/nosotros' },
