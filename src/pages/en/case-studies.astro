@@ -1,0 +1,52 @@
+---
+/**
+ * Case Studies (EN) — traducción fiel de src/pages/casos.astro. Mismo
+ * copy honesto (DGV recién está lanzando, sin clientes todavía); no se
+ * publican casos ficticios.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CommitmentBlock from '@/components/sections/CommitmentBlock.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import { FileText } from '@lucide/astro';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema.astro';
+---
+
+<BaseLayout
+  title="Case Studies | DGV Business Consulting"
+  description="DGV Business Consulting's case studies and results get published as projects move forward, with each client's authorization."
+>
+  <BreadcrumbSchema items={[{ name: 'Home', path: '/en' }, { name: 'Case Studies', path: '/en/case-studies' }]} />
+  <section class="bg-bg-tint pt-32 pb-20 md:pt-40 md:pb-28">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 text-center" data-reveal>
+      <p class="text-blue-700 font-semibold uppercase tracking-wide text-small">Case Studies</p>
+      <h1 class="mt-3 font-heading font-bold text-h1 text-navy-700">
+        This section is under construction.
+      </h1>
+      <p class="mt-4 text-lead text-slate-500">
+        We haven't published any case studies yet: we'd rather wait until we have real, measurable
+        results that each client has authorized us to share before showing them here.
+      </p>
+
+      <div
+        class="mt-10 rounded-card border-2 border-dashed border-navy-700/15 bg-white p-10"
+      >
+        <FileText class="size-8 text-blue-500 mx-auto" aria-hidden="true" />
+        <p class="mt-4 font-heading font-semibold text-navy-700">
+          Be one of our first case studies
+        </p>
+        <p class="mt-2 text-small text-slate-500">
+          We're just launching DGV Business Consulting. As soon as we have projects we can publish
+          (with the client's authorization), they'll appear here with concrete data.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CommitmentBlock lang="en" />
+
+  <CTASection
+    title="Want to be one of our first case studies?"
+    subtitle="Book a free diagnostic and let's start building measurable results."
+    cta={{ label: 'Book your free diagnostic', href: '/en/contact' }}
+  />
+</BaseLayout>

@@ -12,8 +12,16 @@
  */
 import Card from '@/components/ui/Card.astro';
 import { methodStepsAviacion } from '@/data/content';
+import { methodStepsAviacionEn } from '@/data/content.en';
+import type { Lang } from '@/i18n/ui';
 
-const extras = [
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'es' } = Astro.props;
+
+const extrasEs = [
   {
     deliverable: 'Mapa de brechas + mapa de oportunidades + matriz de priorización + quick wins + informe ejecutivo.',
     duration: '2 a 3 semanas.',
@@ -32,9 +40,36 @@ const extras = [
   },
 ];
 
-const steps = methodStepsAviacion.map((step, i) => ({ ...step, ...extras[i] }));
+const extrasEn = [
+  {
+    deliverable: 'Gap map + opportunity map + prioritization matrix + quick wins + executive report.',
+    duration: '2 to 3 weeks.',
+  },
+  {
+    deliverable: 'Strategic improvement plan: objectives, priorities, initiatives, KPIs and a 30/60/90-day roadmap.',
+    duration: '3 to 5 business days.',
+  },
+  {
+    deliverable: 'Implementation roadmap + KPI dashboard.',
+    duration: '3 to 6 months, depending on project complexity.',
+  },
+  {
+    deliverable: 'Progress reports + executive follow-up + final results report.',
+    duration: 'Continuous throughout implementation.',
+  },
+];
 
-const tools = ['SAP', 'ERP', 'Business Intelligence', 'Dashboards ejecutivos'];
+const stepsBase = lang === 'en' ? methodStepsAviacionEn : methodStepsAviacion;
+const extras = lang === 'en' ? extrasEn : extrasEs;
+const steps = stepsBase.map((step, i) => ({ ...step, ...extras[i] }));
+
+const tools = lang === 'en'
+  ? ['SAP', 'ERP', 'Business Intelligence', 'Executive dashboards']
+  : ['SAP', 'ERP', 'Business Intelligence', 'Dashboards ejecutivos'];
+
+const labels = lang === 'en'
+  ? { deliverables: 'Deliverables', duration: 'Typical duration', tools: 'Tools' }
+  : { deliverables: 'Entregables', duration: 'Duración típica', tools: 'Herramientas' };
 ---
 
 <section class="bg-white py-20 md:py-28">
@@ -55,13 +90,13 @@ const tools = ['SAP', 'ERP', 'Business Intelligence', 'Dashboards ejecutivos'];
             </div>
             <div class="md:border-l md:border-navy-700/10 md:pl-6">
               <p class="text-small font-semibold uppercase tracking-wide text-slate-400">
-                Entregables
+                {labels.deliverables}
               </p>
               <p class="mt-1 text-small text-slate-500">{step.deliverable}</p>
             </div>
             <div class="md:border-l md:border-navy-700/10 md:pl-6">
               <p class="text-small font-semibold uppercase tracking-wide text-slate-400">
-                Duración típica
+                {labels.duration}
               </p>
               <p class="mt-1 text-small text-slate-500">{step.duration}</p>
             </div>
@@ -72,7 +107,7 @@ const tools = ['SAP', 'ERP', 'Business Intelligence', 'Dashboards ejecutivos'];
 
     <div class="mt-10 text-center" data-reveal>
       <p class="text-small font-semibold uppercase tracking-wide text-slate-400 mb-3">
-        Herramientas
+        {labels.tools}
       </p>
       <ul class="flex flex-wrap justify-center gap-2">
         {tools.map((tool) => (

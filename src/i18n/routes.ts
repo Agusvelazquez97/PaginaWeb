@@ -1,7 +1,6 @@
 /**
- * Mapa de rutas traducidas — solo las 4 páginas más relevantes tienen
- * versión en inglés (ver PENDIENTES.md, feature experimental de i18n).
- * El resto del sitio sigue solo en español.
+ * Mapa de rutas traducidas — todas las páginas del sitio tienen versión
+ * en inglés (feature experimental de i18n, ver PENDIENTES.md).
  */
 export const translatedRoutes: Record<string, string> = {
   '/': '/en',
@@ -13,6 +12,8 @@ export const translatedRoutes: Record<string, string> = {
   '/politica-privacidad': '/en/privacy-policy',
   '/politica-cookies': '/en/cookie-policy',
   '/terminos-condiciones': '/en/terms-and-conditions',
+  '/metodologia': '/en/methodology',
+  '/casos': '/en/case-studies',
 };
 
 const reverseRoutes: Record<string, string> = Object.fromEntries(

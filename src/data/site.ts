@@ -62,7 +62,9 @@ export const mainNavEn: NavLink[] = [
   { label: 'Services', href: '/en/services' },
   { label: 'Solutions for SMEs', href: '/en/solutions-for-smes' },
   { label: 'Aviation & Logistics Industry', href: '/en/aviation-logistics' },
+  { label: 'Methodology', href: '/en/methodology' },
   { label: 'About', href: '/en/about' },
+  { label: 'Case Studies', href: '/en/case-studies' },
 ];
 
 export const footerNavEn: NavLink[] = [
@@ -70,6 +72,7 @@ export const footerNavEn: NavLink[] = [
   { label: 'Solutions for SMEs', href: '/en/solutions-for-smes' },
   { label: 'Aviation & Logistics Industry', href: '/en/aviation-logistics' },
   { label: 'Services', href: '/en/services' },
+  { label: 'Methodology', href: '/en/methodology' },
   { label: 'About', href: '/en/about' },
   { label: 'Contact', href: '/en/contact' },
 ];
