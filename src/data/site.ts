@@ -64,7 +64,6 @@ export const mainNavEn: NavLink[] = [
   { label: 'Aviation & Logistics Industry', href: '/en/aviation-logistics' },
   { label: 'Methodology', href: '/en/methodology' },
   { label: 'About', href: '/en/about' },
-  { label: 'Case Studies', href: '/en/case-studies' },
 ];
 
 export const footerNavEn: NavLink[] = [
