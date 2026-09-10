@@ -60,13 +60,15 @@ export const footerNav: NavLink[] = [
 export const mainNavEn: NavLink[] = [
   { label: 'Home', href: '/en' },
   { label: 'Services', href: '/en/services' },
-  { label: 'Aviation & Logistics', href: '/en/aviation-logistics' },
+  { label: 'Solutions for SMEs', href: '/en/solutions-for-smes' },
+  { label: 'Aviation & Logistics Industry', href: '/en/aviation-logistics' },
   { label: 'About', href: '/en/about' },
 ];
 
 export const footerNavEn: NavLink[] = [
   { label: 'Home', href: '/en' },
-  { label: 'Aviation & Logistics', href: '/en/aviation-logistics' },
+  { label: 'Solutions for SMEs', href: '/en/solutions-for-smes' },
+  { label: 'Aviation & Logistics Industry', href: '/en/aviation-logistics' },
   { label: 'Services', href: '/en/services' },
   { label: 'About', href: '/en/about' },
   { label: 'Contact', href: '/en/contact' },
