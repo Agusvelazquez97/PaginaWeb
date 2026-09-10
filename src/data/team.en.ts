@@ -6,12 +6,12 @@
 export const teamEn = [
   {
     role: 'Founder',
-    formation: 'Certified Public Accountant · UBA (Universidad de Buenos Aires) · Registered with CPCECABA · Postgraduate Program in Strategic Management, Universidad de Belgrano',
+    formation: 'Certified Public Accountant · UBA (Universidad de Buenos Aires) · Registered with CPCECABA · Posgrado en Dirección Estratégica, Universidad de Belgrano',
     bio: 'Over 20 years in aviation and logistics (Air France / KLM, DHL Express Argentina) and 35+ years of overall experience. Specialist in financial processes and operational efficiency.',
   },
   {
     role: 'Founder',
-    formation: 'Certified Public Accountant · UBA (Universidad de Buenos Aires) · Registered with CPCECABA · Postgraduate Program in Strategic Management, Universidad de Belgrano',
+    formation: 'Certified Public Accountant · UBA (Universidad de Buenos Aires) · Registered with CPCECABA · Posgrado en Dirección Estratégica, Universidad de Belgrano',
     bio: 'Extensive experience at leading multinationals such as Western Union. Specialist in corporate finance, accounting and operations management.',
   },
   {
