@@ -1,0 +1,140 @@
+---
+/**
+ * Página de prueba aislada — alternativa sobria al DriftWall: parallax muy
+ * sutil en la imagen del Hero al hacer scroll. Reproduce el Hero real de
+ * Inicio (mismo copy, mismo componente Button, misma imagen), sin tocar
+ * src/components/sections/Hero.astro — el parallax se agrega solo acá.
+ * No enlazada desde ningún menú ni registrada en i18n/routes.ts; noindex
+ * explícito. Borrar este archivo alcanza para revertir el experimento por
+ * completo — no toca ningún otro archivo del sitio.
+ */
+import '@/styles/global.css';
+import Button from '@/components/ui/Button.astro';
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Prueba — Parallax en Hero</title>
+    <style>
+      .test-note {
+        background: #0b1e3f;
+        color: #dde3f0;
+        text-align: center;
+        padding: 16px;
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+        position: relative;
+        z-index: 10;
+      }
+      .test-note strong {
+        color: #ffffff;
+      }
+      .hero-parallax__bg {
+        will-change: transform;
+      }
+      .hero-parallax__spacer {
+        background: #ffffff;
+        padding: 64px 24px 120px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #334155;
+        text-align: center;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hero-parallax__bg {
+          transform: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p class="test-note">
+      Página de prueba — alternativa sobria: <strong>parallax</strong> muy leve en la imagen del
+      Hero real de Inicio. Scrolleá para verlo. No enlazada, <code>noindex</code>.
+    </p>
+
+    <section
+      class="relative min-h-[92svh] md:min-h-screen flex items-end md:items-center overflow-hidden bg-navy-900"
+    >
+      <div class="absolute inset-0">
+        <div class="hero-parallax__bg absolute inset-0 h-[130%] -top-[15%] w-full">
+          <img
+            src="/images/aviacion/hero-avion.jpg"
+            alt=""
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/70 to-navy-900/45 md:bg-navy-900/35"
+        >
+        </div>
+      </div>
+
+      <div class="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pb-14 pt-36 md:py-32">
+        <div class="max-w-2xl">
+          <p class="text-blue-200 font-semibold tracking-wide uppercase text-small mb-4">
+            DGV Business Consulting
+          </p>
+          <h1 class="text-white font-heading font-extrabold text-4xl md:text-display leading-[1.1]">
+            Finanzas, procesos y tecnología: un equipo, resultados medibles.
+          </h1>
+          <p class="mt-6 text-blue-100 text-lead max-w-xl">
+            Nos integramos a tu empresa y nos medimos por el impacto que generamos, con
+            trayectoria en compañías líderes globales.
+          </p>
+          <p class="mt-6 pt-6 border-t border-white/15 text-white font-heading font-medium italic max-w-md">
+            Impulsamos tu negocio, potenciamos tu futuro.
+          </p>
+          <div class="mt-10 flex flex-col sm:flex-row gap-4">
+            <Button href="/contacto" variant="primary" size="lg">
+              Agendá un diagnóstico sin cargo
+            </Button>
+            <Button href="#soluciones" variant="onDark" size="lg">Ver soluciones</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hero-parallax__spacer">
+      <p>↑ Este espacio es solo para poder scrollear y ver el efecto — no es parte del diseño real.</p>
+    </div>
+
+    <script>
+      function initHeroParallax() {
+        const bg = document.querySelector<HTMLElement>('.hero-parallax__bg');
+        const hero = document.querySelector<HTMLElement>('section');
+        if (!bg || !hero) return;
+
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduced) return;
+
+        const factor = 0.15;
+        const maxOffset = 60;
+        let ticking = false;
+
+        function update() {
+          ticking = false;
+          const rect = hero!.getBoundingClientRect();
+          if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+          const offset = Math.max(-maxOffset, Math.min(maxOffset, rect.top * factor));
+          bg!.style.transform = `translate3d(0, ${offset}px, 0)`;
+        }
+
+        function onScroll() {
+          if (!ticking) {
+            requestAnimationFrame(update);
+            ticking = true;
+          }
+        }
+
+        update();
+        window.addEventListener('scroll', onScroll, { passive: true });
+      }
+
+      initHeroParallax();
+    </script>
+  </body>
+</html>
